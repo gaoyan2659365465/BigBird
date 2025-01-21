@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbind43pga1mw"]
+
+[ext_resource type="Script" path="res://游戏场景/兑换控件/兑换子项控件.gd" id="1_cv8qa"]
+[ext_resource type="Texture2D" uid="uid://bjxyjvroukfvo" path="res://icon.svg" id="1_ddidm"]
+[ext_resource type="Texture2D" uid="uid://cscum6rat3x1k" path="res://PSD源文件/coin/coin-front-shine-logo.png" id="2_as2th"]
+[ext_resource type="Script" path="res://超级按钮/超级按钮.gd" id="3_bceyh"]
+[ext_resource type="Script" path="res://超级按钮/点击动画配置.gd" id="4_kuv6p"]
+
+[sub_resource type="Resource" id="Resource_utdcl"]
+resource_local_to_scene = true
+script = ExtResource("4_kuv6p")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v6ic2"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="兑换子项控件" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 101.0
+offset_bottom = 164.0
+mouse_filter = 2
+script = ExtResource("1_cv8qa")
+
+[node name="皮肤图标" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+texture = ExtResource("1_ddidm")
+expand_mode = 1
+
+[node name="皮肤名称" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 86.0
+offset_right = 81.0
+offset_bottom = 108.0
+text = "彩虹鹦鹉"
+
+[node name="消耗品图标" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 115.0
+offset_right = 31.0
+offset_bottom = 135.0
+texture = ExtResource("2_as2th")
+expand_mode = 1
+
+[node name="消耗数量" type="Label" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 116.0
+offset_right = 94.0
+offset_bottom = 138.0
+text = "10/50"
+
+[node name="兑换按钮" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 135.0
+offset_right = 95.0
+offset_bottom = 160.0
+script = ExtResource("3_bceyh")
+"点击效果" = SubResource("Resource_utdcl")
+
+[node name="Panel" type="Panel" parent="兑换按钮"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v6ic2")
+
+[node name="Label" type="Label" parent="兑换按钮"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "解锁"
+horizontal_alignment = 1
+vertical_alignment = 1

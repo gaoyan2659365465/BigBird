@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://2sqvticcr850"]
+
+[ext_resource type="Script" path="res://游戏场景/玩家/player.gd" id="1_qvrg3"]
+[ext_resource type="PackedScene" uid="uid://cbrt6q4pf40lp" path="res://游戏场景/玩家/大鸟/大鸟.tscn" id="2_3xb6x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bte7m"]
+radius = 70.0071
+
+[node name="Player" type="CharacterBody2D"]
+modulate = Color(0, 0, 0, 1)
+script = ExtResource("1_qvrg3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bte7m")
+
+[node name="大鸟" parent="." instance=ExtResource("2_3xb6x")]
+position = Vector2(-3, 100)

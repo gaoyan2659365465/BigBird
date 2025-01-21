@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c32xrkwmpsub1"]
+
+[ext_resource type="PackedScene" uid="uid://e73ty5vubfyw" path="res://游戏场景/柱子/柱子.tscn" id="1_u5nf8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxqvt"]
+size = Vector2(2596, 31)
+
+[node name="子场景3" type="Node2D"]
+
+[node name="柱子" parent="." instance=ExtResource("1_u5nf8")]
+position = Vector2(301, 501)
+
+[node name="柱子2" parent="." instance=ExtResource("1_u5nf8")]
+position = Vector2(904, 709)
+
+[node name="柱子3" parent="." instance=ExtResource("1_u5nf8")]
+position = Vector2(1316, 504)
+
+[node name="柱子4" parent="." instance=ExtResource("1_u5nf8")]
+position = Vector2(1817, 363)
+
+[node name="柱子5" parent="." instance=ExtResource("1_u5nf8")]
+position = Vector2(2208, 579)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1288, 5.5)
+shape = SubResource("RectangleShape2D_bxqvt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1294, 1146)
+shape = SubResource("RectangleShape2D_bxqvt")

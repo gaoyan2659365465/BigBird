@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://duv5inh3pvvdh"]
+
+[ext_resource type="Script" path="res://游戏场景/背包控件/背包格控件.gd" id="1_tvtaj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ooaw1"]
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="背包格控件" type="Panel"]
+custom_minimum_size = Vector2(50, 50)
+theme_override_styles/panel = SubResource("StyleBoxFlat_ooaw1")
+script = ExtResource("1_tvtaj")
+
+[node name="物品图标" type="TextureRect" parent="."]
+modulate = Color(1, 0.898483, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1

@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdj4rga77kasa"]
+
+[ext_resource type="Script" path="res://游戏场景/游戏场景.gd" id="1_cgx84"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_cpnc2"]
+[ext_resource type="PackedScene" uid="uid://c7mbu2eu6onmy" path="res://视频转场/视频转场.tscn" id="2_n462u"]
+[ext_resource type="PackedScene" uid="uid://c8jsd8br2ci8w" path="res://游戏场景/关卡进度控件/关卡进度控件.tscn" id="3_n5ws5"]
+[ext_resource type="PackedScene" uid="uid://cjb3j8jty64m6" path="res://游戏场景/暂停控件/暂停页面.tscn" id="3_uu81p"]
+[ext_resource type="PackedScene" uid="uid://df4bdnxnskeia" path="res://游戏场景/兑换控件/兑换控件.tscn" id="4_ads24"]
+[ext_resource type="PackedScene" uid="uid://4vkt8e22yw24" path="res://游戏场景/背包控件/背包控件.tscn" id="4_i7ed4"]
+[ext_resource type="PackedScene" uid="uid://cb8fl7kc404k6" path="res://游戏场景/生命控件/生命控件.tscn" id="5_pqj70"]
+[ext_resource type="PackedScene" uid="uid://be0dfkb7wqtwq" path="res://游戏场景/跳跃按钮控件/跳跃按钮控件.tscn" id="7_7716p"]
+[ext_resource type="PackedScene" uid="uid://2sqvticcr850" path="res://游戏场景/玩家/player.tscn" id="8_637yw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y15m"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="游戏场景" type="Node2D"]
+script = ExtResource("1_cgx84")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_cpnc2")
+
+[node name="Player" parent="." instance=ExtResource("8_637yw")]
+position = Vector2(158, 617)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -259.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7y15m")
+
+[node name="背包控件" parent="CanvasLayer/Panel" instance=ExtResource("4_i7ed4")]
+visible = false
+layout_mode = 1
+offset_left = 19.0
+offset_top = 121.0
+
+[node name="兑换控件" parent="CanvasLayer/Panel" instance=ExtResource("4_ads24")]
+visible = false
+layout_mode = 1
+offset_left = 17.0
+offset_top = 458.0
+
+[node name="跳跃按钮控件" parent="CanvasLayer/Panel" instance=ExtResource("7_7716p")]
+visible = false
+layout_mode = 1
+offset_left = -862.0
+offset_top = 459.0
+offset_right = -958.0
+offset_bottom = -23.0
+
+[node name="生命控件" parent="CanvasLayer" instance=ExtResource("5_pqj70")]
+offset_left = 90.0
+offset_top = 34.0
+mouse_filter = 2
+
+[node name="暂停页面" parent="CanvasLayer" instance=ExtResource("3_uu81p")]
+offset_bottom = -558.0
+
+[node name="视频转场" parent="CanvasLayer" instance=ExtResource("2_n462u")]
+
+[node name="关卡进度控件" parent="CanvasLayer" instance=ExtResource("3_n5ws5")]
+offset_left = 932.0
+offset_top = 588.0
+offset_right = 893.0
+offset_bottom = 540.0
+
+[connection signal="跳跃" from="CanvasLayer/Panel/跳跃按钮控件" to="." method="_on_跳跃按钮控件_跳跃"]
+[connection signal="被撞死" from="CanvasLayer/生命控件" to="." method="_on_生命控件_被撞死"]

@@ -1,0 +1,55 @@
+
+大鸟.png
+size: 639,330
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+右眼
+  rotate: true
+  xy: 374, 19
+  size: 87, 142
+  orig: 87, 142
+  offset: 0, 0
+  index: -1
+嘴
+  rotate: true
+  xy: 500, 184
+  size: 144, 135
+  orig: 144, 135
+  offset: 0, 0
+  index: -1
+头发
+  rotate: true
+  xy: 374, 108
+  size: 220, 124
+  orig: 220, 124
+  offset: 0, 0
+  index: -1
+左眼
+  rotate: true
+  xy: 518, 31
+  size: 83, 119
+  orig: 83, 119
+  offset: 0, 0
+  index: -1
+翅膀
+  rotate: true
+  xy: 500, 116
+  size: 66, 87
+  orig: 66, 87
+  offset: 0, 0
+  index: -1
+腿
+  rotate: true
+  xy: 518, 2
+  size: 27, 106
+  orig: 27, 106
+  offset: 0, 0
+  index: -1
+身子
+  rotate: true
+  xy: 2, 3
+  size: 325, 370
+  orig: 387, 395
+  offset: 59, 25
+  index: -1

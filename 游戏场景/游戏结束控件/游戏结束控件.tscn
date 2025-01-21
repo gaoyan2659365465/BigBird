@@ -1,0 +1,154 @@
+[gd_scene load_steps=12 format=3 uid="uid://dbsyyh42mhnj8"]
+
+[ext_resource type="Script" path="res://游戏场景/游戏结束控件/游戏结束控件.gd" id="1_1vc6w"]
+[ext_resource type="Script" path="res://超级按钮/超级按钮.gd" id="1_n3ndu"]
+[ext_resource type="Script" path="res://超级按钮/点击动画配置.gd" id="3_x5416"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_af4hv"]
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_aj3x1"]
+font_size = 98
+outline_size = 30
+outline_color = Color(1, 0.248983, 0.286302, 1)
+
+[sub_resource type="Resource" id="Resource_abbjn"]
+script = ExtResource("3_x5416")
+
+[sub_resource type="LabelSettings" id="LabelSettings_wfab8"]
+font_size = 66
+outline_size = 35
+outline_color = Color(0.461028, 0.364493, 1, 1)
+
+[sub_resource type="Resource" id="Resource_y2xm3"]
+script = ExtResource("3_x5416")
+
+[sub_resource type="Animation" id="Animation_q10lv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("背景颜色:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.403922)]
+}
+
+[sub_resource type="Animation" id="Animation_7hyv0"]
+resource_name = "出现"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("背景颜色:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.403922)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6vac0"]
+_data = {
+"RESET": SubResource("Animation_q10lv"),
+"出现": SubResource("Animation_7hyv0")
+}
+
+[node name="游戏结束控件" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1vc6w")
+
+[node name="背景颜色" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.403922)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 150.0
+offset_right = 848.0
+offset_bottom = 504.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_af4hv")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "鸟嘴被撞扁"
+label_settings = SubResource("LabelSettings_aj3x1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="返回按钮" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 263.0
+offset_right = 548.0
+offset_bottom = 348.0
+script = ExtResource("1_n3ndu")
+"点击效果" = SubResource("Resource_abbjn")
+
+[node name="Label" type="Label" parent="Panel/返回按钮"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "返回"
+label_settings = SubResource("LabelSettings_wfab8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="重新开始按钮" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 263.0
+offset_right = 255.0
+offset_bottom = 348.0
+script = ExtResource("1_n3ndu")
+"点击效果" = SubResource("Resource_y2xm3")
+
+[node name="Label" type="Label" parent="Panel/重新开始按钮"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "重新开始"
+label_settings = SubResource("LabelSettings_wfab8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6vac0")
+}
+autoplay = "出现"
+
+[connection signal="点击动画结束" from="Panel/返回按钮" to="." method="_on_超级按钮_点击动画结束"]
+[connection signal="点击动画结束" from="Panel/重新开始按钮" to="." method="_on_重新开始按钮_点击动画结束"]

@@ -1,0 +1,1843 @@
+[gd_scene load_steps=20 format=3 uid="uid://cbrt6q4pf40lp"]
+
+[ext_resource type="Script" path="res://游戏场景/玩家/大鸟/大鸟.gd" id="1_36apl"]
+[ext_resource type="Script" path="res://addons/spine/插槽.gd" id="1_oovv0"]
+[ext_resource type="Texture2D" uid="uid://dwxh17nfwbu4f" path="res://游戏场景/玩家/大鸟/翅膀.png" id="2_pfdk1"]
+[ext_resource type="Texture2D" uid="uid://e1cxwcljxqeb" path="res://游戏场景/玩家/大鸟/身子.png" id="3_6hwiu"]
+[ext_resource type="Texture2D" uid="uid://diwkt7r3ffkgf" path="res://游戏场景/玩家/大鸟/腿.png" id="4_qx801"]
+[ext_resource type="Texture2D" uid="uid://bcep06gsq65jq" path="res://游戏场景/玩家/大鸟/左眼.png" id="5_lxl35"]
+[ext_resource type="Texture2D" uid="uid://dex8g4hso0gat" path="res://游戏场景/玩家/大鸟/头发.png" id="6_7qi11"]
+[ext_resource type="Texture2D" uid="uid://cks41tcjevro0" path="res://游戏场景/玩家/大鸟/右眼.png" id="7_nm1qf"]
+[ext_resource type="Texture2D" uid="uid://dp3ggyjt1c1y" path="res://游戏场景/玩家/大鸟/嘴.png" id="8_ycg23"]
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_tdgsf"]
+target_nodepath = NodePath("root/youjiaoIK")
+joint_one_bone_idx = 17
+joint_one_bone2d_node = NodePath("root/bone/youtui")
+joint_two_bone_idx = 18
+joint_two_bone2d_node = NodePath("root/bone/youtui/youxigai")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_x871q"]
+target_nodepath = NodePath("root/zuojiaoIK")
+flip_bend_direction = true
+joint_one_bone_idx = 20
+joint_one_bone2d_node = NodePath("root/bone/zuotui")
+joint_two_bone_idx = 21
+joint_two_bone2d_node = NodePath("root/bone/zuotui/zuoxigai")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_xf1tc"]
+target_nodepath = NodePath("root/zuochiIK")
+flip_bend_direction = true
+joint_one_bone_idx = 15
+joint_one_bone2d_node = NodePath("root/bone/左翅膀/左翅膀2")
+joint_two_bone_idx = 16
+joint_two_bone2d_node = NodePath("root/bone/左翅膀/左翅膀2/左翅膀3")
+
+[sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_jpbib"]
+target_nodepath = NodePath("root/youchiIK")
+joint_one_bone_idx = 8
+joint_one_bone2d_node = NodePath("root/bone/右翅膀/右翅膀2")
+joint_two_bone_idx = 9
+joint_two_bone2d_node = NodePath("root/bone/右翅膀/右翅膀2/右翅膀3")
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_vpnxa"]
+enabled = true
+modification_count = 4
+modifications/0 = SubResource("SkeletonModification2DTwoBoneIK_tdgsf")
+modifications/1 = SubResource("SkeletonModification2DTwoBoneIK_x871q")
+modifications/2 = SubResource("SkeletonModification2DTwoBoneIK_xf1tc")
+modifications/3 = SubResource("SkeletonModification2DTwoBoneIK_jpbib")
+
+[sub_resource type="Animation" id="Animation_qcf58"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("身体:切换名")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"身子"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("身体:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("嘴:切换名")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"嘴"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("嘴:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("左眼:切换名")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"左眼"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("左眼:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("右眼:切换名")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"右眼"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("右眼:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("右腿:切换名")
+tracks/8/interp = 0
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"腿"]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("右腿:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("zuotui:切换名")
+tracks/10/interp = 0
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"腿"]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("zuotui:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("右翅膀:切换名")
+tracks/12/interp = 0
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"翅膀"]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("右翅膀:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("左翅膀:切换名")
+tracks/14/interp = 0
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"翅膀"]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("左翅膀:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("头发:切换名")
+tracks/16/interp = 0
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"头发"]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("头发:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Skeleton2D/root:position")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Skeleton2D/root:rotation")
+tracks/19/interp = 3
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Skeleton2D/root:scale")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Skeleton2D/root/bone:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.69, -249.49)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Skeleton2D/root/bone:rotation")
+tracks/22/interp = 3
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Skeleton2D/root/bone:scale")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Skeleton2D/root/bone/嘴/上嘴:position")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-19.18, -8.22)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Skeleton2D/root/bone/嘴/上嘴:rotation")
+tracks/25/interp = 3
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2.60787]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Skeleton2D/root/bone/嘴/上嘴:scale")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Skeleton2D/root/bone/嘴/下嘴:position")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6.58, 24.66)]
+}
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Skeleton2D/root/bone/嘴/下嘴:rotation")
+tracks/28/interp = 3
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2.37871]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Skeleton2D/root/bone/嘴/下嘴:scale")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/30/type = "value"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Skeleton2D/root/bone/头发:position")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3.68, -180.29)]
+}
+tracks/31/type = "value"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Skeleton2D/root/bone/头发:rotation")
+tracks/31/interp = 3
+tracks/31/loop_wrap = true
+tracks/31/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1.60413]
+}
+tracks/32/type = "value"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Skeleton2D/root/bone/头发:scale")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/33/type = "value"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Skeleton2D/root/bone/右翅膀:position")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(142.63, 1.1)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Skeleton2D/root/bone/右翅膀:rotation")
+tracks/34/interp = 3
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.404916]
+}
+tracks/35/type = "value"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Skeleton2D/root/bone/右翅膀:scale")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/36/type = "value"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Skeleton2D/root/bone/右翅膀/右翅膀2:position")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26.48, -0.58)]
+}
+tracks/37/type = "value"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("Skeleton2D/root/bone/右翅膀/右翅膀2:rotation")
+tracks/37/interp = 3
+tracks/37/loop_wrap = true
+tracks/37/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.0179769]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("Skeleton2D/root/bone/右翅膀/右翅膀2:scale")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("Skeleton2D/root/bone/右翅膀/右翅膀2/右翅膀3:position")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24.04, 0)]
+}
+tracks/40/type = "value"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("Skeleton2D/root/bone/右翅膀/右翅膀2/右翅膀3:rotation")
+tracks/40/interp = 3
+tracks/40/loop_wrap = true
+tracks/40/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.0111701]
+}
+tracks/41/type = "value"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("Skeleton2D/root/bone/右翅膀/右翅膀2/右翅膀3:scale")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Skeleton2D/root/bone/右眼:position")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(95.5, -26.85)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Skeleton2D/root/bone/右眼:rotation")
+tracks/43/interp = 3
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/44/type = "value"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("Skeleton2D/root/bone/右眼:scale")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/45/type = "value"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("Skeleton2D/root/bone/左眼:position")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-82.05, -15.89)]
+}
+tracks/46/type = "value"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("Skeleton2D/root/bone/左眼:rotation")
+tracks/46/interp = 3
+tracks/46/loop_wrap = true
+tracks/46/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/47/type = "value"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("Skeleton2D/root/bone/左眼:scale")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/48/type = "value"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("Skeleton2D/root/bone/头发/头发2:position")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32.34, -0.42)]
+}
+tracks/49/type = "value"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("Skeleton2D/root/bone/头发/头发2:rotation")
+tracks/49/interp = 3
+tracks/49/loop_wrap = true
+tracks/49/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/50/type = "value"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("Skeleton2D/root/bone/头发/头发2:scale")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/51/type = "value"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("Skeleton2D/root/bone/左翅膀:position")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-146.29, 1.56)]
+}
+tracks/52/type = "value"
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/path = NodePath("Skeleton2D/root/bone/左翅膀:rotation")
+tracks/52/interp = 3
+tracks/52/loop_wrap = true
+tracks/52/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-2.78101]
+}
+tracks/53/type = "value"
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/path = NodePath("Skeleton2D/root/bone/左翅膀:scale")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/54/type = "value"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("Skeleton2D/root/bone/左翅膀/左翅膀2:position")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26.48, -0.58)]
+}
+tracks/55/type = "value"
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/path = NodePath("Skeleton2D/root/bone/左翅膀/左翅膀2:rotation")
+tracks/55/interp = 3
+tracks/55/loop_wrap = true
+tracks/55/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.0179769]
+}
+tracks/56/type = "value"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("Skeleton2D/root/bone/左翅膀/左翅膀2:scale")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/57/type = "value"
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/path = NodePath("Skeleton2D/root/bone/左翅膀/左翅膀2/左翅膀3:position")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24.04, 0)]
+}
+tracks/58/type = "value"
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/path = NodePath("Skeleton2D/root/bone/左翅膀/左翅膀2/左翅膀3:rotation")
+tracks/58/interp = 3
+tracks/58/loop_wrap = true
+tracks/58/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.0111701]
+}
+tracks/59/type = "value"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("Skeleton2D/root/bone/左翅膀/左翅膀2/左翅膀3:scale")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/60/type = "value"
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/path = NodePath("Skeleton2D/root/bone/右眼/右瞳孔:position")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-20.58, 1.34)]
+}
+tracks/61/type = "value"
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/path = NodePath("Skeleton2D/root/bone/右眼/右瞳孔:rotation")
+tracks/61/interp = 3
+tracks/61/loop_wrap = true
+tracks/61/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/62/type = "value"
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/path = NodePath("Skeleton2D/root/bone/右眼/右瞳孔:scale")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/63/type = "value"
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/path = NodePath("Skeleton2D/root/bone/左眼/左眼2:position")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12.55, 1.33)]
+}
+tracks/64/type = "value"
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/path = NodePath("Skeleton2D/root/bone/左眼/左眼2:rotation")
+tracks/64/interp = 3
+tracks/64/loop_wrap = true
+tracks/64/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/65/type = "value"
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/path = NodePath("Skeleton2D/root/bone/左眼/左眼2:scale")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/66/type = "value"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("Skeleton2D/root/bone/youtui:position")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(57.89, 148.24)]
+}
+tracks/67/type = "value"
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/path = NodePath("Skeleton2D/root/bone/youtui:rotation")
+tracks/67/interp = 3
+tracks/67/loop_wrap = true
+tracks/67/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.54898]
+}
+tracks/68/type = "value"
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/path = NodePath("Skeleton2D/root/bone/youtui:scale")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/69/type = "value"
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/path = NodePath("Skeleton2D/root/bone/youtui/youxigai:position")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(47.82, 0)]
+}
+tracks/70/type = "value"
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/path = NodePath("Skeleton2D/root/bone/youtui/youxigai:rotation")
+tracks/70/interp = 3
+tracks/70/loop_wrap = true
+tracks/70/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.0219911]
+}
+tracks/71/type = "value"
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/path = NodePath("Skeleton2D/root/bone/youtui/youxigai:scale")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/72/type = "value"
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/path = NodePath("Skeleton2D/root/bone/youtui/youxigai/youjiao:position")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(39.82, 0)]
+}
+tracks/73/type = "value"
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/path = NodePath("Skeleton2D/root/bone/youtui/youxigai/youjiao:rotation")
+tracks/73/interp = 3
+tracks/73/loop_wrap = true
+tracks/73/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.923279]
+}
+tracks/74/type = "value"
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/path = NodePath("Skeleton2D/root/bone/youtui/youxigai/youjiao:scale")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/75/type = "value"
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/path = NodePath("Skeleton2D/root/youjiaoIK:position")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(61.26, -9.69)]
+}
+tracks/76/type = "value"
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/path = NodePath("Skeleton2D/root/youjiaoIK:rotation")
+tracks/76/interp = 3
+tracks/76/loop_wrap = true
+tracks/76/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/77/type = "value"
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/path = NodePath("Skeleton2D/root/youjiaoIK:scale")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/78/type = "value"
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/path = NodePath("Skeleton2D/root/bone/zuotui:position")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-61.69, 150.86)]
+}
+tracks/79/type = "value"
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/path = NodePath("Skeleton2D/root/bone/zuotui:rotation")
+tracks/79/interp = 3
+tracks/79/loop_wrap = true
+tracks/79/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.54898]
+}
+tracks/80/type = "value"
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/path = NodePath("Skeleton2D/root/bone/zuotui:scale")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/81/type = "value"
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/path = NodePath("Skeleton2D/root/bone/zuotui/zuoxigai:position")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(47.82, 0)]
+}
+tracks/82/type = "value"
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/path = NodePath("Skeleton2D/root/bone/zuotui/zuoxigai:rotation")
+tracks/82/interp = 3
+tracks/82/loop_wrap = true
+tracks/82/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.0219911]
+}
+tracks/83/type = "value"
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/path = NodePath("Skeleton2D/root/bone/zuotui/zuoxigai:scale")
+tracks/83/interp = 1
+tracks/83/loop_wrap = true
+tracks/83/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/84/type = "value"
+tracks/84/imported = false
+tracks/84/enabled = true
+tracks/84/path = NodePath("Skeleton2D/root/bone/zuotui/zuoxigai/zuojiao:position")
+tracks/84/interp = 1
+tracks/84/loop_wrap = true
+tracks/84/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(39.82, 0)]
+}
+tracks/85/type = "value"
+tracks/85/imported = false
+tracks/85/enabled = true
+tracks/85/path = NodePath("Skeleton2D/root/bone/zuotui/zuoxigai/zuojiao:rotation")
+tracks/85/interp = 3
+tracks/85/loop_wrap = true
+tracks/85/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-0.923279]
+}
+tracks/86/type = "value"
+tracks/86/imported = false
+tracks/86/enabled = true
+tracks/86/path = NodePath("Skeleton2D/root/bone/zuotui/zuoxigai/zuojiao:scale")
+tracks/86/interp = 1
+tracks/86/loop_wrap = true
+tracks/86/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/87/type = "value"
+tracks/87/imported = false
+tracks/87/enabled = true
+tracks/87/path = NodePath("Skeleton2D/root/zuojiaoIK:position")
+tracks/87/interp = 1
+tracks/87/loop_wrap = true
+tracks/87/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-59.02, -8.59)]
+}
+tracks/88/type = "value"
+tracks/88/imported = false
+tracks/88/enabled = true
+tracks/88/path = NodePath("Skeleton2D/root/zuojiaoIK:rotation")
+tracks/88/interp = 3
+tracks/88/loop_wrap = true
+tracks/88/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/89/type = "value"
+tracks/89/imported = false
+tracks/89/enabled = true
+tracks/89/path = NodePath("Skeleton2D/root/zuojiaoIK:scale")
+tracks/89/interp = 1
+tracks/89/loop_wrap = true
+tracks/89/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/90/type = "value"
+tracks/90/imported = false
+tracks/90/enabled = true
+tracks/90/path = NodePath("Skeleton2D/root/zuochiIK:position")
+tracks/90/interp = 1
+tracks/90/loop_wrap = true
+tracks/90/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-254.12, -282.23)]
+}
+tracks/91/type = "value"
+tracks/91/imported = false
+tracks/91/enabled = true
+tracks/91/path = NodePath("Skeleton2D/root/zuochiIK:rotation")
+tracks/91/interp = 3
+tracks/91/loop_wrap = true
+tracks/91/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/92/type = "value"
+tracks/92/imported = false
+tracks/92/enabled = true
+tracks/92/path = NodePath("Skeleton2D/root/zuochiIK:scale")
+tracks/92/interp = 1
+tracks/92/loop_wrap = true
+tracks/92/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/93/type = "value"
+tracks/93/imported = false
+tracks/93/enabled = true
+tracks/93/path = NodePath("Skeleton2D/root/youchiIK:position")
+tracks/93/interp = 1
+tracks/93/loop_wrap = true
+tracks/93/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(233.81, -282.1)]
+}
+tracks/94/type = "value"
+tracks/94/imported = false
+tracks/94/enabled = true
+tracks/94/path = NodePath("Skeleton2D/root/youchiIK:rotation")
+tracks/94/interp = 3
+tracks/94/loop_wrap = true
+tracks/94/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/95/type = "value"
+tracks/95/imported = false
+tracks/95/enabled = true
+tracks/95/path = NodePath("Skeleton2D/root/youchiIK:scale")
+tracks/95/interp = 1
+tracks/95/loop_wrap = true
+tracks/95/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/96/type = "value"
+tracks/96/imported = false
+tracks/96/enabled = true
+tracks/96/path = NodePath("Skeleton2D/root/bone/嘴:scale")
+tracks/96/interp = 1
+tracks/96/loop_wrap = true
+tracks/96/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -1)]
+}
+tracks/97/type = "value"
+tracks/97/imported = false
+tracks/97/enabled = true
+tracks/97/path = NodePath("Skeleton2D/root/bone/嘴:rotation")
+tracks/97/interp = 1
+tracks/97/loop_wrap = true
+tracks/97/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_61es3"]
+_data = {
+"RESET": SubResource("Animation_qcf58")
+}
+
+[sub_resource type="Animation" id="Animation_ls8kr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/root/bone/右翅膀/右翅膀2:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0551524]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/root/bone/右翅膀/右翅膀2/右翅膀3:rotation")
+tracks/1/interp = 3
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.597077]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/root/bone/左翅膀/左翅膀2/左翅膀3:rotation")
+tracks/2/interp = 3
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.597077]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/root/bone/左翅膀/左翅膀2:rotation")
+tracks/3/interp = 3
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0551524]
+}
+
+[sub_resource type="Animation" id="Animation_828dp"]
+resource_name = "飞"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/root/zuochiIK:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-254.12, -282.23), Vector2(-214, -216), Vector2(-254.12, -282.23), Vector2(-214, -216), Vector2(-254.12, -282.23), Vector2(-214, -216), Vector2(-254.12, -282.23), Vector2(-214, -216), Vector2(-254.12, -282.23)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/root/youchiIK:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(233.81, -282.1), Vector2(215, -218), Vector2(233.81, -282.1), Vector2(215, -218), Vector2(233.81, -282.1), Vector2(215, -218), Vector2(233.81, -282.1), Vector2(215, -218), Vector2(233.81, -282.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/root/youjiaoIK:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(61.26, -9.69), Vector2(102, -61), Vector2(61.26, -9.69)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/root/zuojiaoIK:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-59.02, -8.59), Vector2(-96, -56), Vector2(-59.02, -8.59)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/root/bone/嘴/上嘴:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.60787, 3.02382, 2.60787]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/root/bone/头发/头发2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.633333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(32.34, -0.42), Vector2(32.0695, -24.9551), Vector2(51.1585, 2.69648), Vector2(32.34, -0.42)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/root/bone/右眼:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.795, 1.17), Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/root/bone/右眼:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.238854, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Skeleton2D/root/bone/左眼:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.85, 1.255), Vector2(1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Skeleton2D/root/bone/左眼:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0.0, 0.208593, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Skeleton2D/root:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.175, 0.855), Vector2(0.845, 1.2), Vector2(1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Skeleton2D/root:rotation")
+tracks/11/interp = 3
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.215543, 0.0, 0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Skeleton2D/root/bone/嘴:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Skeleton2D/root/bone/嘴:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-27.69, 57.49)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Skeleton2D/root/bone/嘴:rotation")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5wn2n"]
+_data = {
+"animation": SubResource("Animation_ls8kr"),
+"飞": SubResource("Animation_828dp")
+}
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_36apl")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+modification_stack = SubResource("SkeletonModificationStack2D_vpnxa")
+
+[node name="root" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="bone" type="Bone2D" parent="Skeleton2D/root"]
+position = Vector2(1.69, -249.49)
+rest = Transform2D(1, 0, 0, 1, 1.69, -249.49)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="嘴" type="Bone2D" parent="Skeleton2D/root/bone"]
+position = Vector2(-27.69, 57.49)
+rotation = -3.14159
+scale = Vector2(1, -1)
+rest = Transform2D(1, 0, 0, 1, 29.74, 58.09)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="上嘴" type="Bone2D" parent="Skeleton2D/root/bone/嘴"]
+position = Vector2(-19.18, -8.22)
+rotation = 2.60787
+rest = Transform2D(-0.86092, 0.508741, -0.508741, -0.86092, -19.18, -8.22)
+auto_calculate_length_and_angle = false
+length = 126.03
+bone_angle = 0.0
+
+[node name="下嘴" type="Bone2D" parent="Skeleton2D/root/bone/嘴"]
+position = Vector2(-6.58, 24.66)
+rotation = 2.37871
+rest = Transform2D(-0.722846, 0.691009, -0.691009, -0.722846, -6.58, 24.66)
+auto_calculate_length_and_angle = false
+length = 68.99
+bone_angle = 0.0
+
+[node name="头发" type="Bone2D" parent="Skeleton2D/root/bone"]
+position = Vector2(-3.68, -180.29)
+rotation = -1.60413
+rest = Transform2D(-0.0333297, -0.999444, 0.999444, -0.0333297, -3.68, -180.29)
+auto_calculate_length_and_angle = false
+length = 32.9
+bone_angle = 0.0
+
+[node name="头发2" type="Bone2D" parent="Skeleton2D/root/bone/头发"]
+position = Vector2(32.34, -0.42)
+rest = Transform2D(1, 0, 0, 1, 32.34, -0.42)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="右翅膀" type="Bone2D" parent="Skeleton2D/root/bone"]
+position = Vector2(142.63, 1.1)
+rotation = -0.404916
+rest = Transform2D(0.919135, -0.393942, 0.393942, 0.919135, 142.63, 1.1)
+auto_calculate_length_and_angle = false
+length = 25.04
+bone_angle = 0.0
+
+[node name="右翅膀2" type="Bone2D" parent="Skeleton2D/root/bone/右翅膀"]
+position = Vector2(26.48, -0.58)
+rotation = -0.0179769
+rest = Transform2D(0.999838, -0.0179759, 0.0179759, 0.999838, 26.48, -0.58)
+auto_calculate_length_and_angle = false
+length = 24.04
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="右翅膀3" type="Bone2D" parent="Skeleton2D/root/bone/右翅膀/右翅膀2"]
+position = Vector2(24.04, 0)
+rotation = -0.0111701
+rest = Transform2D(0.999938, -0.0111699, 0.0111699, 0.999938, 24.04, 0)
+auto_calculate_length_and_angle = false
+length = 24.76
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="右眼" type="Bone2D" parent="Skeleton2D/root/bone"]
+position = Vector2(95.5, -26.85)
+rest = Transform2D(1, 0, 0, 1, 95.5, -26.85)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="右瞳孔" type="Bone2D" parent="Skeleton2D/root/bone/右眼"]
+position = Vector2(-20.58, 1.34)
+rest = Transform2D(1, 0, 0, 1, -20.58, 1.34)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="左眼" type="Bone2D" parent="Skeleton2D/root/bone"]
+position = Vector2(-82.05, -15.89)
+rest = Transform2D(1, 0, 0, 1, -82.05, -15.89)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="左眼2" type="Bone2D" parent="Skeleton2D/root/bone/左眼"]
+position = Vector2(12.55, 1.33)
+rest = Transform2D(1, 0, 0, 1, 12.55, 1.33)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="左翅膀" type="Bone2D" parent="Skeleton2D/root/bone"]
+position = Vector2(-146.29, 1.56)
+rotation = -2.78101
+rest = Transform2D(-0.935691, -0.352822, 0.352822, -0.935691, -146.29, 1.56)
+auto_calculate_length_and_angle = false
+length = 25.04
+bone_angle = 0.0
+
+[node name="左翅膀2" type="Bone2D" parent="Skeleton2D/root/bone/左翅膀"]
+position = Vector2(26.48, -0.58)
+rotation = -0.0179769
+rest = Transform2D(0.999838, -0.0179759, 0.0179759, 0.999838, 26.48, -0.58)
+auto_calculate_length_and_angle = false
+length = 24.04
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="左翅膀3" type="Bone2D" parent="Skeleton2D/root/bone/左翅膀/左翅膀2"]
+position = Vector2(24.04, 0)
+rotation = -0.0111701
+rest = Transform2D(0.999938, -0.0111699, 0.0111699, 0.999938, 24.04, 0)
+auto_calculate_length_and_angle = false
+length = 24.76
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="youtui" type="Bone2D" parent="Skeleton2D/root/bone"]
+position = Vector2(57.89, 148.24)
+rotation = 1.54898
+rest = Transform2D(0.021815, 0.999762, -0.999762, 0.021815, 57.89, 148.24)
+auto_calculate_length_and_angle = false
+length = 47.82
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="youxigai" type="Bone2D" parent="Skeleton2D/root/bone/youtui"]
+position = Vector2(47.82, 0)
+rotation = -0.0219911
+rest = Transform2D(0.999758, -0.0219894, 0.0219894, 0.999758, 47.82, 0)
+auto_calculate_length_and_angle = false
+length = 39.82
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="youjiao" type="Bone2D" parent="Skeleton2D/root/bone/youtui/youxigai"]
+position = Vector2(39.82, 0)
+rotation = -0.923279
+rest = Transform2D(0.603208, -0.797584, 0.797584, 0.603208, 39.82, 0)
+auto_calculate_length_and_angle = false
+length = 12.29
+bone_angle = 0.0
+
+[node name="zuotui" type="Bone2D" parent="Skeleton2D/root/bone"]
+position = Vector2(-61.69, 150.86)
+rotation = 1.54898
+rest = Transform2D(0.021815, 0.999762, -0.999762, 0.021815, -61.69, 150.86)
+auto_calculate_length_and_angle = false
+length = 47.82
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="zuoxigai" type="Bone2D" parent="Skeleton2D/root/bone/zuotui"]
+position = Vector2(47.82, 0)
+rotation = -0.0219911
+rest = Transform2D(0.999758, -0.0219894, 0.0219894, 0.999758, 47.82, 0)
+auto_calculate_length_and_angle = false
+length = 39.82
+bone_angle = 0.0
+metadata/_local_pose_override_enabled_ = true
+
+[node name="zuojiao" type="Bone2D" parent="Skeleton2D/root/bone/zuotui/zuoxigai"]
+position = Vector2(39.82, 0)
+rotation = -0.923279
+rest = Transform2D(0.603208, -0.797584, 0.797584, 0.603208, 39.82, 0)
+auto_calculate_length_and_angle = false
+length = 12.29
+bone_angle = 0.0
+
+[node name="youjiaoIK" type="Bone2D" parent="Skeleton2D/root"]
+position = Vector2(61.26, -9.69)
+rest = Transform2D(1, 0, 0, 1, 61.26, -9.69)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="zuojiaoIK" type="Bone2D" parent="Skeleton2D/root"]
+position = Vector2(-59.02, -8.59)
+rest = Transform2D(1, 0, 0, 1, -59.02, -8.59)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="zuochiIK" type="Bone2D" parent="Skeleton2D/root"]
+position = Vector2(-254.12, -282.23)
+rest = Transform2D(1, 0, 0, 1, -254.12, -282.23)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="youchiIK" type="Bone2D" parent="Skeleton2D/root"]
+position = Vector2(233.81, -282.1)
+rest = Transform2D(1, 0, 0, 1, 233.81, -282.1)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="左翅膀" type="Node2D" parent="."]
+z_index = 7
+z_as_relative = false
+position = Vector2(-144.6, -247.93)
+rotation = -2.78101
+script = ExtResource("1_oovv0")
+"切换名" = "翅膀"
+
+[node name="翅膀" type="Polygon2D" parent="左翅膀"]
+texture = ExtResource("2_pfdk1")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(67.0746, 25.4545, 73.2153, 19.3231, 77.6859, 14.862, 74.3036, 6.98155, 65.57, -0.86, 57.11, -8.47, 43.36, -20.82, 36.5, -26.99, 29.64, -33.16, 12.79, -35.07, -4.54, -37.04, -14.67, -34.11, 14.31, 27.62, 21.47, 28.12, 28.22, 28.58, 35.16, 29.06, 43.3, 29.62, 49.79, 30.07, 55.4226, 30.4547, 0.49, -24.8, 19.45, -24.67, 7.46, -12.14, 24.26, -11.43, 38.58, -11.72, 15.28, 4.1, 35.7745, 4.59376, 53.9137, 4.38766, 26.69, 18.3, 53.536, 16.7564, 40.7698, 18.1962)
+uv = PackedVector2Array(52.0766, 0, 60.1339, 3.21465, 66, 5.55408, 66, 14.1279, 61.0645, 24.7837, 56.2789, 35.1158, 48.512, 51.8851, 44.6378, 60.2492, 40.7583, 68.6247, 26.0291, 77.022, 10.8722, 85.6628, 0.40788, 86.9609, 2.72712, 18.7964, 9.11262, 15.5234, 15.1298, 12.4393, 21.322, 9.26463, 28.5846, 5.5419, 34.3774, 2.57259, 39.3954, 0, 10.6696, 72.4231, 28.0493, 64.8394, 12.0919, 58.0455, 27.2593, 50.7775, 40.5319, 45.4053, 12.8819, 40.0331, 31.5256, 31.501, 48.2737, 24.5497, 17.7797, 22.4956, 43.0597, 13.3319, 30.754, 17.0355)
+polygons = [[23.0, 26.0, 5.0], [5.0, 26.0, 4.0], [26.0, 29.0, 28.0], [4.0, 26.0, 3.0], [3.0, 28.0, 1.0], [1.0, 28.0, 0.0], [28.0, 3.0, 26.0], [1.0, 2.0, 3.0], [17.0, 18.0, 28.0], [28.0, 18.0, 0.0], [9.0, 20.0, 8.0], [8.0, 20.0, 7.0], [21.0, 22.0, 20.0], [20.0, 22.0, 7.0], [22.0, 23.0, 7.0], [7.0, 23.0, 6.0], [21.0, 24.0, 22.0], [6.0, 23.0, 5.0], [22.0, 25.0, 23.0], [22.0, 24.0, 25.0], [23.0, 25.0, 26.0], [24.0, 27.0, 25.0], [27.0, 29.0, 25.0], [26.0, 25.0, 29.0], [13.0, 14.0, 27.0], [27.0, 15.0, 29.0], [27.0, 14.0, 15.0], [15.0, 16.0, 29.0], [29.0, 17.0, 28.0], [29.0, 16.0, 17.0], [11.0, 19.0, 10.0], [19.0, 11.0, 21.0], [10.0, 19.0, 9.0], [9.0, 19.0, 20.0], [19.0, 21.0, 20.0], [21.0, 11.0, 12.0], [21.0, 12.0, 24.0], [24.0, 12.0, 27.0], [27.0, 12.0, 13.0]]
+bones = ["root/bone/左翅膀", PackedFloat32Array(0, 0, 0, 0, 0.00205, 0.00404, 0.14696, 0.26296, 0.37909, 0.52439, 0.75921, 1, 1, 0.65995, 0.33951, 0.00975, 0.00583, 0.00271, 0, 0.60171, 0.43644, 0.55, 0.43957, 0.00178, 0.43968, 0, 0, 0.07748, 0, 0), "root/bone/左翅膀/左翅膀2", PackedFloat32Array(0.17017, 0.07927, 0.0131, 0.00036, 0.06126, 0.12032, 0.84482, 0.73293, 0.62091, 0.47561, 0.24079, 0, 0, 0.28584, 0.5552, 0.83239, 0.66331, 0.52844, 0.41162, 0.39829, 0.56356, 0.45, 0.56043, 0.99819, 0.56032, 0.98177, 0.20495, 0.88538, 0.39854, 0.78001), "root/bone/左翅膀/左翅膀2/左翅膀3", PackedFloat32Array(0.82983, 0.92073, 0.9869, 0.99964, 0.93668, 0.87564, 0.00822, 0.00411, 0, 0, 0, 0, 0, 0.05421, 0.1053, 0.15787, 0.33086, 0.46885, 0.58838, 0, 0, 0, 0, 3e-05, 0, 0.01823, 0.79505, 0.03715, 0.60146, 0.21999)]
+internal_vertex_count = 11
+
+[node name="身体" type="Node2D" parent="."]
+z_as_relative = false
+position = Vector2(1.69, -249.49)
+script = ExtResource("1_oovv0")
+"切换名" = "身子"
+
+[node name="身子" type="Polygon2D" parent="身体"]
+texture = ExtResource("3_6hwiu")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(137.13, -104.7, 161.44, 21.89, 96.8, 149.32, -35.13, 182.97, -141.73, 89.19, -162.55, -55.03, -71.33, -185.5, 55.92, -185.53)
+uv = PackedVector2Array(359.093, 81.8006, 383.401, 208.39, 318.76, 335.813, 186.828, 369.471, 80.2328, 275.69, 59.4084, 131.472, 150.624, 1.0033, 277.878, 0.96775)
+polygons = [[5.0, 6.0, 7.0], [5.0, 7.0, 0.0], [1.0, 4.0, 5.0], [1.0, 5.0, 0.0], [2.0, 4.0, 1.0], [3.0, 4.0, 2.0]]
+bones = ["root/bone", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1)]
+
+[node name="zuotui" type="Node2D" parent="."]
+z_index = 5
+z_as_relative = false
+position = Vector2(-60, -98.63)
+rotation = 1.54898
+script = ExtResource("1_oovv0")
+"切换名" = "腿"
+
+[node name="腿" type="Polygon2D" parent="zuotui"]
+texture = ExtResource("4_qx801")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-3.91, -0.94, 0.56, -6.26, 12.1, -7.17, 19.72, -7.77, 28.8, -8.49, 42.74, -9.59, 49.53, -9.97, 56, -10.81, 64.2241, -11.3635, 74.761, -12.0753, 84.0395, -12.6995, 96.0367, -13.5048, 102.068, 1.1174, 97.4761, 12.011, 82.7984, 10.9135, 73.5311, 10.2271, 64.2036, 9.53204, 55.36, 8.88, 49.31, 8.21, 42.79, 8.15, 28.92, 6.9, 19.91, 6.08, 12.54, 5.42, 3.42, 4.59, -3.99, 2.8, 36.54, -1.12, 28.93, -0.76, 20.28, -0.56, 12.68, -0.46, 49.4077, -0.575052, 42.76, -1.12, 55.6622, -0.442551, 64.1725, -0.519708, 73.4736, -0.574245, 73.2991, 7.41152, 82.7689, 0.0215002)
+uv = PackedVector2Array(11.5395, 0, 16.9573, 4.34918, 18.1202, 15.8693, 18.8873, 23.4695, 19.8023, 32.5346, 21.2061, 46.445, 21.7385, 53.2237, 22.7202, 59.6748, 23.4517, 67.8877, 24.3888, 78.4124, 25.2137, 87.6747, 26.281, 99.658, 11.8004, 106, 0.81162, 101.643, 1.58139, 86.9518, 2.06766, 77.6694, 2.55717, 68.3255, 3.0213, 59.4702, 3.55536, 53.4081, 3.47247, 46.8859, 4.42287, 32.9904, 5.04009, 23.9666, 5.54472, 16.5837, 6.17004, 7.44226, 7.79409, 0, 12.6039, 40.4337, 12.0798, 32.8356, 11.6867, 24.1903, 11.4248, 16.5922, 12.3436, 53.3191, 12.7397, 46.6548, 12.3444, 59.5667, 12.6039, 68.0753, 12.8658, 77.3758, 4.87485, 77.3758, 12.4726, 86.6773)
+polygons = [[23.0, 24.0, 0.0], [35.0, 34.0, 33.0], [35.0, 33.0, 9.0], [35.0, 9.0, 10.0], [34.0, 14.0, 15.0], [11.0, 12.0, 35.0], [11.0, 35.0, 10.0], [34.0, 35.0, 14.0], [35.0, 13.0, 14.0], [12.0, 13.0, 35.0], [1.0, 23.0, 0.0], [28.0, 23.0, 1.0], [28.0, 1.0, 2.0], [22.0, 23.0, 28.0], [28.0, 2.0, 3.0], [27.0, 28.0, 3.0], [26.0, 27.0, 3.0], [21.0, 22.0, 28.0], [21.0, 28.0, 27.0], [26.0, 21.0, 27.0], [26.0, 3.0, 4.0], [25.0, 26.0, 4.0], [25.0, 4.0, 5.0], [30.0, 25.0, 5.0], [26.0, 20.0, 21.0], [25.0, 19.0, 20.0], [25.0, 20.0, 26.0], [19.0, 25.0, 30.0], [29.0, 19.0, 30.0], [6.0, 29.0, 30.0], [6.0, 30.0, 5.0], [18.0, 19.0, 29.0], [31.0, 29.0, 6.0], [18.0, 29.0, 31.0], [17.0, 18.0, 31.0], [31.0, 6.0, 7.0], [32.0, 31.0, 7.0], [32.0, 7.0, 8.0], [17.0, 32.0, 16.0], [32.0, 17.0, 31.0], [34.0, 16.0, 32.0], [33.0, 32.0, 8.0], [34.0, 32.0, 33.0], [15.0, 16.0, 34.0], [33.0, 8.0, 9.0]]
+bones = ["root/bone/zuotui", PackedFloat32Array(1, 1, 1, 1, 1, 0.8514, 0.31905, 0.03019, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01325, 0.30262, 0.88472, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0), "root/bone/zuotui/zuoxigai", PackedFloat32Array(0, 0, 0, 0, 0, 0.1486, 0.68095, 0.96981, 0.99981, 0.91665, 0.43605, 0, 0.04216, 0.35631, 0.96488, 1, 1, 0.98675, 0.69738, 0.11528, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1), "root/bone/zuotui/zuoxigai/zuojiao", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0.00019, 0.08335, 0.56395, 1, 0.95784, 0.64369, 0.03512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+internal_vertex_count = 11
+
+[node name="左眼" type="Node2D" parent="."]
+z_index = 2
+z_as_relative = false
+position = Vector2(-80.36, -265.38)
+script = ExtResource("1_oovv0")
+"切换名" = "左眼"
+
+[node name="左眼" type="Polygon2D" parent="左眼"]
+texture = ExtResource("5_lxl35")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(26.33, -57.13, 45.15, -43.31, 45.39, 31.44, 3.95, 61.87, -13.08, 61.87, -36.78, 37.64, -36.78, 19.56, -34.36, -49.86, 19.87, -57.13, 9.17, -12.9, 15.4, -17.2, 19.49, -14.62, 20.13, -7.09, 19.27, -0.21, 20.35, 6.02, 18.84, 12.47, 11.53, 15.91, 5.3, 14.19, 4.65, 6.88, 5.08, -1.5, 6.16, -7.95, -18.47, -28.81, -3.95, -40.27, 16.48, -44.47, 29.47, -35.49, 32.53, -24.03, 35.39, -9.32, 34.82, 4.81, 34.44, 18.94, 26.03, 30.21, 9.99, 39.95, -12.17, 40.14, -18.47, 23.72, -21.53, 2.14, -21.14, -12.19)
+uv = PackedVector2Array(63.1074, 0, 81.9301, 13.8218, 82.1683, 88.5693, 40.7298, 119, 23.694, 119, 0, 94.7704, 0, 76.686, 2.41779, 7.26376, 56.6516, 0, 45.948, 44.2263, 52.1829, 39.9269, 56.2682, 42.5068, 56.9131, 50.0312, 56.0532, 56.9118, 57.1281, 63.1462, 55.6233, 69.596, 48.3135, 73.0362, 42.0785, 71.3167, 41.4328, 64.0065, 41.8635, 55.6218, 42.9384, 49.1708, 18.309, 28.322, 32.8248, 16.8611, 53.2619, 12.6592, 66.2498, 21.6366, 69.3058, 33.0963, 72.171, 47.8035, 71.5975, 61.9371, 71.2157, 76.0719, 62.8119, 87.34, 46.768, 97.0814, 24.612, 97.273, 18.309, 80.8462, 15.2529, 59.2632, 15.6347, 44.938)
+polygons = [[26.0, 13.0, 12.0], [11.0, 10.0, 25.0], [12.0, 11.0, 26.0], [16.0, 17.0, 18.0], [32.0, 18.0, 17.0], [15.0, 16.0, 18.0], [13.0, 20.0, 12.0], [9.0, 20.0, 21.0], [9.0, 10.0, 11.0], [9.0, 12.0, 20.0], [12.0, 9.0, 11.0], [19.0, 20.0, 13.0], [19.0, 34.0, 20.0], [18.0, 19.0, 13.0], [18.0, 13.0, 14.0], [18.0, 33.0, 19.0], [15.0, 18.0, 14.0], [30.0, 17.0, 16.0], [9.0, 22.0, 10.0], [14.0, 13.0, 27.0], [27.0, 15.0, 14.0], [16.0, 15.0, 29.0], [30.0, 16.0, 29.0], [3.0, 30.0, 29.0], [3.0, 29.0, 2.0], [28.0, 15.0, 27.0], [28.0, 27.0, 2.0], [27.0, 13.0, 26.0], [26.0, 25.0, 1.0], [24.0, 0.0, 1.0], [25.0, 24.0, 1.0], [23.0, 8.0, 0.0], [10.0, 24.0, 25.0], [8.0, 22.0, 7.0], [23.0, 22.0, 8.0], [21.0, 7.0, 22.0], [10.0, 22.0, 23.0], [10.0, 23.0, 24.0], [21.0, 22.0, 9.0], [34.0, 7.0, 21.0], [20.0, 34.0, 21.0], [34.0, 6.0, 7.0], [33.0, 34.0, 19.0], [34.0, 33.0, 6.0], [32.0, 33.0, 18.0], [6.0, 33.0, 32.0], [5.0, 6.0, 32.0], [31.0, 32.0, 17.0], [30.0, 31.0, 17.0], [5.0, 32.0, 31.0], [4.0, 5.0, 31.0], [3.0, 31.0, 30.0], [4.0, 31.0, 3.0], [24.0, 23.0, 0.0], [11.0, 25.0, 26.0], [26.0, 1.0, 2.0], [27.0, 26.0, 2.0], [29.0, 15.0, 28.0], [29.0, 28.0, 2.0]]
+bones = ["root/bone/左眼", PackedFloat32Array(1, 1, 1, 1, 1, 1, 0.9988, 0.94819, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "root/bone/左眼/左眼2", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0.0012, 0.05181, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+internal_vertex_count = 26
+
+[node name="头发" type="Node2D" parent="."]
+z_index = 8
+z_as_relative = false
+position = Vector2(-1.99, -429.78)
+rotation = -1.60413
+script = ExtResource("1_oovv0")
+"切换名" = "头发"
+
+[node name="头发" type="Polygon2D" parent="头发"]
+texture = ExtResource("6_7qi11")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(33.54, 20.49, -20.06, 105.24, -58.32, 126.07, -88.37, 134.81, -94.33, 134.61, -94.19, 130.38, -7.57, 51.5, 2.89, 9.2, -13.4, -59.23, -29.41, -83.35, -19.03, -83.01, 15.02, -66.66, 34.21, 0.57)
+uv = PackedVector2Array(101.684, 0, 188.179, 50.747, 210.269, 88.2942, 220, 118.041, 220, 124, 215.774, 124, 134.053, 40.0619, 91.4254, 31.0136, 23.5752, 49.574, 0, 66.3809, 0, 55.9872, 15.2064, 21.421, 81.7542, 0)
+polygons = [[10.0, 11.0, 8.0], [7.0, 12.0, 0.0], [6.0, 0.0, 1.0], [7.0, 0.0, 6.0], [7.0, 8.0, 12.0], [5.0, 2.0, 3.0], [6.0, 1.0, 2.0], [5.0, 6.0, 2.0], [5.0, 3.0, 4.0], [8.0, 11.0, 12.0], [9.0, 10.0, 8.0]]
+bones = ["root/bone/头发", PackedFloat32Array(0.81158, 0.85105, 0.85777, 0.99942, 0.99942, 0.99942, 0.9997, 0.99994, 1, 1, 1, 0.74, 0.74), "root/bone/头发/头发2", PackedFloat32Array(0.18842, 0.14895, 0.14223, 0.00058, 0.00058, 0.00058, 0.0003, 6e-05, 0, 0, 0, 0.26, 0.26)]
+
+[node name="右眼" type="Node2D" parent="."]
+z_index = 3
+z_as_relative = false
+position = Vector2(97.19, -276.34)
+script = ExtResource("1_oovv0")
+"切换名" = "右眼"
+
+[node name="右眼" type="Polygon2D" parent="右眼"]
+texture = ExtResource("7_nm1qf")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(16.78, -73.65, 38.5, -34.21, 38.55, 49.5, 4.51, 68.35, -17.86, 68.35, -46.58, 39.6, -46.48, -63.34, -4.51, -73.65, -25.47, -14.27, -27.97, -7.55, -27.59, -2.75, -27.2, 3.58, -26.05, 9.92, -22.79, 14.14, -19.33, 18.17, -15.87, 15.68, -12.99, 9.53, -13.38, 3.2, -12.8, -3.33, -14.34, -11.59, -17.79, -15.04, -28.19, -51.17, -14.41, -59.12, 7.85, -61.24, 16.06, -47.99, 22.16, -27.85, 27.46, -3.2, 25.07, 23.56, 10.76, 47.41, -17.59, 47.68, -31.9, 23.3, -36.41, 2.1, -32.2, -37.55, -34.87, -21.89)
+uv = PackedVector2Array(64.2939, 0, 86.0099, 39.4405, 86.0648, 123.145, 52.0199, 142, 29.6505, 142, 0.9309, 113.246, 1.0353, 10.3092, 43.0067, 0, 22.0345, 59.373, 19.5385, 66.0939, 19.9221, 70.8935, 20.3067, 77.2295, 21.4585, 83.5656, 24.7228, 87.7887, 28.1784, 91.8215, 31.6349, 89.3251, 34.5146, 83.1808, 34.131, 76.8447, 34.7069, 70.317, 33.1705, 62.0611, 29.7148, 58.6048, 19.3192, 22.48, 33.0992, 14.5294, 55.359, 12.4094, 63.5744, 25.6594, 69.6687, 45.7993, 74.9688, 70.4448, 72.5841, 97.2104, 58.2743, 121.059, 29.9193, 121.325, 15.6087, 96.9448, 11.1038, 75.7442, 15.3146, 36.0978, 12.6446, 51.7618)
+polygons = [[8.0, 33.0, 20.0], [25.0, 19.0, 20.0], [9.0, 33.0, 8.0], [26.0, 18.0, 19.0], [19.0, 10.0, 9.0], [31.0, 9.0, 10.0], [19.0, 18.0, 10.0], [10.0, 18.0, 11.0], [31.0, 10.0, 11.0], [9.0, 8.0, 20.0], [9.0, 20.0, 19.0], [17.0, 11.0, 18.0], [26.0, 16.0, 17.0], [12.0, 11.0, 17.0], [12.0, 17.0, 16.0], [13.0, 12.0, 16.0], [15.0, 13.0, 16.0], [14.0, 13.0, 15.0], [12.0, 31.0, 11.0], [30.0, 12.0, 13.0], [30.0, 13.0, 14.0], [18.0, 26.0, 17.0], [27.0, 15.0, 16.0], [29.0, 14.0, 15.0], [23.0, 7.0, 0.0], [22.0, 6.0, 7.0], [22.0, 7.0, 23.0], [21.0, 6.0, 22.0], [24.0, 23.0, 0.0], [32.0, 6.0, 21.0], [24.0, 0.0, 1.0], [25.0, 24.0, 1.0], [33.0, 6.0, 32.0], [22.0, 32.0, 21.0], [20.0, 32.0, 22.0], [22.0, 23.0, 24.0], [20.0, 22.0, 24.0], [25.0, 20.0, 24.0], [26.0, 25.0, 1.0], [26.0, 19.0, 25.0], [31.0, 6.0, 33.0], [31.0, 33.0, 9.0], [12.0, 30.0, 31.0], [27.0, 16.0, 26.0], [31.0, 5.0, 6.0], [5.0, 31.0, 30.0], [28.0, 15.0, 27.0], [29.0, 15.0, 28.0], [30.0, 14.0, 29.0], [5.0, 30.0, 29.0], [26.0, 1.0, 2.0], [27.0, 26.0, 2.0], [28.0, 27.0, 2.0], [4.0, 5.0, 29.0], [3.0, 29.0, 28.0], [4.0, 29.0, 3.0], [3.0, 28.0, 2.0], [33.0, 32.0, 20.0]]
+bones = ["root/bone/右眼", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1), "root/bone/右眼/右瞳孔", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+internal_vertex_count = 26
+
+[node name="右腿" type="Node2D" parent="."]
+z_index = 4
+z_as_relative = false
+position = Vector2(59.58, -101.25)
+rotation = 1.54898
+script = ExtResource("1_oovv0")
+"切换名" = "腿"
+
+[node name="腿" type="Polygon2D" parent="右腿"]
+texture = ExtResource("4_qx801")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-3.91, -0.94, 0.56, -6.26, 12.1, -7.17, 19.72, -7.77, 28.8, -8.49, 42.74, -9.59, 49.53, -9.97, 56, -10.81, 64.2241, -11.3635, 74.761, -12.0753, 84.0395, -12.6995, 96.0367, -13.5048, 102.068, 1.1174, 97.4761, 12.011, 82.7984, 10.9135, 73.5311, 10.2271, 64.2036, 9.53204, 55.36, 8.88, 49.31, 8.21, 42.79, 8.15, 28.92, 6.9, 19.91, 6.08, 12.54, 5.42, 3.42, 4.59, -3.99, 2.8, 36.54, -1.12, 28.93, -0.76, 20.28, -0.56, 12.68, -0.46, 49.4077, -0.575052, 42.76, -1.12, 55.6622, -0.442551, 64.1725, -0.519708, 73.4736, -0.574245, 73.2991, 7.41152, 82.7689, 0.0215002)
+uv = PackedVector2Array(11.5395, 0, 16.9573, 4.34918, 18.1202, 15.8693, 18.8873, 23.4695, 19.8023, 32.5346, 21.2061, 46.445, 21.7385, 53.2237, 22.7202, 59.6748, 23.4517, 67.8877, 24.3888, 78.4124, 25.2137, 87.6747, 26.281, 99.658, 11.8004, 106, 0.81162, 101.643, 1.58139, 86.9518, 2.06766, 77.6694, 2.55717, 68.3255, 3.0213, 59.4702, 3.55536, 53.4081, 3.47247, 46.8859, 4.42287, 32.9904, 5.04009, 23.9666, 5.54472, 16.5837, 6.17004, 7.44226, 7.79409, 0, 12.6039, 40.4337, 12.0798, 32.8356, 11.6867, 24.1903, 11.4248, 16.5922, 12.3436, 53.3191, 12.7397, 46.6548, 12.3444, 59.5667, 12.6039, 68.0753, 12.8658, 77.3758, 4.87485, 77.3758, 12.4726, 86.6773)
+polygons = [[23.0, 24.0, 0.0], [35.0, 34.0, 33.0], [35.0, 33.0, 9.0], [35.0, 9.0, 10.0], [34.0, 14.0, 15.0], [11.0, 12.0, 35.0], [11.0, 35.0, 10.0], [34.0, 35.0, 14.0], [35.0, 13.0, 14.0], [12.0, 13.0, 35.0], [1.0, 23.0, 0.0], [28.0, 23.0, 1.0], [28.0, 1.0, 2.0], [22.0, 23.0, 28.0], [28.0, 2.0, 3.0], [27.0, 28.0, 3.0], [26.0, 27.0, 3.0], [21.0, 22.0, 28.0], [21.0, 28.0, 27.0], [26.0, 21.0, 27.0], [26.0, 3.0, 4.0], [25.0, 26.0, 4.0], [25.0, 4.0, 5.0], [30.0, 25.0, 5.0], [26.0, 20.0, 21.0], [25.0, 19.0, 20.0], [25.0, 20.0, 26.0], [19.0, 25.0, 30.0], [29.0, 19.0, 30.0], [6.0, 29.0, 30.0], [6.0, 30.0, 5.0], [18.0, 19.0, 29.0], [31.0, 29.0, 6.0], [18.0, 29.0, 31.0], [17.0, 18.0, 31.0], [31.0, 6.0, 7.0], [32.0, 31.0, 7.0], [32.0, 7.0, 8.0], [17.0, 32.0, 16.0], [32.0, 17.0, 31.0], [34.0, 16.0, 32.0], [33.0, 32.0, 8.0], [34.0, 32.0, 33.0], [15.0, 16.0, 34.0], [33.0, 8.0, 9.0]]
+bones = ["root/bone/youtui", PackedFloat32Array(1, 1, 1, 1, 1, 0.8514, 0.31905, 0.03019, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01325, 0.30262, 0.88472, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0), "root/bone/youtui/youxigai", PackedFloat32Array(0, 0, 0, 0, 0, 0.1486, 0.68095, 0.96981, 0.99981, 0.91665, 0.43605, 0, 0.04216, 0.35631, 0.96488, 1, 1, 0.98675, 0.69738, 0.11528, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1), "root/bone/youtui/youxigai/youjiao", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0.00019, 0.08335, 0.56395, 1, 0.95784, 0.64369, 0.03512, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)]
+internal_vertex_count = 11
+
+[node name="右翅膀" type="Node2D" parent="."]
+z_index = 6
+z_as_relative = false
+position = Vector2(144.32, -248.39)
+rotation = -0.404916
+script = ExtResource("1_oovv0")
+"切换名" = "翅膀"
+
+[node name="翅膀" type="Polygon2D" parent="右翅膀"]
+texture = ExtResource("2_pfdk1")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(67.075, -28.4842, 73.2161, -22.3536, 77.687, -17.8933, 74.3082, -10.0113, 65.57, -2.16, 57.11, 5.46, 43.36, 17.81, 36.5, 23.97, 29.64, 30.14, 12.79, 32.06, -4.54, 34.03, -14.67, 31.1, 14.31, -30.64, 21.47, -31.13, 28.22, -31.6, 35.16, -32.07, 43.3, -32.64, 49.79, -33.08, 55.4233, -33.4756, 0.49, 21.78, 19.45, 21.66, 7.46, 9.13, 24.26, 8.42, 38.58, 8.71, 15.28, -7.12, 35.775, -7.61822, 53.9116, -7.41421, 26.69, -21.31, 53.5392, -19.7795, 40.7713, -21.2202)
+uv = PackedVector2Array(52.0766, 0, 60.1339, 3.21465, 66, 5.55408, 66, 14.1279, 61.0645, 24.7837, 56.2789, 35.1158, 48.512, 51.8851, 44.6378, 60.2492, 40.7583, 68.6247, 26.0291, 77.022, 10.8722, 85.6628, 0.40788, 86.9609, 2.72712, 18.7964, 9.11262, 15.5234, 15.1298, 12.4393, 21.322, 9.26463, 28.5846, 5.5419, 34.3774, 2.57259, 39.3954, 0, 10.6696, 72.4231, 28.0493, 64.8394, 12.0919, 58.0455, 27.2593, 50.7775, 40.5319, 45.4053, 12.8819, 40.0331, 31.5256, 31.501, 48.2737, 24.5497, 17.7797, 22.4956, 43.0597, 13.3319, 30.754, 17.0355)
+polygons = [[23.0, 26.0, 5.0], [5.0, 26.0, 4.0], [26.0, 29.0, 28.0], [4.0, 26.0, 3.0], [3.0, 28.0, 1.0], [1.0, 28.0, 0.0], [28.0, 3.0, 26.0], [1.0, 2.0, 3.0], [17.0, 18.0, 28.0], [28.0, 18.0, 0.0], [9.0, 20.0, 8.0], [8.0, 20.0, 7.0], [21.0, 22.0, 20.0], [20.0, 22.0, 7.0], [22.0, 23.0, 7.0], [7.0, 23.0, 6.0], [21.0, 24.0, 22.0], [6.0, 23.0, 5.0], [22.0, 25.0, 23.0], [22.0, 24.0, 25.0], [23.0, 25.0, 26.0], [24.0, 27.0, 25.0], [27.0, 29.0, 25.0], [26.0, 25.0, 29.0], [13.0, 14.0, 27.0], [27.0, 15.0, 29.0], [27.0, 14.0, 15.0], [15.0, 16.0, 29.0], [29.0, 17.0, 28.0], [29.0, 16.0, 17.0], [11.0, 19.0, 10.0], [19.0, 11.0, 21.0], [10.0, 19.0, 9.0], [9.0, 19.0, 20.0], [19.0, 21.0, 20.0], [21.0, 11.0, 12.0], [21.0, 12.0, 24.0], [24.0, 12.0, 27.0], [27.0, 12.0, 13.0]]
+bones = ["root/bone/右翅膀", PackedFloat32Array(0, 0, 0, 0, 0.00205, 0.00404, 0.14696, 0.26296, 0.37909, 0.52439, 0.75921, 1, 1, 0.65995, 0.33951, 0.00975, 0.00583, 0.00271, 0, 0.60171, 0.43644, 0.55, 0.43957, 0.00178, 0.43968, 0, 0, 0.07748, 0, 0), "root/bone/右翅膀/右翅膀2", PackedFloat32Array(0.17017, 0.07927, 0.0131, 0.00036, 0.06126, 0.12032, 0.84482, 0.73293, 0.62091, 0.47561, 0.24079, 0, 0, 0.28584, 0.5552, 0.83239, 0.66331, 0.52844, 0.41162, 0.39829, 0.56356, 0.45, 0.56043, 0.99819, 0.56032, 0.98177, 0.20495, 0.88538, 0.39854, 0.78001), "root/bone/右翅膀/右翅膀2/右翅膀3", PackedFloat32Array(0.82983, 0.92073, 0.9869, 0.99964, 0.93668, 0.87564, 0.00822, 0.00411, 0, 0, 0, 0, 0, 0.05421, 0.1053, 0.15787, 0.33086, 0.46885, 0.58838, 0, 0, 0, 0, 3e-05, 0, 0.01823, 0.79505, 0.03715, 0.60146, 0.21999)]
+internal_vertex_count = 11
+
+[node name="嘴" type="Node2D" parent="."]
+z_index = 1
+z_as_relative = false
+position = Vector2(31.43, -191.4)
+script = ExtResource("1_oovv0")
+"切换名" = "嘴"
+
+[node name="嘴" type="Polygon2D" parent="嘴"]
+texture = ExtResource("8_ycg23")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(-21.6588, -48.5826, -8.76293, 50.929, -8.75923, 53.2772, -59.468, 86.4104, -72.6163, 86.4043, -61.6673, 61.8959, -33.0412, 28.4521, -33.609, 27.7074, -150.94, 77.2952, -152.753, 72.2221, -152.75, 64.5422, -45.9313, -33.2636, -28.3611, -48.5829)
+uv = PackedVector2Array(131.093, 0, 144, 99.5153, 144, 101.864, 93.2846, 135, 80.1432, 135, 91.0987, 110.485, 119.713, 77.0405, 119.143, 76.2939, 1.80864, 125.878, 0, 120.806, 0, 113.133, 106.824, 15.3279, 124.392, 0)
+polygons = [[0.0, 1.0, 6.0], [4.0, 5.0, 3.0], [2.0, 5.0, 6.0], [2.0, 3.0, 5.0], [2.0, 6.0, 1.0], [8.0, 9.0, 10.0], [10.0, 7.0, 8.0], [11.0, 7.0, 10.0], [12.0, 0.0, 11.0], [0.0, 7.0, 11.0], [0.0, 6.0, 7.0]]
+bones = ["root/bone/嘴/上嘴", PackedFloat32Array(1, 0, 0, 0, 0, 0, 0.488, 0.496, 1, 1, 1, 1, 1), "root/bone/嘴/下嘴", PackedFloat32Array(0, 1, 1, 1, 1, 1, 0.512, 0.504, 0, 0, 0, 0, 0)]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_61es3"),
+"animations": SubResource("AnimationLibrary_5wn2n")
+}

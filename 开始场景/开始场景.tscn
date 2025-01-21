@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=3 uid="uid://cb2kvovkhebm1"]
+
+[ext_resource type="Script" path="res://开始场景/开始场景.gd" id="1_pgfgh"]
+[ext_resource type="PackedScene" uid="uid://bpywhpfbqbmpq" path="res://addons/android_game_tool/scene/privacy.tscn" id="2_ncogo"]
+[ext_resource type="Script" path="res://超级按钮/超级按钮.gd" id="3_euure"]
+[ext_resource type="Script" path="res://超级按钮/点击动画配置.gd" id="4_6iw42"]
+[ext_resource type="PackedScene" uid="uid://c4csnhmxqbk00" path="res://开始场景/背景滚动效果/屏幕滚动效果.tscn" id="5_r8anp"]
+[ext_resource type="PackedScene" uid="uid://c7mbu2eu6onmy" path="res://视频转场/视频转场.tscn" id="6_o3i1e"]
+
+[sub_resource type="Resource" id="Resource_30lwn"]
+script = ExtResource("4_6iw42")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vv1qu"]
+font_size = 51
+outline_size = 8
+outline_color = Color(0.631373, 0.470588, 0.87451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3pj6"]
+font_size = 100
+outline_size = 50
+outline_color = Color(0.308312, 0.219555, 0.453125, 1)
+
+[node name="开始场景" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pgfgh")
+
+[node name="屏幕滚动效果" parent="." instance=ExtResource("5_r8anp")]
+layout_mode = 1
+
+[node name="Privacy" parent="." instance=ExtResource("2_ncogo")]
+layout_mode = 1
+game_name = "扑棱的大鸟"
+
+[node name="开始游戏" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = 95.0
+offset_right = 119.0
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_euure")
+"点击效果" = SubResource("Resource_30lwn")
+
+[node name="Label" type="Label" parent="开始游戏"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "开始游戏"
+label_settings = SubResource("LabelSettings_vv1qu")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="标题字" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -90.0
+offset_right = 250.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "扑棱的大鸟"
+label_settings = SubResource("LabelSettings_x3pj6")
+
+[node name="视频转场" parent="." instance=ExtResource("6_o3i1e")]
+custom_minimum_size = Vector2(2048, 1152)
+layout_mode = 1
+
+[connection signal="点击动画结束" from="开始游戏" to="." method="_on_开始游戏_点击动画结束"]

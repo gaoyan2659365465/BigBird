@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://0a60knyeffah"]
+
+[ext_resource type="Script" path="res://游戏场景/关卡/第一关.gd" id="1_2gpvo"]
+[ext_resource type="PackedScene" uid="uid://b7d8l2fw3v77j" path="res://游戏场景/子场景/子场景1.tscn" id="1_yryit"]
+[ext_resource type="PackedScene" uid="uid://c2hl35s82sfvc" path="res://游戏场景/通关触发框/通关触发框.tscn" id="2_po4au"]
+[ext_resource type="PackedScene" uid="uid://bi2yok68ct3tp" path="res://游戏场景/金币/金币.tscn" id="5_pm1nd"]
+[ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="6_05jr0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emcn7"]
+size = Vector2(6622, 1050)
+
+[node name="第一关" type="Node2D"]
+script = ExtResource("1_2gpvo")
+
+[node name="子场景1" parent="." instance=ExtResource("1_yryit")]
+
+[node name="通关触发框" parent="." instance=ExtResource("2_po4au")]
+position = Vector2(5873, 581)
+
+[node name="金币" parent="." instance=ExtResource("5_pm1nd")]
+position = Vector2(594, 576)
+
+[node name="金币2" parent="." instance=ExtResource("5_pm1nd")]
+position = Vector2(2506, 694)
+
+[node name="金币3" parent="." instance=ExtResource("5_pm1nd")]
+position = Vector2(4014, 678)
+
+[node name="金币4" parent="." instance=ExtResource("5_pm1nd")]
+position = Vector2(863, 726)
+
+[node name="金币5" parent="." instance=ExtResource("5_pm1nd")]
+position = Vector2(1011, 729)
+
+[node name="金币6" parent="." instance=ExtResource("5_pm1nd")]
+position = Vector2(1271, 567)
+
+[node name="金币7" parent="." instance=ExtResource("5_pm1nd")]
+position = Vector2(1463, 537)
+
+[node name="金币8" parent="." instance=ExtResource("5_pm1nd")]
+position = Vector2(396, 561)
+
+[node name="金币9" parent="." instance=ExtResource("5_pm1nd")]
+position = Vector2(1670, 363)
+
+[node name="金币10" parent="." instance=ExtResource("5_pm1nd")]
+position = Vector2(1907, 462)
+
+[node name="CameraArea2D" parent="." instance=ExtResource("6_05jr0")]
+
+[node name="CollisionShape2D" parent="CameraArea2D" index="0"]
+position = Vector2(3311, 525)
+shape = SubResource("RectangleShape2D_emcn7")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
+position = Vector2(1147, 518.852)
+zoom = Vector2(0.61, 0.61)
+
+[connection signal="被碰到" from="通关触发框" to="." method="_on_通关触发框_被碰到"]
+
+[editable path="CameraArea2D"]

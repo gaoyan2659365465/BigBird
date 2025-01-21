@@ -1,0 +1,189 @@
+[gd_scene load_steps=12 format=3 uid="uid://dcqumd20j1mk0"]
+
+[ext_resource type="Texture2D" uid="uid://cfpo0nlp7fr8c" path="res://PSD源文件/草/云.png" id="1_5ctth"]
+[ext_resource type="Shader" path="res://游戏场景/后处理.gdshader" id="2_bkr8j"]
+[ext_resource type="Texture2D" uid="uid://c1ivr4eex4iyu" path="res://PSD源文件/背景山.png" id="3_pxrlo"]
+[ext_resource type="PackedScene" uid="uid://e73ty5vubfyw" path="res://游戏场景/柱子/柱子.tscn" id="5_javh8"]
+[ext_resource type="PackedScene" uid="uid://wa63ss870lc7" path="res://路径文字/路径文字.tscn" id="5_wieou"]
+[ext_resource type="Texture2D" uid="uid://pemm1lp4fyd7" path="res://PSD源文件/地块.png" id="6_bygw7"]
+
+[sub_resource type="Gradient" id="Gradient_3njn4"]
+colors = PackedColorArray(0.530145, 0.663438, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_46fqb"]
+gradient = SubResource("Gradient_3njn4")
+width = 648
+height = 1152
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pvcn"]
+shader = ExtResource("2_bkr8j")
+shader_parameter/MainTexBrightness = 0.775
+shader_parameter/MainTexContrast = 0.575
+shader_parameter/MainTexSaturation = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kpeo8"]
+shader = ExtResource("2_bkr8j")
+shader_parameter/MainTexBrightness = 1.0
+shader_parameter/MainTexContrast = 0.675
+shader_parameter/MainTexSaturation = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqurq"]
+size = Vector2(2596, 31)
+
+[node name="子场景1" type="Node2D"]
+
+[node name="背景" type="Sprite2D" parent="."]
+visible = false
+z_index = -1
+z_as_relative = false
+position = Vector2(1300, 576)
+scale = Vector2(4.00772, 1)
+texture = SubResource("GradientTexture2D_46fqb")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+visible = false
+scroll_scale = Vector2(0.9, 0.9)
+
+[node name="云" type="Sprite2D" parent="Parallax2D"]
+modulate = Color(1, 1, 1, 0.32549)
+position = Vector2(516, 399)
+scale = Vector2(1.18464, 0.960524)
+texture = ExtResource("1_5ctth")
+
+[node name="云2" type="Sprite2D" parent="Parallax2D"]
+modulate = Color(1, 1, 1, 0.32549)
+position = Vector2(1409, 227)
+scale = Vector2(0.784666, 0.856595)
+texture = ExtResource("1_5ctth")
+flip_v = true
+
+[node name="云3" type="Sprite2D" parent="Parallax2D"]
+modulate = Color(1, 1, 1, 0.32549)
+position = Vector2(2225, 334)
+scale = Vector2(1.21076, 1.29005)
+texture = ExtResource("1_5ctth")
+flip_h = true
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_2pvcn")
+
+[node name="背景山2" type="Sprite2D" parent="Parallax2D/CanvasGroup"]
+modulate = Color(1, 1, 1, 0.0862745)
+position = Vector2(1676, 802)
+scale = Vector2(3.90551, 7.41123)
+texture = ExtResource("3_pxrlo")
+flip_h = true
+
+[node name="CanvasGroup2" type="CanvasGroup" parent="Parallax2D"]
+material = SubResource("ShaderMaterial_kpeo8")
+
+[node name="背景山" type="Sprite2D" parent="Parallax2D/CanvasGroup2"]
+modulate = Color(1, 1, 1, 0.254902)
+position = Vector2(583, 938)
+scale = Vector2(3.5984, 3.5984)
+texture = ExtResource("3_pxrlo")
+
+[node name="背景山2" type="Sprite2D" parent="Parallax2D/CanvasGroup2"]
+modulate = Color(1, 1, 1, 0.254902)
+position = Vector2(1971, 1046)
+scale = Vector2(3.5984, 3.5984)
+texture = ExtResource("3_pxrlo")
+flip_h = true
+
+[node name="路径文字" parent="Parallax2D" instance=ExtResource("5_wieou")]
+position = Vector2(1140, 478)
+text = "这是一只英俊的大鸟"
+"字体尺寸" = 81
+"字体颜色" = Color(1, 0.42537, 0.866893, 1)
+pxSpacing = 0.095
+offset = 0.177
+
+[node name="地块" type="Node2D" parent="."]
+visible = false
+
+[node name="地块1" type="Sprite2D" parent="地块"]
+position = Vector2(108, 1166)
+scale = Vector2(0.77381, 0.77381)
+texture = ExtResource("6_bygw7")
+
+[node name="地块2" type="Sprite2D" parent="地块"]
+position = Vector2(335, 1166)
+scale = Vector2(0.77381, 0.77381)
+texture = ExtResource("6_bygw7")
+
+[node name="地块3" type="Sprite2D" parent="地块"]
+position = Vector2(563, 1166)
+scale = Vector2(0.77381, 0.77381)
+texture = ExtResource("6_bygw7")
+
+[node name="地块4" type="Sprite2D" parent="地块"]
+position = Vector2(790.554, 1166)
+scale = Vector2(0.77381, 0.77381)
+texture = ExtResource("6_bygw7")
+
+[node name="地块5" type="Sprite2D" parent="地块"]
+position = Vector2(1017.55, 1166)
+scale = Vector2(0.77381, 0.77381)
+texture = ExtResource("6_bygw7")
+
+[node name="地块6" type="Sprite2D" parent="地块"]
+position = Vector2(1245.55, 1166)
+scale = Vector2(0.77381, 0.77381)
+texture = ExtResource("6_bygw7")
+
+[node name="地块7" type="Sprite2D" parent="地块"]
+position = Vector2(1477.55, 1166)
+scale = Vector2(0.77381, 0.77381)
+texture = ExtResource("6_bygw7")
+
+[node name="地块8" type="Sprite2D" parent="地块"]
+position = Vector2(1704.55, 1166)
+scale = Vector2(0.77381, 0.77381)
+texture = ExtResource("6_bygw7")
+
+[node name="地块9" type="Sprite2D" parent="地块"]
+position = Vector2(1932.55, 1166)
+scale = Vector2(0.77381, 0.77381)
+texture = ExtResource("6_bygw7")
+
+[node name="地块10" type="Sprite2D" parent="地块"]
+position = Vector2(2160.11, 1166)
+scale = Vector2(0.77381, 0.77381)
+texture = ExtResource("6_bygw7")
+
+[node name="地块11" type="Sprite2D" parent="地块"]
+position = Vector2(2387.11, 1166)
+scale = Vector2(0.77381, 0.77381)
+texture = ExtResource("6_bygw7")
+
+[node name="地块12" type="Sprite2D" parent="地块"]
+position = Vector2(2615.11, 1166)
+scale = Vector2(0.77381, 0.77381)
+texture = ExtResource("6_bygw7")
+
+[node name="柱子" parent="." instance=ExtResource("5_javh8")]
+position = Vector2(363, 743)
+
+[node name="柱子2" parent="." instance=ExtResource("5_javh8")]
+position = Vector2(747, 613)
+
+[node name="柱子3" parent="." instance=ExtResource("5_javh8")]
+position = Vector2(1126, 680)
+
+[node name="柱子4" parent="." instance=ExtResource("5_javh8")]
+position = Vector2(1703, 373)
+
+[node name="柱子5" parent="." instance=ExtResource("5_javh8")]
+position = Vector2(2246, 641)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1288, 5.5)
+shape = SubResource("RectangleShape2D_wqurq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1294, 1146)
+shape = SubResource("RectangleShape2D_wqurq")

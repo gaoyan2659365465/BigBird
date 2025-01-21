@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7d8l2fw3v77j"]
+
+[ext_resource type="PackedScene" uid="uid://e73ty5vubfyw" path="res://游戏场景/柱子/柱子.tscn" id="1_6og81"]
+[ext_resource type="Texture2D" uid="uid://c1ivr4eex4iyu" path="res://PSD源文件/背景山.png" id="2_lyhb2"]
+[ext_resource type="Texture2D" uid="uid://dvdekv1oioele" path="res://屏幕截图 2025-01-20 221414.png" id="5_e6j8w"]
+
+[sub_resource type="Gradient" id="Gradient_3njn4"]
+colors = PackedColorArray(0.164, 0.349867, 0.82, 1, 0.530145, 0.663438, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_46fqb"]
+gradient = SubResource("Gradient_3njn4")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_raoyw"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_laics"]
+gradient = SubResource("Gradient_raoyw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqurq"]
+size = Vector2(6642, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3063j"]
+size = Vector2(6609, 157.5)
+
+[node name="子场景1" type="Node2D"]
+
+[node name="背景" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(3307, 543)
+scale = Vector2(3.445, 1)
+texture = SubResource("GradientTexture2D_46fqb")
+
+[node name="背景山" type="Sprite2D" parent="."]
+modulate = Color(0.309974, 0.818671, 1, 1)
+position = Vector2(664, 875)
+texture = ExtResource("2_lyhb2")
+
+[node name="柱子" parent="." instance=ExtResource("1_6og81")]
+position = Vector2(407, 555)
+
+[node name="柱子3" parent="." instance=ExtResource("1_6og81")]
+position = Vector2(1278, 572)
+
+[node name="柱子4" parent="." instance=ExtResource("1_6og81")]
+position = Vector2(1667, 361)
+
+[node name="柱子5" parent="." instance=ExtResource("1_6og81")]
+position = Vector2(2198, 793)
+
+[node name="中景" type="Sprite2D" parent="."]
+position = Vector2(3307.5, 1003)
+scale = Vector2(103.359, 2.5)
+texture = SubResource("GradientTexture2D_laics")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3311, 5.5)
+shape = SubResource("RectangleShape2D_wqurq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3303.5, 1001.75)
+shape = SubResource("RectangleShape2D_3063j")
+
+[node name="屏幕截图2025-01-20221414" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.458824)
+position = Vector2(960, 540)
+texture = ExtResource("5_e6j8w")

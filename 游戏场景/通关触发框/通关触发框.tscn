@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2hl35s82sfvc"]
+
+[ext_resource type="Script" path="res://游戏场景/通关触发框/通关触发框.gd" id="1_lokcy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mr5qr"]
+size = Vector2(135, 1212)
+
+[node name="通关触发框" type="Area2D"]
+script = ExtResource("1_lokcy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -4)
+shape = SubResource("RectangleShape2D_mr5qr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

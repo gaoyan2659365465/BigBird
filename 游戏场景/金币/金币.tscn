@@ -1,0 +1,580 @@
+[gd_scene load_steps=16 format=3 uid="uid://bi2yok68ct3tp"]
+
+[ext_resource type="Script" path="res://addons/spine/插槽.gd" id="1_3yxgf"]
+[ext_resource type="Script" path="res://游戏场景/金币/金币.gd" id="1_spqpw"]
+[ext_resource type="Texture2D" uid="uid://6poc75vbrbno" path="res://PSD源文件/coin/coin-front-logo.png" id="2_5khtu"]
+[ext_resource type="Texture2D" uid="uid://dom7tq1lk2e63" path="res://PSD源文件/coin/coin-front-spineboy.png" id="3_di0xc"]
+[ext_resource type="Texture2D" uid="uid://cscum6rat3x1k" path="res://PSD源文件/coin/coin-front-shine-logo.png" id="4_p7vep"]
+[ext_resource type="Texture2D" uid="uid://1mt5246yws61" path="res://PSD源文件/coin/coin-front-shine-spineboy.png" id="5_6or4k"]
+[ext_resource type="Texture2D" uid="uid://o3mxxvxfkyc5" path="res://PSD源文件/coin/coin-side-round.png" id="6_qvwew"]
+[ext_resource type="Texture2D" uid="uid://evx7c3qsw3r6" path="res://PSD源文件/coin/coin-side-straight.png" id="7_lebdu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hhclm"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iu80o"]
+blend_mode = 1
+
+[sub_resource type="Animation" id="Animation_bm0hd"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/root/coin-sides/coin-side-straight/coin-side:切换名")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"coin-side-straight"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/root/coin-sides/coin-side-straight/coin-side:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.858824, 0.184314, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/root/coin-sides/coin-side-round/coin-side-round:切换名")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"coin-side-round"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/root/coin-sides/coin-side-round/coin-side-round:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.858824, 0.184314, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/root/coin-front/coin-front-texture:切换名")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"coin-front-logo"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/root/coin-front/coin-front-texture:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.52549, 0.52549, 0.52549, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/root/coin-front/coin-front-shine:切换名")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"coin-front-shine-logo"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Skeleton2D/root/coin-front/coin-front-shine:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.533333, 0.533333, 0.533333, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Skeleton2D/root/coin-front/clipping/clipping:切换名")
+tracks/8/interp = 0
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Skeleton2D/root/coin-front/clipping/clipping:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Skeleton2D/root:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Skeleton2D/root:rotation")
+tracks/11/interp = 3
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Skeleton2D/root:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Skeleton2D/root/coin-front:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Skeleton2D/root/coin-front:rotation")
+tracks/14/interp = 3
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Skeleton2D/root/coin-front:scale")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Skeleton2D/root/coin-front/clipping:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Skeleton2D/root/coin-front/clipping:rotation")
+tracks/17/interp = 3
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Skeleton2D/root/coin-front/clipping:scale")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/19/type = "value"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Skeleton2D/root/coin-sides:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Skeleton2D/root/coin-sides:rotation")
+tracks/20/interp = 3
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Skeleton2D/root/coin-sides:scale")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/22/type = "value"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Skeleton2D/root/coin-sides/coin-side-round:position")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/23/type = "value"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Skeleton2D/root/coin-sides/coin-side-round:rotation")
+tracks/23/interp = 3
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Skeleton2D/root/coin-sides/coin-side-round:scale")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/25/type = "value"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Skeleton2D/root/coin-sides/coin-side-straight:position")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/26/type = "value"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Skeleton2D/root/coin-sides/coin-side-straight:rotation")
+tracks/26/interp = 3
+tracks/26/loop_wrap = true
+tracks/26/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/27/type = "value"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Skeleton2D/root/coin-sides/coin-side-straight:scale")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5i76s"]
+_data = {
+"RESET": SubResource("Animation_bm0hd")
+}
+
+[sub_resource type="Animation" id="Animation_naklp"]
+length = 2.6667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/root/coin-front/coin-front-texture:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6696, 0.9667, 1.3318, 1.3333, 1.7333, 1.9982, 2.0022, 2.3, 2.6667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.521569, 0.521569, 0.521569, 1), Color(1, 1, 1, 1), Color(0.521569, 0.521569, 0.521569, 1), Color(1, 1, 1, 1), Color(0.521569, 0.521569, 0.521569, 1), Color(0.521569, 0.521569, 0.521569, 1), Color(1, 1, 1, 1), Color(0.521569, 0.521569, 0.521569, 1), Color(0.521569, 0.521569, 0.521569, 1), Color(1, 1, 1, 1), Color(0.521569, 0.521569, 0.521569, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/root/coin-front/coin-front-texture:切换名")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6667, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["coin-front-spineboy", "coin-front-logo"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/root/coin-front/coin-front-shine:切换名")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6667, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["coin-front-shine-spineboy", "coin-front-shine-logo"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/root/coin-front:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.664, 0.6696, 1.3333, 1.9982, 2.0022, 2.6667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(8.3, 0), Vector2(-8.3, 0), Vector2(0, 0), Vector2(8.3, 0), Vector2(-8.3, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/root/coin-front:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.664, 0.6696, 1.3333, 1.9982, 2.0022, 2.6667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 1), Vector2(0.003, 1), Vector2(1, 1), Vector2(0.003, 1), Vector2(0.003, 1), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/root/coin-sides/coin-side-round:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.664, 0.6696, 1.3333, 1.9982, 2.0022, 2.6667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-6.75, 0), Vector2(7.03, 0), Vector2(0, 0), Vector2(-6.75, 0), Vector2(7.03, 0), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Skeleton2D/root/coin-sides/coin-side-round:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3333, 0.664, 0.6696, 1, 1.3318, 1.3333, 1.5, 1.8, 1.9982, 2.0022, 2.2018, 2.4, 2.6592, 2.6667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.555, 1), Vector2(0.014, 1), Vector2(-0.028, 1), Vector2(-0.609, 1), Vector2(-1, 1), Vector2(1, 1), Vector2(0.852, 1), Vector2(0.315, 1), Vector2(0.014, 1), Vector2(-0.028, 1), Vector2(-0.365, 1), Vector2(-0.731, 1), Vector2(-1, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dumx3"]
+_data = {
+"animation": SubResource("Animation_naklp")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a4tgo"]
+radius = 137.41
+
+[node name="金币" type="Node2D" groups=["金币"]]
+scale = Vector2(0.35, 0.35)
+script = ExtResource("1_spqpw")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="root" type="Bone2D" parent="Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="coin-front" type="Bone2D" parent="Skeleton2D/root"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="clipping" type="Bone2D" parent="Skeleton2D/root/coin-front"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="clipping" type="Node2D" parent="Skeleton2D/root/coin-front/clipping"]
+z_index = 4
+z_as_relative = false
+script = ExtResource("1_3yxgf")
+
+[node name="coin-front-texture" type="Node2D" parent="Skeleton2D/root/coin-front"]
+modulate = Color(0.52549, 0.52549, 0.52549, 1)
+z_index = 2
+z_as_relative = false
+script = ExtResource("1_3yxgf")
+"切换名" = "coin-front-logo"
+
+[node name="coin-front-logo" type="Sprite2D" parent="Skeleton2D/root/coin-front/coin-front-texture"]
+texture_filter = 1
+texture = ExtResource("2_5khtu")
+
+[node name="coin-front-spineboy" type="Sprite2D" parent="Skeleton2D/root/coin-front/coin-front-texture"]
+visible = false
+texture_filter = 1
+texture = ExtResource("3_di0xc")
+
+[node name="coin-front-shine" type="Node2D" parent="Skeleton2D/root/coin-front"]
+modulate = Color(0.533333, 0.533333, 0.533333, 1)
+z_index = 3
+z_as_relative = false
+script = ExtResource("1_3yxgf")
+"切换名" = "coin-front-shine-logo"
+
+[node name="coin-front-shine-logo" type="Sprite2D" parent="Skeleton2D/root/coin-front/coin-front-shine"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_hhclm")
+texture = ExtResource("4_p7vep")
+
+[node name="coin-front-shine-spineboy" type="Sprite2D" parent="Skeleton2D/root/coin-front/coin-front-shine"]
+visible = false
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_iu80o")
+texture = ExtResource("5_6or4k")
+
+[node name="coin-sides" type="Bone2D" parent="Skeleton2D/root"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="coin-side-round" type="Bone2D" parent="Skeleton2D/root/coin-sides"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="coin-side-round" type="Node2D" parent="Skeleton2D/root/coin-sides/coin-side-round"]
+modulate = Color(1, 0.858824, 0.184314, 1)
+z_index = 1
+z_as_relative = false
+script = ExtResource("1_3yxgf")
+"切换名" = "coin-side-round"
+
+[node name="coin-side-round" type="Sprite2D" parent="Skeleton2D/root/coin-sides/coin-side-round/coin-side-round"]
+texture_filter = 1
+position = Vector2(-69.43, 0)
+texture = ExtResource("6_qvwew")
+
+[node name="coin-side-straight" type="Bone2D" parent="Skeleton2D/root/coin-sides"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="coin-side" type="Node2D" parent="Skeleton2D/root/coin-sides/coin-side-straight"]
+modulate = Color(1, 0.858824, 0.184314, 1)
+z_as_relative = false
+script = ExtResource("1_3yxgf")
+"切换名" = "coin-side-straight"
+
+[node name="coin-side-straight" type="Sprite2D" parent="Skeleton2D/root/coin-sides/coin-side-straight/coin-side"]
+texture_filter = 1
+position = Vector2(0.5, 0)
+texture = ExtResource("7_lebdu")
+
+[node name="shine" type="Bone2D" parent="Skeleton2D/root"]
+position = Vector2(243.14, 0)
+rest = Transform2D(1, 0, 0, 1, 243.14, 0)
+auto_calculate_length_and_angle = false
+length = 16.0
+bone_angle = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5i76s"),
+"animations": SubResource("AnimationLibrary_dumx3")
+}
+autoplay = "animations/animation"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_a4tgo")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

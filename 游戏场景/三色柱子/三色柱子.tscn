@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://cy7jpahivtl81"]
+
+[ext_resource type="Script" path="res://游戏场景/三色柱子/三色柱子.gd" id="1_wpolj"]
+[ext_resource type="Texture2D" uid="uid://dd7dw8bct01cl" path="res://游戏场景/三色柱子/素材/问号.svg" id="2_5qx2r"]
+
+[sub_resource type="Gradient" id="Gradient_1cdek"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yvwo0"]
+gradient = SubResource("Gradient_1cdek")
+height = 385
+
+[sub_resource type="Gradient" id="Gradient_cuss5"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ua1d6"]
+gradient = SubResource("Gradient_cuss5")
+height = 385
+
+[sub_resource type="Gradient" id="Gradient_grhub"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_trumg"]
+gradient = SubResource("Gradient_grhub")
+height = 385
+
+[node name="三色柱子" type="Node2D"]
+script = ExtResource("1_wpolj")
+
+[node name="红柱子" type="Sprite2D" parent="."]
+position = Vector2(0, -386)
+texture = SubResource("GradientTexture2D_yvwo0")
+
+[node name="问号" type="Sprite2D" parent="红柱子"]
+position = Vector2(-2, -5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5qx2r")
+
+[node name="绿柱子" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_ua1d6")
+
+[node name="问号" type="Sprite2D" parent="绿柱子"]
+position = Vector2(-2, -5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5qx2r")
+
+[node name="蓝柱子" type="Sprite2D" parent="."]
+position = Vector2(0, 385)
+texture = SubResource("GradientTexture2D_trumg")
+
+[node name="问号" type="Sprite2D" parent="蓝柱子"]
+position = Vector2(-2, -5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5qx2r")
