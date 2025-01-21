@@ -7,4 +7,4 @@ func _ready() -> void:
 
 func _on_返回按钮_点击动画结束() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://选关场景/选关场景.tscn")
+	get_tree().change_scene_to_file("res://游戏场景/游戏场景.tscn")     

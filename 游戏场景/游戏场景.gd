@@ -14,12 +14,8 @@ func _ready() -> void:
 	#	get_window().size = Vector2i(648/1.2,1152/1.2)
 	#	get_window().position = Vector2i(500,50)
 	
-	var n = Global.player_save.当前加载关卡
-	初始化指定关卡(n)
-	
 	监听柱子被撞()# 需要等待所有柱子全部生成
 	监听金币被撞()
-	初始化相机框()
 	
 	Global.player_save.收集物品 = []
 	
@@ -37,22 +33,6 @@ func 监听金币被撞():
 	for i in jins:
 		i.connect("吃金币",_on_金币_吃金币)
 
-# 幻影相机需要玩家引用
-func 初始化相机框():
-	var 相机框 = get_tree().get_nodes_in_group("相机框")
-	for i in 相机框:
-		i.follow_target = $Player
-
-
-func 初始化指定关卡(n):
-	var level
-	if n == 1 or n == 0:
-		level = preload("res://游戏场景/关卡/第一关.tscn").instantiate()
-	elif n == 2:
-		level = preload("res://游戏场景/关卡/第二关.tscn").instantiate()
-	add_child(level)
-	move_child(level,0)
-	level.过关.connect(_on_过关)
 
 
 func _on_柱子_被碰到(target):

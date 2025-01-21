@@ -1,40 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://geus4knlhoxj"]
+[gd_scene load_steps=5 format=3 uid="uid://geus4knlhoxj"]
 
 [ext_resource type="Script" path="res://游戏场景/关卡/第二关.gd" id="1_36dvn"]
-[ext_resource type="PackedScene" uid="uid://dcqumd20j1mk0" path="res://游戏场景/子场景/子场景2.tscn" id="2_vt5sc"]
-[ext_resource type="PackedScene" uid="uid://c2hl35s82sfvc" path="res://游戏场景/通关触发框/通关触发框.tscn" id="3_bw4jc"]
 [ext_resource type="PackedScene" uid="uid://b7d8l2fw3v77j" path="res://游戏场景/子场景/子场景1.tscn" id="3_smhob"]
-[ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="5_4qis4"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="6_jjtbl"]
 
-[sub_resource type="Resource" id="Resource_k6iu2"]
-script = ExtResource("6_jjtbl")
-duration = 1.0
-transition = 0
-ease = 2
+[sub_resource type="Gradient" id="Gradient_koj8p"]
+resource_local_to_scene = true
+colors = PackedColorArray(0.710667, 0.82, 0.164, 1, 0.874667, 1, 0.53, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b87fi"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_koj8p")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
 
 [node name="第二关" type="Node2D"]
-modulate = Color(1, 0.128458, 0, 1)
 script = ExtResource("1_36dvn")
-
-[node name="子场景2" parent="." instance=ExtResource("2_vt5sc")]
-position = Vector2(2597, 0)
 
 [node name="子场景1" parent="." instance=ExtResource("3_smhob")]
 
-[node name="通关触发框" parent="." instance=ExtResource("3_bw4jc")]
-position = Vector2(5155, 581)
+[node name="背景" parent="子场景1" index="0"]
+texture = SubResource("GradientTexture2D_b87fi")
 
-[node name="相机框" parent="." instance=ExtResource("5_4qis4")]
-position = Vector2(764, 414)
-
-[node name="CollisionShape2D" parent="相机框" index="0"]
-position = Vector2(1827.5, 146)
-
-[node name="PhantomCamera2D" parent="相机框" index="1"]
-position = Vector2(642, -21)
-tween_resource = SubResource("Resource_k6iu2")
-
-[connection signal="被碰到" from="通关触发框" to="." method="_on_通关触发框_被碰到"]
-
-[editable path="相机框"]
+[editable path="子场景1"]

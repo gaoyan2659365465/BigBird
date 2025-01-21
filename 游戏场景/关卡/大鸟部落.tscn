@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://8k38j0s1pnww"]
+
+[ext_resource type="PackedScene" uid="uid://bv2c15vnv7lt5" path="res://游戏场景/传送塔/传送塔.tscn" id="1_4sluf"]
+
+[sub_resource type="Gradient" id="Gradient_k75nq"]
+resource_local_to_scene = true
+colors = PackedColorArray(0.164, 0.82, 0.338933, 1, 0.53, 1, 0.7415, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_uh2he"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_k75nq")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_fgm2i"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wle4c"]
+gradient = SubResource("Gradient_fgm2i")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5aof"]
+size = Vector2(6642, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kv5n"]
+size = Vector2(6609, 157.5)
+
+[node name="大鸟部落" type="Node2D"]
+
+[node name="背景" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(3304.6, 543)
+scale = Vector2(3.4475, 1)
+texture = SubResource("GradientTexture2D_uh2he")
+
+[node name="中景" type="Sprite2D" parent="."]
+position = Vector2(3306.49, 1003)
+scale = Vector2(103.39, 2.5)
+texture = SubResource("GradientTexture2D_wle4c")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3311, 5.5)
+shape = SubResource("RectangleShape2D_o5aof")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3303.5, 1001.75)
+shape = SubResource("RectangleShape2D_7kv5n")
+
+[node name="传送塔" parent="." instance=ExtResource("1_4sluf")]
+position = Vector2(782, 923)
+
+[node name="传送塔2" parent="." instance=ExtResource("1_4sluf")]
+position = Vector2(5973, 923)

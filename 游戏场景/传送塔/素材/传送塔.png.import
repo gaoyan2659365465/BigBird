@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://024227lni7cy"
-path="res://.godot/imported/锁定.svg-024457784a0247f4448c46cc51bfc2d7.ctex"
+uid="uid://bh5xnyljyxyoy"
+path="res://.godot/imported/传送塔.png-3f0a1e6114c714f431dd611853835296.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://选关场景/素材/锁定.svg"
-dest_files=["res://.godot/imported/锁定.svg-024457784a0247f4448c46cc51bfc2d7.ctex"]
+source_file="res://游戏场景/传送塔/素材/传送塔.png"
+dest_files=["res://.godot/imported/传送塔.png-3f0a1e6114c714f431dd611853835296.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

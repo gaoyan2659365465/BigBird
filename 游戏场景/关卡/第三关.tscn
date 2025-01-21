@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0agpqjtctxlf"]
+
+[ext_resource type="Script" path="res://游戏场景/关卡/第三关.gd" id="1_tywyo"]
+[ext_resource type="PackedScene" uid="uid://b7d8l2fw3v77j" path="res://游戏场景/子场景/子场景1.tscn" id="1_xb47r"]
+
+[sub_resource type="Gradient" id="Gradient_b37op"]
+resource_local_to_scene = true
+colors = PackedColorArray(0.82, 0.164, 0.174933, 1, 1, 0.53, 0.537833, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kiip8"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_b37op")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[node name="第三关" type="Node2D"]
+script = ExtResource("1_tywyo")
+
+[node name="子场景1" parent="." instance=ExtResource("1_xb47r")]
+
+[node name="背景" parent="子场景1" index="0"]
+texture = SubResource("GradientTexture2D_kiip8")
+
+[editable path="子场景1"]
