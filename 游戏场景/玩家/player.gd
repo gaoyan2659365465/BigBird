@@ -7,19 +7,28 @@ class_name Player extends CharacterBody2D
 @export var max_fall_speed: float = 600.0
 @export var horizontal_speed: float = 150.0
 
-var 是否开始游戏 = false
+
 func _ready():
+	Global.play = self
 	# 初始化主角状态
 	velocity = Vector2.ZERO
+	Global.player_save.set_引导流程.connect(_on_set_引导流程)
+
+func _on_set_引导流程(value):
+	if value == 5:
+		Global.player_save.禁用玩家操作 = false
+	
+
 
 func _physics_process(delta):
+	if Global.player_save.禁用玩家操作:
+		return
 	# 检测跳跃输入
 	if Input.is_action_just_pressed("ui_accept"): # 例如空格键或鼠标点击
 		velocity.y = -jump_force
 		$"大鸟".跳跃()
-		是否开始游戏 = true
-	if not 是否开始游戏:
-		return
+		if Global.player_save.引导流程 == 5:
+			Global.player_save.引导流程 = 6
 	# 添加重力
 	velocity.y += gravity * delta
 

@@ -32,10 +32,11 @@ enabled=PackedStringArray("res://addons/android_game_tool/plugin.cfg", "res://ad
 
 "柱子"=""
 "金币"=""
+"传送塔"=""
 
 [gui]
 
-theme/custom_font="res://全局资源/思源黑体SourceHanSansK-Bold.TTF"
+theme/custom_font="res://全局资源/阿朱泡泡体.ttf"
 
 [input_devices]
 

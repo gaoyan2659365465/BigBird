@@ -50,3 +50,13 @@ signal set_收集物品(v)
 	set(value):
 		收集物品 = value
 		set_收集物品.emit(value)
+
+# 每一个引导项都有专门的数字，只需要监控这个数字就能知道何时触发引导
+signal set_引导流程(v)
+@export var 引导流程 = 10:
+	set(value):
+		引导流程 = value
+		set_引导流程.emit(value)
+
+
+@export var 禁用玩家操作 = true

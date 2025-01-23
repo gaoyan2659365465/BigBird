@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://8k38j0s1pnww"]
+[gd_scene load_steps=10 format=3 uid="uid://8k38j0s1pnww"]
 
 [ext_resource type="PackedScene" uid="uid://bv2c15vnv7lt5" path="res://游戏场景/传送塔/传送塔.tscn" id="1_4sluf"]
+[ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="2_4te6v"]
 
 [sub_resource type="Gradient" id="Gradient_k75nq"]
 resource_local_to_scene = true
@@ -27,6 +28,10 @@ size = Vector2(6642, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7kv5n"]
 size = Vector2(6609, 157.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p44hb"]
+resource_local_to_scene = true
+size = Vector2(6605.5, 1018)
+
 [node name="大鸟部落" type="Node2D"]
 
 [node name="背景" type="Sprite2D" parent="."]
@@ -35,6 +40,16 @@ z_as_relative = false
 position = Vector2(3304.6, 543)
 scale = Vector2(3.4475, 1)
 texture = SubResource("GradientTexture2D_uh2he")
+
+[node name="传送塔" parent="." instance=ExtResource("1_4sluf")]
+position = Vector2(782, 923)
+"传送塔ID" = 4
+"传送列表" = Array[int]([0, 1, 2, 3])
+
+[node name="传送塔2" parent="." instance=ExtResource("1_4sluf")]
+position = Vector2(5973, 923)
+"传送塔ID" = 5
+"传送列表" = Array[int]([0, 1, 2, 3, 4])
 
 [node name="中景" type="Sprite2D" parent="."]
 position = Vector2(3306.49, 1003)
@@ -51,8 +66,14 @@ shape = SubResource("RectangleShape2D_o5aof")
 position = Vector2(3303.5, 1001.75)
 shape = SubResource("RectangleShape2D_7kv5n")
 
-[node name="传送塔" parent="." instance=ExtResource("1_4sluf")]
-position = Vector2(782, 923)
+[node name="CameraArea2D" parent="." instance=ExtResource("2_4te6v")]
 
-[node name="传送塔2" parent="." instance=ExtResource("1_4sluf")]
-position = Vector2(5973, 923)
+[node name="CollisionShape2D" parent="CameraArea2D" index="0"]
+position = Vector2(3297.25, 525)
+shape = SubResource("RectangleShape2D_p44hb")
+
+[node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
+position = Vector2(1173, 502.852)
+tween_on_load = false
+
+[editable path="CameraArea2D"]

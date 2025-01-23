@@ -1,10 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://bv2c15vnv7lt5"]
+[gd_scene load_steps=8 format=3 uid="uid://bv2c15vnv7lt5"]
 
 [ext_resource type="Script" path="res://游戏场景/传送塔/传送塔.gd" id="1_ch710"]
 [ext_resource type="Texture2D" uid="uid://bh5xnyljyxyoy" path="res://游戏场景/传送塔/素材/传送塔.png" id="1_irqvb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1oj38"]
 size = Vector2(968, 905)
+
+[sub_resource type="Animation" id="Animation_iqg3c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 45)]
+}
 
 [sub_resource type="Animation" id="Animation_btq6x"]
 resource_name = "激活传送塔"
@@ -22,28 +37,19 @@ tracks/0/keys = {
 "values": [Vector2(4, 45), Vector2(4, -121)]
 }
 
-[sub_resource type="Animation" id="Animation_iqg3c"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 45)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8hqnw"]
 _data = {
 "RESET": SubResource("Animation_iqg3c"),
 "激活传送塔": SubResource("Animation_btq6x")
 }
 
-[node name="传送塔" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_jlenw"]
+_data = {
+"points": PackedVector2Array(-69.7298, 324.091, 69.7298, -324.091, -129, -44, -59.6314, -317.646, 59.6314, 317.646, 121, -52)
+}
+point_count = 2
+
+[node name="传送塔" type="Node2D" groups=["传送塔"]]
 script = ExtResource("1_ch710")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -61,4 +67,16 @@ libraries = {
 "": SubResource("AnimationLibrary_8hqnw")
 }
 
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_jlenw")
+
+[node name="点击传送塔" type="TextureButton" parent="."]
+offset_left = -53.0
+offset_top = -239.0
+offset_right = 55.0
+offset_bottom = -4.0
+focus_mode = 0
+toggle_mode = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="toggled" from="点击传送塔" to="." method="_on_点击传送塔_toggled"]

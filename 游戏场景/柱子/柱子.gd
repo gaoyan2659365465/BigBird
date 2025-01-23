@@ -1,4 +1,12 @@
+@tool
 extends Node2D
+
+
+@export var 柱子颜色:Color = Color(1,1,1):
+	set(v):
+		柱子颜色 = v
+		$"柱子上".self_modulate = v
+		$"柱子下".self_modulate = v
 
 
 signal 被碰到(target)

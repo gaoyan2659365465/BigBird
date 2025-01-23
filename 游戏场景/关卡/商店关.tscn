@@ -1,0 +1,109 @@
+[gd_scene load_steps=14 format=3 uid="uid://bxokyxi6rb0pv"]
+
+[ext_resource type="PackedScene" uid="uid://bv2c15vnv7lt5" path="res://游戏场景/传送塔/传送塔.tscn" id="1_nsvlj"]
+[ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="2_g0tek"]
+[ext_resource type="PackedScene" uid="uid://c2c6syy1ejadd" path="res://游戏场景/商品机/商品机.tscn" id="3_1udrr"]
+
+[sub_resource type="Gradient" id="Gradient_6i1gc"]
+resource_local_to_scene = true
+colors = PackedColorArray(0.82, 0.164, 0.809067, 1, 0.945167, 0.53, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sokq1"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_6i1gc")
+width = 1920
+height = 1080
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="Gradient" id="Gradient_a0cr0"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hpyt5"]
+gradient = SubResource("Gradient_a0cr0")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46ou1"]
+size = Vector2(3086, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37fy0"]
+size = Vector2(3075, 157.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jvj2"]
+resource_local_to_scene = true
+size = Vector2(3072.5, 1018)
+
+[sub_resource type="Gradient" id="Gradient_0acwb"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j18py"]
+gradient = SubResource("Gradient_0acwb")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_42ohs"]
+size = Vector2(64.3329, 64.5257)
+
+[node name="商店关" type="Node2D"]
+
+[node name="背景" type="Sprite2D" parent="."]
+z_index = -1
+z_as_relative = false
+position = Vector2(1535.5, 543)
+scale = Vector2(1.60469, 1)
+texture = SubResource("GradientTexture2D_sokq1")
+
+[node name="传送塔" parent="." instance=ExtResource("1_nsvlj")]
+position = Vector2(443, 923)
+"传送塔ID" = 6
+"传送列表" = Array[int]([0])
+
+[node name="商品机" parent="." instance=ExtResource("3_1udrr")]
+position = Vector2(1017, 928)
+
+[node name="商品机2" parent="." instance=ExtResource("3_1udrr")]
+position = Vector2(1246, 930)
+
+[node name="商品机3" parent="." instance=ExtResource("3_1udrr")]
+position = Vector2(1453, 928)
+
+[node name="传送塔2" parent="." instance=ExtResource("1_nsvlj")]
+position = Vector2(2034, 923)
+"传送塔ID" = 7
+"传送列表" = Array[int]([0, 6])
+
+[node name="中景" type="Sprite2D" parent="."]
+position = Vector2(1536.51, 1003)
+scale = Vector2(48.078, 2.5)
+texture = SubResource("GradientTexture2D_hpyt5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1533, 5.5)
+shape = SubResource("RectangleShape2D_46ou1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1536.5, 1001.75)
+shape = SubResource("RectangleShape2D_37fy0")
+
+[node name="CameraArea2D" parent="." instance=ExtResource("2_g0tek")]
+
+[node name="CollisionShape2D" parent="CameraArea2D" index="0"]
+position = Vector2(1530.75, 525)
+shape = SubResource("RectangleShape2D_6jvj2")
+
+[node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
+position = Vector2(1173, 547.148)
+
+[node name="墙壁" type="Sprite2D" parent="."]
+position = Vector2(2690, 451)
+scale = Vector2(12.0156, 15.2187)
+texture = SubResource("GradientTexture2D_j18py")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="墙壁"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="墙壁/StaticBody2D"]
+position = Vector2(0.166443, 0.328537)
+shape = SubResource("RectangleShape2D_42ohs")
+
+[editable path="CameraArea2D"]

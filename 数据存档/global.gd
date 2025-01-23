@@ -23,6 +23,11 @@ var 声音 = AudioStreamPlayer.new()
 # 专门用于读取表格数据
 var excel_data:ExcelData = ExcelData.new()
 
+var play
+
+signal 通用触发框信号(事件名)
+
+
 func _ready():
 	self.add_child(umg)
 	self.add_child(声音)

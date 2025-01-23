@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://l4hco0vehqhi"]
 
 [ext_resource type="Shader" path="res://游戏场景/生命控件/流光效果/流光效果.gdshader" id="1_fraft"]
-[ext_resource type="Texture2D" uid="uid://b72lq7rtilonc" path="res://游戏场景/生命控件/红心.png" id="2_axrvl"]
+[ext_resource type="Texture2D" uid="uid://b72lq7rtilonc" path="res://全局资源/红心.png" id="2_axrvl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3gldt"]
 shader = ExtResource("1_fraft")

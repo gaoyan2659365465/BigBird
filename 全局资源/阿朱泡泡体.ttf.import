@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://du2ndij631ruu"
-path="res://.godot/imported/思源黑体SourceHanSansK-Bold.TTF-dc07fd2fdb55d4e9cccff747c71334d9.fontdata"
+uid="uid://dglp1dqoodixc"
+path="res://.godot/imported/阿朱泡泡体.ttf-6f96f4c550bbf029299434dba04c3414.fontdata"
 
 [deps]
 
-source_file="res://全局资源/思源黑体SourceHanSansK-Bold.TTF"
-dest_files=["res://.godot/imported/思源黑体SourceHanSansK-Bold.TTF-dc07fd2fdb55d4e9cccff747c71334d9.fontdata"]
+source_file="res://全局资源/阿朱泡泡体.ttf"
+dest_files=["res://.godot/imported/阿朱泡泡体.ttf-6f96f4c550bbf029299434dba04c3414.fontdata"]
 
 [params]
 

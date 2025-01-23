@@ -35,8 +35,8 @@ size = Vector2(6609, 157.5)
 [node name="背景" type="Sprite2D" parent="."]
 z_index = -1
 z_as_relative = false
-position = Vector2(3023.1, 543)
-scale = Vector2(3.74073, 1)
+position = Vector2(3307.1, 543)
+scale = Vector2(3.4449, 1)
 texture = SubResource("GradientTexture2D_46fqb")
 
 [node name="背景山" type="Sprite2D" parent="."]
@@ -72,8 +72,8 @@ position = Vector2(4088, 633)
 position = Vector2(4783, 505)
 
 [node name="中景" type="Sprite2D" parent="."]
-position = Vector2(3023.49, 1003)
-scale = Vector2(112.234, 2.5)
+position = Vector2(3307.49, 1003)
+scale = Vector2(103.359, 2.5)
 texture = SubResource("GradientTexture2D_laics")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]

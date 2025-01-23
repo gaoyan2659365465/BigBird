@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://0a60knyeffah"]
+[gd_scene load_steps=8 format=3 uid="uid://0a60knyeffah"]
 
 [ext_resource type="Script" path="res://游戏场景/关卡/第一关.gd" id="1_2gpvo"]
 [ext_resource type="PackedScene" uid="uid://b7d8l2fw3v77j" path="res://游戏场景/子场景/子场景1.tscn" id="1_yryit"]
+[ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="4_d87ii"]
 [ext_resource type="PackedScene" uid="uid://bi2yok68ct3tp" path="res://游戏场景/金币/金币.tscn" id="5_pm1nd"]
 
 [sub_resource type="Gradient" id="Gradient_3njn4"]
@@ -16,6 +17,10 @@ height = 1080
 fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 1)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb71o"]
+resource_local_to_scene = true
+size = Vector2(6605.5, 1018)
+
 [node name="第一关" type="Node2D"]
 script = ExtResource("1_2gpvo")
 
@@ -23,6 +28,34 @@ script = ExtResource("1_2gpvo")
 
 [node name="背景" parent="子场景1" index="0"]
 texture = SubResource("GradientTexture2D_k5uy1")
+
+[node name="传送塔" parent="子场景1" index="2"]
+"传送塔ID" = 1
+"传送列表" = Array[int]([0, 2, 3])
+
+[node name="柱子" parent="子场景1" index="3"]
+"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
+
+[node name="柱子3" parent="子场景1" index="4"]
+"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
+
+[node name="柱子4" parent="子场景1" index="5"]
+"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
+
+[node name="柱子5" parent="子场景1" index="6"]
+"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
+
+[node name="柱子2" parent="子场景1" index="7"]
+"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
+
+[node name="柱子6" parent="子场景1" index="8"]
+"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
+
+[node name="柱子7" parent="子场景1" index="9"]
+"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
+
+[node name="柱子8" parent="子场景1" index="10"]
+"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
 
 [node name="金币" parent="." instance=ExtResource("5_pm1nd")]
 position = Vector2(594, 576)
@@ -54,4 +87,15 @@ position = Vector2(1670, 363)
 [node name="金币10" parent="." instance=ExtResource("5_pm1nd")]
 position = Vector2(1907, 462)
 
+[node name="CameraArea2D" parent="." instance=ExtResource("4_d87ii")]
+
+[node name="CollisionShape2D" parent="CameraArea2D" index="0"]
+position = Vector2(3297.25, 525)
+shape = SubResource("RectangleShape2D_mb71o")
+
+[node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
+position = Vector2(1173, 502.852)
+tween_on_load = false
+
 [editable path="子场景1"]
+[editable path="CameraArea2D"]

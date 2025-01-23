@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvqharjygbnsy"]
+
+[ext_resource type="Script" path="res://尖刺障碍/尖刺障碍.gd" id="1_vbepk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xskna"]
+size = Vector2(125, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ecfu"]
+size = Vector2(160, 138)
+
+[node name="尖刺障碍" type="Node2D" groups=["柱子"]]
+script = ExtResource("1_vbepk")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+antialiased = true
+polygon = PackedVector2Array(-45, -57, -75, -54, -51.902, -43.5156, -76, -37, -54.2508, -25.6287, -78, -19, -57.3644, -1.91706, -78, 5, -60.2197, 19.827, -78, 28, -57, 37, -53, 60, -43.7905, 41.3557, -34, 61, -21.7049, 41.7647, -12, 62, -0.00772095, 42.1665, 11, 61, 22.1194, 42.5763, 33, 61, 45, 43, 55, 61, 65, 38, 88, 32, 68.7194, 18.7466, 87, 10, 68.4906, -1.84843, 85, -11, 68.2657, -22.0897, 84, -35, 61, -42, 55, -70, 40.49, -48.7976, 32, -70, 18.4277, -51.0413, 10, -71, -3.41475, -53.2625, -12, -76, -26.03, -55.5624, -36, -78)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4.5, -6)
+shape = SubResource("RectangleShape2D_xskna")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(4, -7)
+shape = SubResource("RectangleShape2D_1ecfu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

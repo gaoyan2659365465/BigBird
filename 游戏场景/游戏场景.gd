@@ -13,6 +13,7 @@ func _ready() -> void:
 	#if OS.get_name() == "Windows":
 	#	get_window().size = Vector2i(648/1.2,1152/1.2)
 	#	get_window().position = Vector2i(500,50)
+	Global.player_save.set_引导流程.connect(_on_set_引导流程)
 	
 	监听柱子被撞()# 需要等待所有柱子全部生成
 	监听金币被撞()
@@ -36,6 +37,8 @@ func 监听金币被撞():
 
 
 func _on_柱子_被碰到(target):
+	if Global.player_save.引导流程 == 6:# 新手教学，免疫伤害
+		return
 	Global.player_save.血量 -= 1
 
 func _on_柱子_离开(target):
@@ -61,3 +64,10 @@ func _on_跳跃按钮控件_跳跃() -> void:
 	Input.action_press("ui_accept")
 	await get_tree().process_frame
 	Input.action_release("ui_accept")
+
+
+func _on_set_引导流程(value):
+	if value == 4:
+		$"聚焦摄像头".priority = 0
+		await get_tree().create_timer(1.0).timeout
+		Global.player_save.引导流程 = 5
