@@ -18,11 +18,13 @@ signal set_hp
 
 # 红心碰到柱子减少
 signal set_血量(v)
-@export var 血量 = 3:
+@export var 血量 = 0:
 	set(value):
 		if value >= 0:
 			血量 = value
 			set_血量.emit(value)
+
+@export var 最大血量 = 3
 
 
 @export var 解锁关卡 = [1]
@@ -53,10 +55,10 @@ signal set_收集物品(v)
 
 # 每一个引导项都有专门的数字，只需要监控这个数字就能知道何时触发引导
 signal set_引导流程(v)
-@export var 引导流程 = 10:
+@export var 引导流程 = 0:
 	set(value):
 		引导流程 = value
 		set_引导流程.emit(value)
 
 
-@export var 禁用玩家操作 = true
+@export var 禁用玩家操作 = false

@@ -71,3 +71,5 @@ func _on_set_引导流程(value):
 		$"聚焦摄像头".priority = 0
 		await get_tree().create_timer(1.0).timeout
 		Global.player_save.引导流程 = 5
+	elif value > 4:
+		$"聚焦摄像头".priority = 0

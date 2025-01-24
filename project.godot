@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="扑棱的大鸟"
-run/main_scene="res://开始场景/开始场景.tscn"
+run/main_scene="res://游戏场景/游戏场景.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dusxn8dvxd06x"]
 
 [ext_resource type="PackedScene" uid="uid://bv2c15vnv7lt5" path="res://游戏场景/传送塔/传送塔.tscn" id="1_hmrss"]
-[ext_resource type="PackedScene" uid="uid://bvqharjygbnsy" path="res://尖刺障碍/尖刺障碍.tscn" id="2_culw6"]
+[ext_resource type="PackedScene" uid="uid://bvqharjygbnsy" path="res://尖刺/尖刺障碍/尖刺障碍.tscn" id="2_culw6"]
 [ext_resource type="PackedScene" uid="uid://bi2yok68ct3tp" path="res://游戏场景/金币/金币.tscn" id="3_6xfbk"]
 [ext_resource type="PackedScene" uid="uid://gmlqarwa4emc" path="res://通用触发框/通用触发框.tscn" id="4_pfphs"]
 [ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="5_k6vq6"]

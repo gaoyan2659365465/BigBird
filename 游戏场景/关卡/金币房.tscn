@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://fbhrsihx5b13"]
+[gd_scene load_steps=15 format=3 uid="uid://fbhrsihx5b13"]
 
 [ext_resource type="PackedScene" uid="uid://bv2c15vnv7lt5" path="res://游戏场景/传送塔/传送塔.tscn" id="1_njr3d"]
 [ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="2_owgfs"]
 [ext_resource type="PackedScene" uid="uid://bi2yok68ct3tp" path="res://游戏场景/金币/金币.tscn" id="3_7i5gl"]
+[ext_resource type="PackedScene" uid="uid://3by1hccfkhcx" path="res://尖刺/尖刺地面/尖刺地面.tscn" id="4_ruls8"]
 
 [sub_resource type="Gradient" id="Gradient_np4wb"]
 resource_local_to_scene = true
@@ -84,7 +85,7 @@ position = Vector2(1530.75, 525)
 shape = SubResource("RectangleShape2D_6dmxb")
 
 [node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
-position = Vector2(1173, 547.148)
+position = Vector2(1173, 502.852)
 
 [node name="墙壁" type="Sprite2D" parent="."]
 position = Vector2(2690, 451)
@@ -123,5 +124,8 @@ position = Vector2(1418, 508)
 
 [node name="金币9" parent="." instance=ExtResource("3_7i5gl")]
 position = Vector2(1556, 638)
+
+[node name="尖刺地面" parent="." instance=ExtResource("4_ruls8")]
+position = Vector2(1008, 923)
 
 [editable path="CameraArea2D"]

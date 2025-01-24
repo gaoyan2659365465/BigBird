@@ -11,14 +11,13 @@ script = ExtResource("1_xcd76")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(0, 0, 0, 1)
-polygon = PackedVector2Array(-37, -1, -23, -35, 20, -35, 32, -1)
+polygon = PackedVector2Array(-54, -1, -24, -45, 19, -45, 48, -1)
 
 [node name="Label" type="Label" parent="."]
-offset_left = -33.0
-offset_top = -33.0
-offset_right = 27.0
-offset_bottom = -2.0
-theme_override_font_sizes/font_size = 30
+offset_left = -40.0
+offset_top = -36.0
+offset_right = 30.0
+theme_override_font_sizes/font_size = 35
 text = "$5"
 horizontal_alignment = 1
 vertical_alignment = 1

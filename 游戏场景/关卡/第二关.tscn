@@ -1,20 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://geus4knlhoxj"]
+[gd_scene load_steps=4 format=3 uid="uid://geus4knlhoxj"]
 
 [ext_resource type="Script" path="res://游戏场景/关卡/第二关.gd" id="1_36dvn"]
 [ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="3_mwtml"]
-[ext_resource type="PackedScene" uid="uid://b7d8l2fw3v77j" path="res://游戏场景/子场景/子场景1.tscn" id="3_smhob"]
-
-[sub_resource type="Gradient" id="Gradient_koj8p"]
-resource_local_to_scene = true
-colors = PackedColorArray(0.710667, 0.82, 0.164, 1, 0.874667, 1, 0.53, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_b87fi"]
-resource_local_to_scene = true
-gradient = SubResource("Gradient_koj8p")
-width = 1920
-height = 1080
-fill_from = Vector2(0.5, 0)
-fill_to = Vector2(0.5, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e02mu"]
 resource_local_to_scene = true
@@ -23,39 +10,6 @@ size = Vector2(6605.5, 1018)
 [node name="第二关" type="Node2D"]
 script = ExtResource("1_36dvn")
 
-[node name="子场景1" parent="." instance=ExtResource("3_smhob")]
-
-[node name="背景" parent="子场景1" index="0"]
-texture = SubResource("GradientTexture2D_b87fi")
-
-[node name="传送塔" parent="子场景1" index="2"]
-"传送塔ID" = 2
-"传送列表" = Array[int]([0, 1, 3])
-
-[node name="柱子" parent="子场景1" index="3"]
-"柱子颜色" = Color(0.427426, 0.492188, 0.172697, 1)
-
-[node name="柱子3" parent="子场景1" index="4"]
-"柱子颜色" = Color(0.427426, 0.492188, 0.172697, 1)
-
-[node name="柱子4" parent="子场景1" index="5"]
-"柱子颜色" = Color(0.427426, 0.492188, 0.172697, 1)
-
-[node name="柱子5" parent="子场景1" index="6"]
-"柱子颜色" = Color(0.427426, 0.492188, 0.172697, 1)
-
-[node name="柱子2" parent="子场景1" index="7"]
-"柱子颜色" = Color(0.427426, 0.492188, 0.172697, 1)
-
-[node name="柱子6" parent="子场景1" index="8"]
-"柱子颜色" = Color(0.427426, 0.492188, 0.172697, 1)
-
-[node name="柱子7" parent="子场景1" index="9"]
-"柱子颜色" = Color(0.427426, 0.492188, 0.172697, 1)
-
-[node name="柱子8" parent="子场景1" index="10"]
-"柱子颜色" = Color(0.427426, 0.492188, 0.172697, 1)
-
 [node name="CameraArea2D" parent="." instance=ExtResource("3_mwtml")]
 
 [node name="CollisionShape2D" parent="CameraArea2D" index="0"]
@@ -63,8 +17,7 @@ position = Vector2(3297.25, 525)
 shape = SubResource("RectangleShape2D_e02mu")
 
 [node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
-position = Vector2(1173, 547.148)
+position = Vector2(1173, 502.852)
 tween_on_load = false
 
-[editable path="子场景1"]
 [editable path="CameraArea2D"]

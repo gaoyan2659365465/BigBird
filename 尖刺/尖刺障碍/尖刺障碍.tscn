@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvqharjygbnsy"]
 
-[ext_resource type="Script" path="res://尖刺障碍/尖刺障碍.gd" id="1_vbepk"]
+[ext_resource type="Script" path="res://尖刺/尖刺障碍/尖刺障碍.gd" id="1_vbepk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xskna"]
 size = Vector2(125, 102)

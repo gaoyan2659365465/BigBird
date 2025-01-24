@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://3by1hccfkhcx"]
+
+[ext_resource type="Script" path="res://尖刺/尖刺地面/尖刺地面.gd" id="1_3uprq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8l0ek"]
+size = Vector2(456, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y131m"]
+size = Vector2(457, 28)
+
+[node name="尖刺地面" type="Node2D" groups=["柱子"]]
+script = ExtResource("1_3uprq")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+antialiased = true
+polygon = PackedVector2Array(-1, 0, 458, 0, 445, -28, 432, -2, 416, -28, 400, -2, 381, -27, 367, -2, 350, -27, 332, -2, 315, -27, 296, -2, 279, -27, 259, -3, 242, -27, 223, -4, 207, -28, 189, -4, 167, -27, 141, -4, 119, -27, 95, -4, 74, -26, 46, -1, 25, -28)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(228, -4)
+shape = SubResource("RectangleShape2D_8l0ek")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(228.5, -13)
+shape = SubResource("RectangleShape2D_y131m")

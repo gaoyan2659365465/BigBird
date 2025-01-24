@@ -73,7 +73,7 @@ position = Vector2(3297.25, 525)
 shape = SubResource("RectangleShape2D_p44hb")
 
 [node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
-position = Vector2(1173, 502.852)
+position = Vector2(1173, 547.148)
 tween_on_load = false
 
 [editable path="CameraArea2D"]

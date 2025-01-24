@@ -6,7 +6,6 @@ extends Control
 signal 被撞死
 
 func _ready() -> void:
-	Global.player_save.血量 = 3
 	初始化红心(Global.player_save.血量)
 	Global.player_save.set_血量.connect(_on_血量改变)
 

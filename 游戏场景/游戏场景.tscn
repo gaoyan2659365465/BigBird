@@ -42,7 +42,7 @@ process_physics_priority = 300
 script = ExtResource("2_cpnc2")
 
 [node name="Player" parent="." instance=ExtResource("8_637yw")]
-position = Vector2(4294, 617)
+position = Vector2(514, 490)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
@@ -80,7 +80,6 @@ offset_right = -958.0
 offset_bottom = -23.0
 
 [node name="生命控件" parent="CanvasLayer" instance=ExtResource("5_pqj70")]
-visible = false
 offset_left = 90.0
 offset_top = 34.0
 offset_right = -850.0
@@ -109,13 +108,13 @@ offset_bottom = 1.0
 position = Vector2(6, 1943)
 
 [node name="第二关" parent="." instance=ExtResource("12_kmghb")]
-position = Vector2(6620, 1943)
+position = Vector2(8091, 4387)
 
 [node name="大鸟部落" parent="." instance=ExtResource("16_gir4s")]
-position = Vector2(13228, 1944)
+position = Vector2(14699, 4388)
 
 [node name="第三关" parent="." instance=ExtResource("15_apmdj")]
-position = Vector2(19840, 1947)
+position = Vector2(21311, 4391)
 
 [node name="商店关" parent="." instance=ExtResource("17_wivnu")]
 position = Vector2(6891, 0)

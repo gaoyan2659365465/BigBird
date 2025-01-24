@@ -1,101 +1,67 @@
-[gd_scene load_steps=8 format=3 uid="uid://0a60knyeffah"]
+[gd_scene load_steps=7 format=3 uid="uid://0a60knyeffah"]
 
 [ext_resource type="Script" path="res://游戏场景/关卡/第一关.gd" id="1_2gpvo"]
-[ext_resource type="PackedScene" uid="uid://b7d8l2fw3v77j" path="res://游戏场景/子场景/子场景1.tscn" id="1_yryit"]
+[ext_resource type="PackedScene" uid="uid://bv2c15vnv7lt5" path="res://游戏场景/传送塔/传送塔.tscn" id="4_45tb2"]
 [ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="4_d87ii"]
 [ext_resource type="PackedScene" uid="uid://bi2yok68ct3tp" path="res://游戏场景/金币/金币.tscn" id="5_pm1nd"]
 
-[sub_resource type="Gradient" id="Gradient_3njn4"]
-resource_local_to_scene = true
-colors = PackedColorArray(0.164, 0.470133, 0.82, 1, 0.53, 0.765, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_k5uy1"]
-resource_local_to_scene = true
-gradient = SubResource("Gradient_3njn4")
-width = 1920
-height = 1080
-fill_from = Vector2(0.5, 0)
-fill_to = Vector2(0.5, 1)
+[sub_resource type="Gradient" id="Gradient_adwgf"]
+colors = PackedColorArray(0.319415, 0.452614, 1, 1, 0.503799, 0.723451, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mb71o"]
 resource_local_to_scene = true
-size = Vector2(6605.5, 1018)
+size = Vector2(9992.5, 1018)
 
 [node name="第一关" type="Node2D"]
 script = ExtResource("1_2gpvo")
-
-[node name="子场景1" parent="." instance=ExtResource("1_yryit")]
-
-[node name="背景" parent="子场景1" index="0"]
-texture = SubResource("GradientTexture2D_k5uy1")
-
-[node name="传送塔" parent="子场景1" index="2"]
-"传送塔ID" = 1
-"传送列表" = Array[int]([0, 2, 3])
-
-[node name="柱子" parent="子场景1" index="3"]
-"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
-
-[node name="柱子3" parent="子场景1" index="4"]
-"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
-
-[node name="柱子4" parent="子场景1" index="5"]
-"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
-
-[node name="柱子5" parent="子场景1" index="6"]
-"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
-
-[node name="柱子2" parent="子场景1" index="7"]
-"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
-
-[node name="柱子6" parent="子场景1" index="8"]
-"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
-
-[node name="柱子7" parent="子场景1" index="9"]
-"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
-
-[node name="柱子8" parent="子场景1" index="10"]
-"柱子颜色" = Color(0.169023, 0.324876, 0.496094, 1)
-
-[node name="金币" parent="." instance=ExtResource("5_pm1nd")]
-position = Vector2(594, 576)
-
-[node name="金币2" parent="." instance=ExtResource("5_pm1nd")]
-position = Vector2(2506, 694)
-
-[node name="金币3" parent="." instance=ExtResource("5_pm1nd")]
-position = Vector2(4014, 678)
-
-[node name="金币4" parent="." instance=ExtResource("5_pm1nd")]
-position = Vector2(863, 726)
-
-[node name="金币5" parent="." instance=ExtResource("5_pm1nd")]
-position = Vector2(1011, 729)
-
-[node name="金币6" parent="." instance=ExtResource("5_pm1nd")]
-position = Vector2(1271, 567)
-
-[node name="金币7" parent="." instance=ExtResource("5_pm1nd")]
-position = Vector2(1463, 537)
-
-[node name="金币8" parent="." instance=ExtResource("5_pm1nd")]
-position = Vector2(396, 561)
-
-[node name="金币9" parent="." instance=ExtResource("5_pm1nd")]
-position = Vector2(1670, 363)
-
-[node name="金币10" parent="." instance=ExtResource("5_pm1nd")]
-position = Vector2(1907, 462)
+"关卡长度" = 10000
+gradient = SubResource("Gradient_adwgf")
 
 [node name="CameraArea2D" parent="." instance=ExtResource("4_d87ii")]
 
 [node name="CollisionShape2D" parent="CameraArea2D" index="0"]
-position = Vector2(3297.25, 525)
+position = Vector2(4990.75, 525)
 shape = SubResource("RectangleShape2D_mb71o")
 
 [node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
-position = Vector2(1173, 502.852)
+position = Vector2(1173, 547.148)
 tween_on_load = false
 
-[editable path="子场景1"]
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="金币" parent="Node2D" instance=ExtResource("5_pm1nd")]
+position = Vector2(1255, 576)
+
+[node name="金币2" parent="Node2D" instance=ExtResource("5_pm1nd")]
+position = Vector2(3167, 694)
+
+[node name="金币3" parent="Node2D" instance=ExtResource("5_pm1nd")]
+position = Vector2(4675, 678)
+
+[node name="金币4" parent="Node2D" instance=ExtResource("5_pm1nd")]
+position = Vector2(1524, 726)
+
+[node name="金币5" parent="Node2D" instance=ExtResource("5_pm1nd")]
+position = Vector2(1672, 729)
+
+[node name="金币6" parent="Node2D" instance=ExtResource("5_pm1nd")]
+position = Vector2(1932, 567)
+
+[node name="金币7" parent="Node2D" instance=ExtResource("5_pm1nd")]
+position = Vector2(2124, 537)
+
+[node name="金币8" parent="Node2D" instance=ExtResource("5_pm1nd")]
+position = Vector2(1057, 561)
+
+[node name="金币9" parent="Node2D" instance=ExtResource("5_pm1nd")]
+position = Vector2(2331, 363)
+
+[node name="金币10" parent="Node2D" instance=ExtResource("5_pm1nd")]
+position = Vector2(2568, 462)
+
+[node name="传送塔" parent="." instance=ExtResource("4_45tb2")]
+position = Vector2(522, 923)
+"传送塔ID" = 1
+"传送列表" = Array[int]([0])
+
 [editable path="CameraArea2D"]

@@ -35,11 +35,10 @@ func _physics_process(delta):
 	# 限制最大下落速度
 	if velocity.y > max_fall_speed:
 		velocity.y = max_fall_speed
-	if not is_on_floor():
-		# 处理水平移动（Flappy Bird中可以省略）
-		velocity.x = horizontal_speed
-	elif position.y >= 850:
+	
+	# 处理水平移动（Flappy Bird中可以省略）
+	velocity.x = horizontal_speed
+	if is_on_floor():
 		velocity.x = 0
-
 	# 移动角色
 	move_and_slide()

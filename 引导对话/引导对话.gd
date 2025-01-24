@@ -9,7 +9,8 @@ extends Control
 func _ready() -> void:
 	Global.通用触发框信号.connect(_on_通用触发框信号)
 	Global.player_save.set_引导流程.connect(_on_set_引导流程)
-	Global.player_save.引导流程 = Global.player_save.引导流程
+	#await get_tree().process_frame
+	Global.player_save.引导流程 = 0
 	
 func 切换文本(text):
 	rich_text_label.text = text
@@ -39,16 +40,19 @@ func _on_通用触发框信号(事件名):
 	if 事件名 == "引导9":
 		Global.player_save.引导流程 = 9
 	if 事件名 == "引导10":
-		Global.player_save.引导流程 = 10
-		Global.player_save.禁用玩家操作 = true
-		# 监听0号传送塔是否被点击
-		for t in get_tree().get_nodes_in_group("传送塔"):
-			if t.传送塔ID == 0:
-				t.显示传送球.connect(_on_0号传送塔_显示传送球)
+		if Global.player_save.引导流程 == 9:
+			Global.player_save.引导流程 = 10
+			Global.player_save.禁用玩家操作 = true
+			# 监听0号传送塔是否被点击
+			for t in get_tree().get_nodes_in_group("传送塔"):
+				if t.传送塔ID == 0:
+					if not t.is_connected("显示传送球",_on_0号传送塔_显示传送球):
+						t.显示传送球.connect(_on_0号传送塔_显示传送球)
 
 
 func _on_set_引导流程(value):
 	if value == 0:
+		$ColorRect.visible = true
 		var 屏幕文本 = """[center]尊敬的鸟神啊"""
 		切换文本(屏幕文本)
 	elif value == 1:
@@ -97,7 +101,8 @@ func _on_0号传送塔_显示传送球(value):
 		# 监听0号传送塔是否被传送
 		for t in get_tree().get_nodes_in_group("传送塔"):
 			if t.传送塔ID == 0:
-				t.开始传送.connect(_on_0号传送塔_开始传送)
+				if not t.is_connected("开始传送",_on_0号传送塔_开始传送):
+					t.开始传送.connect(_on_0号传送塔_开始传送)
 
 func _on_0号传送塔_开始传送(old_id,new_id):
 	print("开始传送，目标："+str(new_id))
