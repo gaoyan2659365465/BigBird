@@ -55,3 +55,8 @@ func 信息框(value:String):
 	var xxk = preload("res://信息提示控件/message_panel.tscn").instantiate()
 	xxk.text = value
 	self.umg.add_child(xxk)
+
+func 房间名(value:String):
+	var x = preload("res://游戏场景/关卡名控件/关卡名控件.tscn").instantiate()
+	self.umg.add_child(x)
+	x.设置文字(value)

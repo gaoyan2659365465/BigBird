@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkpqwwq4mchb3"]
+
+[ext_resource type="Script" path="res://Debug工具/debug工具.gd" id="1_qyail"]
+
+[node name="Debug工具" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qyail")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 24.0
+offset_right = 169.0
+offset_bottom = 64.0
+
+[node name="大鸟部落" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "大鸟部落
+"
+
+[node name="成就房" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "成就房"
+
+[node name="角色切换房" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "角色切换房"
+
+[node name="第一关" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "第一关"
+
+[node name="第二关" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "第二关"
+
+[node name="第三关" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "第三关"
+
+[connection signal="pressed" from="HBoxContainer/大鸟部落" to="." method="_on_大鸟部落_pressed"]
+[connection signal="pressed" from="HBoxContainer/成就房" to="." method="_on_成就房_pressed"]
+[connection signal="pressed" from="HBoxContainer/角色切换房" to="." method="_on_角色切换房_pressed"]
+[connection signal="pressed" from="HBoxContainer/第一关" to="." method="_on_第一关_pressed"]
+[connection signal="pressed" from="HBoxContainer/第二关" to="." method="_on_第二关_pressed"]
+[connection signal="pressed" from="HBoxContainer/第三关" to="." method="_on_第三关_pressed"]

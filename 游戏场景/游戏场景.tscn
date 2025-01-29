@@ -1,28 +1,25 @@
-[gd_scene load_steps=23 format=3 uid="uid://bdj4rga77kasa"]
+[gd_scene load_steps=22 format=3 uid="uid://bdj4rga77kasa"]
 
 [ext_resource type="Script" path="res://游戏场景/游戏场景.gd" id="1_cgx84"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_cpnc2"]
 [ext_resource type="PackedScene" uid="uid://c7mbu2eu6onmy" path="res://视频转场/视频转场.tscn" id="2_n462u"]
 [ext_resource type="PackedScene" uid="uid://c8jsd8br2ci8w" path="res://游戏场景/关卡进度控件/关卡进度控件.tscn" id="3_n5ws5"]
 [ext_resource type="PackedScene" uid="uid://cjb3j8jty64m6" path="res://游戏场景/暂停控件/暂停页面.tscn" id="3_uu81p"]
-[ext_resource type="PackedScene" uid="uid://df4bdnxnskeia" path="res://游戏场景/兑换控件/兑换控件.tscn" id="4_ads24"]
-[ext_resource type="PackedScene" uid="uid://4vkt8e22yw24" path="res://游戏场景/背包控件/背包控件.tscn" id="4_i7ed4"]
 [ext_resource type="PackedScene" uid="uid://cb8fl7kc404k6" path="res://游戏场景/生命控件/生命控件.tscn" id="5_pqj70"]
-[ext_resource type="PackedScene" uid="uid://be0dfkb7wqtwq" path="res://游戏场景/跳跃按钮控件/跳跃按钮控件.tscn" id="7_7716p"]
 [ext_resource type="PackedScene" uid="uid://2sqvticcr850" path="res://游戏场景/玩家/player.tscn" id="8_637yw"]
+[ext_resource type="PackedScene" uid="uid://dkpqwwq4mchb3" path="res://Debug工具/debug工具.tscn" id="9_ib00q"]
 [ext_resource type="PackedScene" uid="uid://0a60knyeffah" path="res://游戏场景/关卡/第一关.tscn" id="11_005cm"]
 [ext_resource type="PackedScene" uid="uid://c4fgq1std2mv3" path="res://引导对话/引导对话.tscn" id="11_8eavy"]
-[ext_resource type="PackedScene" uid="uid://geus4knlhoxj" path="res://游戏场景/关卡/第二关.tscn" id="12_kmghb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="13_m1wrv"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_5kr5a"]
 [ext_resource type="PackedScene" uid="uid://dusxn8dvxd06x" path="res://游戏场景/关卡/引导关.tscn" id="14_mafg3"]
-[ext_resource type="PackedScene" uid="uid://c0agpqjtctxlf" path="res://游戏场景/关卡/第三关.tscn" id="15_apmdj"]
-[ext_resource type="PackedScene" uid="uid://8k38j0s1pnww" path="res://游戏场景/关卡/大鸟部落.tscn" id="16_gir4s"]
+[ext_resource type="PackedScene" uid="uid://chqnb3ysk6eb3" path="res://游戏场景/关卡/成就房.tscn" id="15_o7p6h"]
+[ext_resource type="PackedScene" uid="uid://8k38j0s1pnww" path="res://游戏场景/关卡/大鸟部落.tscn" id="16_4bqob"]
 [ext_resource type="PackedScene" uid="uid://bxokyxi6rb0pv" path="res://游戏场景/关卡/商店关.tscn" id="17_wivnu"]
+[ext_resource type="PackedScene" uid="uid://blfnwkhq6udm6" path="res://游戏场景/关卡/角色切换房.tscn" id="18_jig6t"]
+[ext_resource type="PackedScene" uid="uid://geus4knlhoxj" path="res://游戏场景/关卡/第二关.tscn" id="19_rgfgf"]
 [ext_resource type="PackedScene" uid="uid://fbhrsihx5b13" path="res://游戏场景/关卡/金币房.tscn" id="20_lv6fm"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7y15m"]
-bg_color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://c0agpqjtctxlf" path="res://游戏场景/关卡/第三关.tscn" id="20_qagmd"]
 
 [sub_resource type="Resource" id="Resource_tspbc"]
 script = ExtResource("14_5kr5a")
@@ -42,42 +39,11 @@ process_physics_priority = 300
 script = ExtResource("2_cpnc2")
 
 [node name="Player" parent="." instance=ExtResource("8_637yw")]
-position = Vector2(514, 490)
+z_index = 1
+position = Vector2(20202, 633)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
-
-[node name="Panel" type="Panel" parent="CanvasLayer"]
-visible = false
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -259.0
-grow_horizontal = 0
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7y15m")
-
-[node name="背包控件" parent="CanvasLayer/Panel" instance=ExtResource("4_i7ed4")]
-visible = false
-layout_mode = 1
-offset_left = 19.0
-offset_top = 121.0
-
-[node name="兑换控件" parent="CanvasLayer/Panel" instance=ExtResource("4_ads24")]
-visible = false
-layout_mode = 1
-offset_left = 17.0
-offset_top = 458.0
-
-[node name="跳跃按钮控件" parent="CanvasLayer/Panel" instance=ExtResource("7_7716p")]
-visible = false
-layout_mode = 1
-offset_left = -862.0
-offset_top = 459.0
-offset_right = -958.0
-offset_bottom = -23.0
 
 [node name="生命控件" parent="CanvasLayer" instance=ExtResource("5_pqj70")]
 offset_left = 90.0
@@ -94,7 +60,6 @@ offset_bottom = -560.0
 [node name="视频转场" parent="CanvasLayer" instance=ExtResource("2_n462u")]
 
 [node name="关卡进度控件" parent="CanvasLayer" instance=ExtResource("3_n5ws5")]
-visible = false
 offset_left = 932.0
 offset_top = 588.0
 offset_right = 4.0
@@ -102,25 +67,33 @@ offset_bottom = 1.0
 
 [node name="引导对话" parent="CanvasLayer" instance=ExtResource("11_8eavy")]
 
+[node name="Debug工具" parent="CanvasLayer" instance=ExtResource("9_ib00q")]
+
 [node name="引导关" parent="." instance=ExtResource("14_mafg3")]
 
 [node name="第一关" parent="." instance=ExtResource("11_005cm")]
 position = Vector2(6, 1943)
-
-[node name="第二关" parent="." instance=ExtResource("12_kmghb")]
-position = Vector2(8091, 4387)
-
-[node name="大鸟部落" parent="." instance=ExtResource("16_gir4s")]
-position = Vector2(14699, 4388)
-
-[node name="第三关" parent="." instance=ExtResource("15_apmdj")]
-position = Vector2(21311, 4391)
 
 [node name="商店关" parent="." instance=ExtResource("17_wivnu")]
 position = Vector2(6891, 0)
 
 [node name="金币房" parent="." instance=ExtResource("20_lv6fm")]
 position = Vector2(10304, 0)
+
+[node name="角色切换房" parent="." instance=ExtResource("18_jig6t")]
+position = Vector2(13958, 0)
+
+[node name="大鸟部落" parent="." instance=ExtResource("16_4bqob")]
+position = Vector2(19695, 0)
+
+[node name="成就房" parent="." instance=ExtResource("15_o7p6h")]
+position = Vector2(26674, 0)
+
+[node name="第二关" parent="." instance=ExtResource("19_rgfgf")]
+position = Vector2(0, 4704)
+
+[node name="第三关" parent="." instance=ExtResource("20_qagmd")]
+position = Vector2(0, 7728)
 
 [node name="聚焦摄像头" type="Node2D" parent="."]
 position = Vector2(576, 627)
@@ -129,5 +102,4 @@ priority = 11
 tween_resource = SubResource("Resource_tspbc")
 draw_limits = true
 
-[connection signal="跳跃" from="CanvasLayer/Panel/跳跃按钮控件" to="." method="_on_跳跃按钮控件_跳跃"]
 [connection signal="被撞死" from="CanvasLayer/生命控件" to="." method="_on_生命控件_被撞死"]

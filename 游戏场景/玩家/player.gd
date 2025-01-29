@@ -13,6 +13,7 @@ func _ready():
 	# 初始化主角状态
 	velocity = Vector2.ZERO
 	Global.player_save.set_引导流程.connect(_on_set_引导流程)
+	Global.通用触发框信号.connect(_on_通用触发框信号)
 
 func _on_set_引导流程(value):
 	if value == 5:
@@ -26,7 +27,7 @@ func _physics_process(delta):
 	# 检测跳跃输入
 	if Input.is_action_just_pressed("ui_accept"): # 例如空格键或鼠标点击
 		velocity.y = -jump_force
-		$"大鸟".跳跃()
+		#$"大鸟".跳跃()
 		if Global.player_save.引导流程 == 5:
 			Global.player_save.引导流程 = 6
 	# 添加重力
@@ -42,3 +43,18 @@ func _physics_process(delta):
 		velocity.x = 0
 	# 移动角色
 	move_and_slide()
+
+
+func _on_通用触发框信号(事件名):
+	if 事件名 == "切换普通鸟":
+		$Sprite2D.texture = preload("res://PSD源文件/普通鸟.png")
+	if 事件名 == "切换冲刺鸟":
+		$Sprite2D.texture = preload("res://PSD源文件/冲刺鸟.png")
+	if 事件名 == "切换石化鸟":
+		$Sprite2D.texture = preload("res://PSD源文件/石化鸟.png")
+	if 事件名 == "切换彩虹鸟":
+		$Sprite2D.texture = preload("res://PSD源文件/彩虹鸟.png")
+	if 事件名 == "切换僵尸鸟":
+		$Sprite2D.texture = preload("res://PSD源文件/僵尸鸟.png")
+	if 事件名 == "切换酋长鸟":
+		$Sprite2D.texture = preload("res://PSD源文件/酋长鸟.png")

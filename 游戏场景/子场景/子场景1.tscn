@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7d8l2fw3v77j"]
+[gd_scene load_steps=8 format=3 uid="uid://b7d8l2fw3v77j"]
 
 [ext_resource type="PackedScene" uid="uid://e73ty5vubfyw" path="res://游戏场景/柱子/柱子.tscn" id="1_6og81"]
-[ext_resource type="PackedScene" uid="uid://bv2c15vnv7lt5" path="res://游戏场景/传送塔/传送塔.tscn" id="2_dsypo"]
 
 [sub_resource type="Gradient" id="Gradient_hk5xl"]
 resource_local_to_scene = true
@@ -70,9 +69,6 @@ scale = Vector2(0.290601, 1)
 [node name="柱子8" parent="背景" instance=ExtResource("1_6og81")]
 position = Vector2(429.944, -38)
 scale = Vector2(0.290601, 1)
-
-[node name="传送塔" parent="." instance=ExtResource("2_dsypo")]
-position = Vector2(5703, 923)
 
 [node name="中景" type="Sprite2D" parent="."]
 position = Vector2(3307.49, 1003)

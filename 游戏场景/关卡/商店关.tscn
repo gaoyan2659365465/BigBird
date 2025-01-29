@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxokyxi6rb0pv"]
+[gd_scene load_steps=15 format=3 uid="uid://bxokyxi6rb0pv"]
 
-[ext_resource type="PackedScene" uid="uid://bv2c15vnv7lt5" path="res://游戏场景/传送塔/传送塔.tscn" id="1_nsvlj"]
 [ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="2_g0tek"]
 [ext_resource type="PackedScene" uid="uid://c2c6syy1ejadd" path="res://游戏场景/商品机/商品机.tscn" id="3_1udrr"]
+[ext_resource type="PackedScene" uid="uid://xk0itf4dplxr" path="res://游戏场景/传送点/传送目标.tscn" id="3_mb2is"]
+[ext_resource type="PackedScene" uid="uid://bflqk066q7rwv" path="res://游戏场景/传送点/传送点.tscn" id="4_j0jig"]
 
 [sub_resource type="Gradient" id="Gradient_6i1gc"]
 resource_local_to_scene = true
@@ -52,11 +53,6 @@ position = Vector2(1535.5, 543)
 scale = Vector2(1.60469, 1)
 texture = SubResource("GradientTexture2D_sokq1")
 
-[node name="传送塔" parent="." instance=ExtResource("1_nsvlj")]
-position = Vector2(443, 923)
-"传送塔ID" = 6
-"传送列表" = Array[int]([0])
-
 [node name="商品机" parent="." instance=ExtResource("3_1udrr")]
 position = Vector2(1017, 928)
 
@@ -65,11 +61,6 @@ position = Vector2(1246, 930)
 
 [node name="商品机3" parent="." instance=ExtResource("3_1udrr")]
 position = Vector2(1453, 928)
-
-[node name="传送塔2" parent="." instance=ExtResource("1_nsvlj")]
-position = Vector2(2034, 923)
-"传送塔ID" = 7
-"传送列表" = Array[int]([0, 6])
 
 [node name="中景" type="Sprite2D" parent="."]
 position = Vector2(1536.51, 1003)
@@ -105,5 +96,12 @@ texture = SubResource("GradientTexture2D_j18py")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="墙壁/StaticBody2D"]
 position = Vector2(0.166443, 0.328537)
 shape = SubResource("RectangleShape2D_42ohs")
+
+[node name="传送目标" parent="." instance=ExtResource("3_mb2is")]
+position = Vector2(377, 596)
+"关卡名" = "商店关"
+
+[node name="传送点" parent="." instance=ExtResource("4_j0jig")]
+position = Vector2(2031, 923)
 
 [editable path="CameraArea2D"]

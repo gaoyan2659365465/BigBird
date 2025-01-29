@@ -32,7 +32,7 @@ enabled=PackedStringArray("res://addons/android_game_tool/plugin.cfg", "res://ad
 
 "柱子"=""
 "金币"=""
-"传送塔"=""
+"传送目标"=""
 
 [gui]
 

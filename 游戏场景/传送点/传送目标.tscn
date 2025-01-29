@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xk0itf4dplxr"]
+
+[ext_resource type="Script" path="res://游戏场景/传送点/传送目标.gd" id="1_lq1mk"]
+
+[node name="传送目标" type="Node2D" groups=["传送目标"]]
+script = ExtResource("1_lq1mk")

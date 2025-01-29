@@ -1,0 +1,437 @@
+[gd_scene load_steps=17 format=3 uid="uid://blfnwkhq6udm6"]
+
+[ext_resource type="PackedScene" uid="uid://cpntiktxxb75v" path="res://游戏场景/背景生成/背景生成.tscn" id="1_16obh"]
+[ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="3_w8dao"]
+[ext_resource type="Texture2D" uid="uid://clk5b0cjfpc1" path="res://PSD源文件/普通鸟.png" id="4_lvgi6"]
+[ext_resource type="Texture2D" uid="uid://bmbq3w42odx2g" path="res://PSD源文件/冲刺鸟.png" id="5_7egfg"]
+[ext_resource type="Texture2D" uid="uid://dg7uls5u7u1xm" path="res://PSD源文件/石化鸟.png" id="6_ig5fo"]
+[ext_resource type="Texture2D" uid="uid://hjbchfjtgw4n" path="res://PSD源文件/彩虹鸟.png" id="7_vw8uj"]
+[ext_resource type="Texture2D" uid="uid://3kjglf88q231" path="res://PSD源文件/僵尸鸟.png" id="8_nghnw"]
+[ext_resource type="Texture2D" uid="uid://dr6eq1amtmld7" path="res://PSD源文件/酋长鸟.png" id="9_nid03"]
+[ext_resource type="PackedScene" uid="uid://gmlqarwa4emc" path="res://通用触发框/通用触发框.tscn" id="10_1m6dv"]
+[ext_resource type="PackedScene" uid="uid://xk0itf4dplxr" path="res://游戏场景/传送点/传送目标.tscn" id="10_oc6di"]
+[ext_resource type="PackedScene" uid="uid://bflqk066q7rwv" path="res://游戏场景/传送点/传送点.tscn" id="11_choxa"]
+
+[sub_resource type="Gradient" id="Gradient_foaum"]
+colors = PackedColorArray(0.553982, 0.441638, 1, 1, 0.862, 0.77, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65ex7"]
+resource_local_to_scene = true
+size = Vector2(5008.46, 1018)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76wym"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmgve"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqdmp"]
+resource_local_to_scene = true
+size = Vector2(373, 464)
+
+[node name="角色切换房" type="Node2D"]
+
+[node name="背景生成" parent="." instance=ExtResource("1_16obh")]
+"关卡长度" = 5000
+gradient = SubResource("Gradient_foaum")
+"房间名" = "角色切换房"
+
+[node name="CameraArea2D" parent="." instance=ExtResource("3_w8dao")]
+
+[node name="CollisionShape2D" parent="CameraArea2D" index="0"]
+position = Vector2(2498.77, 525)
+shape = SubResource("RectangleShape2D_65ex7")
+
+[node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
+position = Vector2(1173, 502.852)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 1002.0
+offset_top = 113.0
+offset_right = 1364.0
+offset_bottom = 560.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_76wym")
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -125.0
+offset_right = 141.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qmgve")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_lvgi6")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 23.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 71
+text = "普通鸟"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel2" type="Panel" parent="."]
+offset_left = 1544.0
+offset_top = 113.0
+offset_right = 1906.0
+offset_bottom = 560.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_76wym")
+
+[node name="Panel" type="Panel" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -125.0
+offset_right = 141.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qmgve")
+
+[node name="TextureRect" type="TextureRect" parent="Panel2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_7egfg")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 23.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 71
+text = "冲刺鸟"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 369.0
+offset_bottom = 441.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 71
+text = "未解锁"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel3" type="Panel" parent="."]
+offset_left = 2061.0
+offset_top = 113.0
+offset_right = 2423.0
+offset_bottom = 560.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_76wym")
+
+[node name="Panel" type="Panel" parent="Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -125.0
+offset_right = 141.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qmgve")
+
+[node name="TextureRect" type="TextureRect" parent="Panel3/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ig5fo")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel3"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 23.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 71
+text = "石化鸟"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel3"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 369.0
+offset_bottom = 441.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 71
+text = "未解锁"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel4" type="Panel" parent="."]
+offset_left = 2575.0
+offset_top = 113.0
+offset_right = 2937.0
+offset_bottom = 560.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_76wym")
+
+[node name="Panel" type="Panel" parent="Panel4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -125.0
+offset_right = 141.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qmgve")
+
+[node name="TextureRect" type="TextureRect" parent="Panel4/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_vw8uj")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel4"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 23.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 71
+text = "彩虹鸟"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel4"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 369.0
+offset_bottom = 441.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 71
+text = "未解锁"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel5" type="Panel" parent="."]
+offset_left = 3096.0
+offset_top = 113.0
+offset_right = 3458.0
+offset_bottom = 560.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_76wym")
+
+[node name="Panel" type="Panel" parent="Panel5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -125.0
+offset_right = 141.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qmgve")
+
+[node name="TextureRect" type="TextureRect" parent="Panel5/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_nghnw")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel5"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 23.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 71
+text = "僵尸鸟"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel5"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 369.0
+offset_bottom = 441.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 71
+text = "未解锁"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel6" type="Panel" parent="."]
+offset_left = 3615.0
+offset_top = 113.0
+offset_right = 3977.0
+offset_bottom = 560.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_76wym")
+
+[node name="Panel" type="Panel" parent="Panel6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.0
+offset_top = -125.0
+offset_right = 141.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qmgve")
+
+[node name="TextureRect" type="TextureRect" parent="Panel6/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_nid03")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Panel6"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 23.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 71
+text = "酋长鸟"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel6"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 369.0
+offset_bottom = 441.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 71
+text = "未解锁"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="通用触发框" parent="." instance=ExtResource("10_1m6dv")]
+position = Vector2(1005, 358)
+"事件名" = "切换普通鸟"
+
+[node name="CollisionShape2D" parent="通用触发框/Area2D" index="0"]
+position = Vector2(176.5, -24)
+shape = SubResource("RectangleShape2D_aqdmp")
+
+[node name="通用触发框2" parent="." instance=ExtResource("10_1m6dv")]
+position = Vector2(1547, 358)
+"事件名" = "切换冲刺鸟"
+
+[node name="CollisionShape2D" parent="通用触发框2/Area2D" index="0"]
+position = Vector2(176.5, -24)
+shape = SubResource("RectangleShape2D_aqdmp")
+
+[node name="通用触发框3" parent="." instance=ExtResource("10_1m6dv")]
+position = Vector2(2071, 358)
+"事件名" = "切换石化鸟"
+
+[node name="CollisionShape2D" parent="通用触发框3/Area2D" index="0"]
+position = Vector2(176.5, -24)
+shape = SubResource("RectangleShape2D_aqdmp")
+
+[node name="通用触发框4" parent="." instance=ExtResource("10_1m6dv")]
+position = Vector2(2584, 358)
+"事件名" = "切换彩虹鸟"
+
+[node name="CollisionShape2D" parent="通用触发框4/Area2D" index="0"]
+position = Vector2(176.5, -24)
+shape = SubResource("RectangleShape2D_aqdmp")
+
+[node name="通用触发框5" parent="." instance=ExtResource("10_1m6dv")]
+position = Vector2(3101, 358)
+"事件名" = "切换僵尸鸟"
+
+[node name="CollisionShape2D" parent="通用触发框5/Area2D" index="0"]
+position = Vector2(176.5, -24)
+shape = SubResource("RectangleShape2D_aqdmp")
+
+[node name="通用触发框6" parent="." instance=ExtResource("10_1m6dv")]
+position = Vector2(3618, 358)
+"事件名" = "切换酋长鸟"
+
+[node name="CollisionShape2D" parent="通用触发框6/Area2D" index="0"]
+position = Vector2(176.5, -24)
+shape = SubResource("RectangleShape2D_aqdmp")
+
+[node name="传送目标" parent="." instance=ExtResource("10_oc6di")]
+position = Vector2(404, 511)
+"关卡名" = "角色切换房"
+
+[node name="传送点" parent="." instance=ExtResource("11_choxa")]
+position = Vector2(4296, 929)
+
+[editable path="CameraArea2D"]
+[editable path="通用触发框"]
+[editable path="通用触发框2"]
+[editable path="通用触发框3"]
+[editable path="通用触发框4"]
+[editable path="通用触发框5"]
+[editable path="通用触发框6"]

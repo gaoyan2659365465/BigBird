@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://chqnb3ysk6eb3"]
+
+[ext_resource type="PackedScene" uid="uid://cpntiktxxb75v" path="res://游戏场景/背景生成/背景生成.tscn" id="1_i3pfc"]
+[ext_resource type="Script" path="res://游戏场景/关卡/成就房.gd" id="1_tomec"]
+[ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="2_e3h1r"]
+[ext_resource type="PackedScene" uid="uid://xk0itf4dplxr" path="res://游戏场景/传送点/传送目标.tscn" id="4_s42l3"]
+[ext_resource type="PackedScene" uid="uid://bflqk066q7rwv" path="res://游戏场景/传送点/传送点.tscn" id="5_dtc70"]
+
+[sub_resource type="Gradient" id="Gradient_3s75c"]
+offsets = PackedFloat32Array(0, 0.994737)
+colors = PackedColorArray(1, 0.25, 0.25, 1, 1, 0.56, 0.56, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mysur"]
+resource_local_to_scene = true
+size = Vector2(1925.45, 1018)
+
+[node name="成就房" type="Node2D"]
+script = ExtResource("1_tomec")
+
+[node name="背景生成" parent="." instance=ExtResource("1_i3pfc")]
+gradient = SubResource("Gradient_3s75c")
+"房间名" = "成就房"
+
+[node name="CameraArea2D" parent="." instance=ExtResource("2_e3h1r")]
+
+[node name="CollisionShape2D" parent="CameraArea2D" index="0"]
+position = Vector2(957.275, 525)
+shape = SubResource("RectangleShape2D_mysur")
+
+[node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
+position = Vector2(939.262, 547.148)
+
+[node name="传送目标" parent="." instance=ExtResource("4_s42l3")]
+position = Vector2(491, 525)
+"关卡名" = "成就房"
+
+[node name="传送点" parent="." instance=ExtResource("5_dtc70")]
+position = Vector2(1471, 924)
+
+[editable path="CameraArea2D"]

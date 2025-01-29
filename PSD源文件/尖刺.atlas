@@ -1,0 +1,13 @@
+
+尖刺.png
+size: 1924,95
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+尖刺房
+  rotate: false
+  xy: 2, 2
+  size: 1920, 91
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1

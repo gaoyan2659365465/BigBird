@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://di3jhh2jnr3b7"]
+
+[ext_resource type="Texture2D" uid="uid://bjxyjvroukfvo" path="res://icon.svg" id="1_atqov"]
+[ext_resource type="Script" path="res://成就系统/成就按钮.gd" id="1_odqeg"]
+
+[node name="成就按钮" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_odqeg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="成就图标" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+texture_normal = ExtResource("1_atqov")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "管道新手"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/成就图标" to="." method="_on_成就图标_pressed"]

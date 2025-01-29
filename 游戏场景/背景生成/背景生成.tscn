@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpntiktxxb75v"]
+
+[ext_resource type="Script" path="res://游戏场景/背景生成/背景生成.gd" id="1_jlodd"]
+
+[node name="背景生成" type="Node2D"]
+script = ExtResource("1_jlodd")

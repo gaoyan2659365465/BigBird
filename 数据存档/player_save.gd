@@ -18,7 +18,7 @@ signal set_hp
 
 # 红心碰到柱子减少
 signal set_血量(v)
-@export var 血量 = 0:
+@export var 血量 = 3:
 	set(value):
 		if value >= 0:
 			血量 = value
@@ -62,3 +62,12 @@ signal set_引导流程(v)
 
 
 @export var 禁用玩家操作 = false
+
+
+@export var 统计死亡次数 = 0
+
+@export var 统计红心收集 = 0
+
+@export var 统计金币总数 = 0
+
+@export var 统计穿过管道次数 = 0

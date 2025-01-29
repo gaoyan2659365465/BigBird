@@ -1,23 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0agpqjtctxlf"]
+[gd_scene load_steps=9 format=3 uid="uid://c0agpqjtctxlf"]
 
 [ext_resource type="Script" path="res://游戏场景/关卡/第三关.gd" id="1_tywyo"]
+[ext_resource type="PackedScene" uid="uid://cpntiktxxb75v" path="res://游戏场景/背景生成/背景生成.tscn" id="2_img01"]
 [ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="3_ivmyr"]
+[ext_resource type="PackedScene" uid="uid://d21kstiiif8gp" path="res://游戏场景/柱子/柱子生成器.tscn" id="4_0tlcv"]
+[ext_resource type="PackedScene" uid="uid://bflqk066q7rwv" path="res://游戏场景/传送点/传送点.tscn" id="5_yqk07"]
+[ext_resource type="PackedScene" uid="uid://xk0itf4dplxr" path="res://游戏场景/传送点/传送目标.tscn" id="6_i2y4x"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3memq"]
+[sub_resource type="Gradient" id="Gradient_1s0yy"]
+offsets = PackedFloat32Array(0, 0.994737)
+colors = PackedColorArray(0.25, 0.2625, 1, 1, 0.567333, 0.56, 1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0noo"]
 resource_local_to_scene = true
-size = Vector2(6605.5, 1018)
+size = Vector2(13181.4, 1018)
 
 [node name="第三关" type="Node2D"]
 script = ExtResource("1_tywyo")
 
+[node name="背景生成" parent="." instance=ExtResource("2_img01")]
+"关卡长度" = 18090
+gradient = SubResource("Gradient_1s0yy")
+"房间名" = "第三关"
+
 [node name="CameraArea2D" parent="." instance=ExtResource("3_ivmyr")]
 
 [node name="CollisionShape2D" parent="CameraArea2D" index="0"]
-position = Vector2(3297.25, 525)
-shape = SubResource("RectangleShape2D_3memq")
+position = Vector2(6585.27, 525)
+shape = SubResource("RectangleShape2D_t0noo")
 
 [node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
 position = Vector2(1173, 502.852)
-tween_on_load = false
+
+[node name="柱子生成器" parent="." instance=ExtResource("4_0tlcv")]
+"柱子数量" = 45
+"柱子颜色" = Color(0.0707721, 0.289522, 0.4375, 1)
+"随机种子" = 1
+
+[node name="传送点" parent="." instance=ExtResource("5_yqk07")]
+position = Vector2(17569, 925)
+
+[node name="传送目标" parent="." instance=ExtResource("6_i2y4x")]
+position = Vector2(273, 417)
+"关卡名" = "第三关"
 
 [editable path="CameraArea2D"]

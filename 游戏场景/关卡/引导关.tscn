@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://dusxn8dvxd06x"]
 
-[ext_resource type="PackedScene" uid="uid://bv2c15vnv7lt5" path="res://游戏场景/传送塔/传送塔.tscn" id="1_hmrss"]
 [ext_resource type="PackedScene" uid="uid://bvqharjygbnsy" path="res://尖刺/尖刺障碍/尖刺障碍.tscn" id="2_culw6"]
 [ext_resource type="PackedScene" uid="uid://bi2yok68ct3tp" path="res://游戏场景/金币/金币.tscn" id="3_6xfbk"]
 [ext_resource type="PackedScene" uid="uid://gmlqarwa4emc" path="res://通用触发框/通用触发框.tscn" id="4_pfphs"]
+[ext_resource type="PackedScene" uid="uid://bflqk066q7rwv" path="res://游戏场景/传送点/传送点.tscn" id="5_bqu8a"]
 [ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="5_k6vq6"]
 
 [sub_resource type="Gradient" id="Gradient_3gu4i"]
@@ -57,10 +57,6 @@ z_as_relative = false
 position = Vector2(3304.6, 543)
 scale = Vector2(3.4475, 1)
 texture = SubResource("GradientTexture2D_6mix3")
-
-[node name="传送塔" parent="." instance=ExtResource("1_hmrss")]
-position = Vector2(4964, 922)
-"传送列表" = Array[int]([6, 1, 8])
 
 [node name="中景" type="Sprite2D" parent="."]
 position = Vector2(3306.49, 1003)
@@ -149,6 +145,9 @@ shape = SubResource("RectangleShape2D_xda5c")
 
 [node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
 position = Vector2(1173, 502.852)
+
+[node name="传送点" parent="." instance=ExtResource("5_bqu8a")]
+position = Vector2(5327, 931)
 
 [editable path="事件1"]
 [editable path="事件2"]

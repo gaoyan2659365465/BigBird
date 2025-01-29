@@ -9,8 +9,8 @@ extends Control
 func _ready() -> void:
 	Global.通用触发框信号.connect(_on_通用触发框信号)
 	Global.player_save.set_引导流程.connect(_on_set_引导流程)
-	#await get_tree().process_frame
-	Global.player_save.引导流程 = 0
+	await get_tree().process_frame
+	Global.player_save.引导流程 = 12
 	
 func 切换文本(text):
 	rich_text_label.text = text
@@ -45,7 +45,7 @@ func _on_通用触发框信号(事件名):
 			Global.player_save.禁用玩家操作 = true
 			# 监听0号传送塔是否被点击
 			for t in get_tree().get_nodes_in_group("传送塔"):
-				if t.传送塔ID == 0:
+				if t.传送塔名 == "引导关":
 					if not t.is_connected("显示传送球",_on_0号传送塔_显示传送球):
 						t.显示传送球.connect(_on_0号传送塔_显示传送球)
 
@@ -100,7 +100,7 @@ func _on_0号传送塔_显示传送球(value):
 		Global.player_save.禁用玩家操作 = false
 		# 监听0号传送塔是否被传送
 		for t in get_tree().get_nodes_in_group("传送塔"):
-			if t.传送塔ID == 0:
+			if t.传送塔名 == "引导关":
 				if not t.is_connected("开始传送",_on_0号传送塔_开始传送):
 					t.开始传送.connect(_on_0号传送塔_开始传送)
 

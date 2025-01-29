@@ -1,67 +1,63 @@
-[gd_scene load_steps=7 format=3 uid="uid://0a60knyeffah"]
+[gd_scene load_steps=11 format=3 uid="uid://0a60knyeffah"]
 
 [ext_resource type="Script" path="res://游戏场景/关卡/第一关.gd" id="1_2gpvo"]
-[ext_resource type="PackedScene" uid="uid://bv2c15vnv7lt5" path="res://游戏场景/传送塔/传送塔.tscn" id="4_45tb2"]
+[ext_resource type="PackedScene" uid="uid://cpntiktxxb75v" path="res://游戏场景/背景生成/背景生成.tscn" id="2_iwtu4"]
 [ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="4_d87ii"]
-[ext_resource type="PackedScene" uid="uid://bi2yok68ct3tp" path="res://游戏场景/金币/金币.tscn" id="5_pm1nd"]
+[ext_resource type="PackedScene" uid="uid://d21kstiiif8gp" path="res://游戏场景/柱子/柱子生成器.tscn" id="4_g45po"]
+[ext_resource type="PackedScene" uid="uid://3by1hccfkhcx" path="res://尖刺/尖刺地面/尖刺地面.tscn" id="5_0wkwf"]
+[ext_resource type="PackedScene" uid="uid://bvqharjygbnsy" path="res://尖刺/尖刺障碍/尖刺障碍.tscn" id="6_28k8d"]
+[ext_resource type="PackedScene" uid="uid://bflqk066q7rwv" path="res://游戏场景/传送点/传送点.tscn" id="7_gatbk"]
+[ext_resource type="PackedScene" uid="uid://xk0itf4dplxr" path="res://游戏场景/传送点/传送目标.tscn" id="8_ey8vq"]
 
-[sub_resource type="Gradient" id="Gradient_adwgf"]
-colors = PackedColorArray(0.319415, 0.452614, 1, 1, 0.503799, 0.723451, 1, 1)
+[sub_resource type="Gradient" id="Gradient_8wiop"]
+offsets = PackedFloat32Array(0, 0.994737)
+colors = PackedColorArray(0.253712, 0.616148, 1, 1, 0.56, 0.736, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mb71o"]
 resource_local_to_scene = true
-size = Vector2(9992.5, 1018)
+size = Vector2(7507.45, 1018)
 
 [node name="第一关" type="Node2D"]
 script = ExtResource("1_2gpvo")
-"关卡长度" = 10000
-gradient = SubResource("Gradient_adwgf")
+
+[node name="背景生成" parent="." instance=ExtResource("2_iwtu4")]
+"关卡长度" = 7500
+gradient = SubResource("Gradient_8wiop")
+"房间名" = "第一关"
 
 [node name="CameraArea2D" parent="." instance=ExtResource("4_d87ii")]
 
 [node name="CollisionShape2D" parent="CameraArea2D" index="0"]
-position = Vector2(4990.75, 525)
+position = Vector2(3748.27, 525)
 shape = SubResource("RectangleShape2D_mb71o")
 
 [node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
 position = Vector2(1173, 547.148)
-tween_on_load = false
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="柱子生成器" parent="." instance=ExtResource("4_g45po")]
+"柱子数量" = 15
+"柱子颜色" = Color(0.0922085, 0.237108, 0.367188, 1)
 
-[node name="金币" parent="Node2D" instance=ExtResource("5_pm1nd")]
-position = Vector2(1255, 576)
+[node name="尖刺地面" parent="." instance=ExtResource("5_0wkwf")]
+position = Vector2(5513, 921)
 
-[node name="金币2" parent="Node2D" instance=ExtResource("5_pm1nd")]
-position = Vector2(3167, 694)
+[node name="尖刺地面2" parent="." instance=ExtResource("5_0wkwf")]
+position = Vector2(7041, 921)
 
-[node name="金币3" parent="Node2D" instance=ExtResource("5_pm1nd")]
-position = Vector2(4675, 678)
+[node name="尖刺障碍" parent="." instance=ExtResource("6_28k8d")]
+position = Vector2(6211, 525)
 
-[node name="金币4" parent="Node2D" instance=ExtResource("5_pm1nd")]
-position = Vector2(1524, 726)
+[node name="尖刺障碍2" parent="." instance=ExtResource("6_28k8d")]
+position = Vector2(6514, 307)
 
-[node name="金币5" parent="Node2D" instance=ExtResource("5_pm1nd")]
-position = Vector2(1672, 729)
+[node name="尖刺障碍3" parent="." instance=ExtResource("6_28k8d")]
+position = Vector2(6838, 532)
 
-[node name="金币6" parent="Node2D" instance=ExtResource("5_pm1nd")]
-position = Vector2(1932, 567)
+[node name="传送点" parent="." instance=ExtResource("7_gatbk")]
+position = Vector2(6545, 928)
 
-[node name="金币7" parent="Node2D" instance=ExtResource("5_pm1nd")]
-position = Vector2(2124, 537)
-
-[node name="金币8" parent="Node2D" instance=ExtResource("5_pm1nd")]
-position = Vector2(1057, 561)
-
-[node name="金币9" parent="Node2D" instance=ExtResource("5_pm1nd")]
-position = Vector2(2331, 363)
-
-[node name="金币10" parent="Node2D" instance=ExtResource("5_pm1nd")]
-position = Vector2(2568, 462)
-
-[node name="传送塔" parent="." instance=ExtResource("4_45tb2")]
-position = Vector2(522, 923)
-"传送塔ID" = 1
-"传送列表" = Array[int]([0])
+[node name="传送目标" parent="." instance=ExtResource("8_ey8vq")]
+position = Vector2(406, 597)
+"关卡名" = "第一关"
 
 [editable path="CameraArea2D"]
