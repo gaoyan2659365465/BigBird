@@ -23,6 +23,9 @@ var 声音 = AudioStreamPlayer.new()
 # 专门用于读取表格数据
 var excel_data:ExcelData = ExcelData.new()
 
+# 专门用于成就的管理
+var 成就系统:成就管理器 = 成就管理器.new()
+
 var play
 
 signal 通用触发框信号(事件名)
@@ -32,6 +35,7 @@ func _ready():
 	self.add_child(umg)
 	self.add_child(声音)
 	self.add_child(excel_data)
+	self.add_child(成就系统)
 	
 	
 	# 如果目录不存在则创建存档目录

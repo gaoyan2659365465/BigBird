@@ -1,3 +1,4 @@
+@tool
 class_name CameraArea2D extends Area2D
 
 @onready var phantom_camera_2d: PhantomCamera2D = $PhantomCamera2D
@@ -6,11 +7,15 @@ class_name CameraArea2D extends Area2D
 		follow_target = value
 		phantom_camera_2d.follow_target = follow_target
 
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
+
 func _ready() -> void:
 	await get_tree().process_frame
-	if follow_target == null:
-		follow_target = Global.play
-	phantom_camera_2d.follow_target = follow_target
+	if not Engine.is_editor_hint():
+		if follow_target == null:
+			follow_target = Global.play
+		phantom_camera_2d.follow_target = follow_target
 
 func _on_body_entered(body: Node2D) -> void:
 	if body as Player:

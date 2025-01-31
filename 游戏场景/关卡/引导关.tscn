@@ -144,7 +144,7 @@ position = Vector2(3297.25, 525)
 shape = SubResource("RectangleShape2D_xda5c")
 
 [node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
-position = Vector2(1173, 502.852)
+position = Vector2(1173, 547.148)
 
 [node name="传送点" parent="." instance=ExtResource("5_bqu8a")]
 position = Vector2(5327, 931)

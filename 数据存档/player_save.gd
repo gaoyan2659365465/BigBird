@@ -64,10 +64,48 @@ signal set_引导流程(v)
 @export var 禁用玩家操作 = false
 
 
-@export var 统计死亡次数 = 0
+signal 领取成就奖励
+@export var 统计已达成成就 = []
+@export var 统计成就领取奖励 = []
 
-@export var 统计红心收集 = 0
+signal set_统计死亡次数(v)
+@export var 统计死亡次数 = 0:
+	set(v):
+		统计死亡次数 = v
+		set_统计死亡次数.emit(v)
 
-@export var 统计金币总数 = 0
+signal set_统计红心收集(v)
+@export var 统计红心收集 = 0:
+	set(v):
+		统计红心收集 = v
+		set_统计红心收集.emit(v)
 
-@export var 统计穿过管道次数 = 0
+signal set_统计红心消耗(v)
+@export var 统计红心消耗 = 0:
+	set(v):
+		统计红心消耗 = v
+		set_统计红心消耗.emit(v)
+
+signal set_统计金币总数(v)
+@export var 统计金币总数 = 0:
+	set(v):
+		统计金币总数 = v
+		set_统计金币总数.emit(v)
+
+signal set_统计穿过管道次数(v)
+@export var 统计穿过管道次数 = 0:
+	set(v):
+		统计穿过管道次数 = v
+		set_统计穿过管道次数.emit(v)
+
+signal set_统计跳跃次数(v)
+@export var 统计跳跃次数 = 0:
+	set(v):
+		统计跳跃次数 = v
+		set_统计跳跃次数.emit(v)
+
+signal set_统计最高通关(v)
+@export var 统计最高通关 = 0:
+	set(v):
+		统计最高通关 = v
+		set_统计最高通关.emit(v)

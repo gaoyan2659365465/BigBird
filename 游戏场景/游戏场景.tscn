@@ -1,13 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://bdj4rga77kasa"]
+[gd_scene load_steps=21 format=3 uid="uid://bdj4rga77kasa"]
 
 [ext_resource type="Script" path="res://游戏场景/游戏场景.gd" id="1_cgx84"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_cpnc2"]
 [ext_resource type="PackedScene" uid="uid://c7mbu2eu6onmy" path="res://视频转场/视频转场.tscn" id="2_n462u"]
-[ext_resource type="PackedScene" uid="uid://c8jsd8br2ci8w" path="res://游戏场景/关卡进度控件/关卡进度控件.tscn" id="3_n5ws5"]
 [ext_resource type="PackedScene" uid="uid://cjb3j8jty64m6" path="res://游戏场景/暂停控件/暂停页面.tscn" id="3_uu81p"]
 [ext_resource type="PackedScene" uid="uid://cb8fl7kc404k6" path="res://游戏场景/生命控件/生命控件.tscn" id="5_pqj70"]
 [ext_resource type="PackedScene" uid="uid://2sqvticcr850" path="res://游戏场景/玩家/player.tscn" id="8_637yw"]
 [ext_resource type="PackedScene" uid="uid://dkpqwwq4mchb3" path="res://Debug工具/debug工具.tscn" id="9_ib00q"]
+[ext_resource type="PackedScene" uid="uid://c8jsd8br2ci8w" path="res://游戏场景/关卡进度控件/关卡进度控件.tscn" id="9_ujdur"]
 [ext_resource type="PackedScene" uid="uid://0a60knyeffah" path="res://游戏场景/关卡/第一关.tscn" id="11_005cm"]
 [ext_resource type="PackedScene" uid="uid://c4fgq1std2mv3" path="res://引导对话/引导对话.tscn" id="11_8eavy"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="13_m1wrv"]
@@ -17,9 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://8k38j0s1pnww" path="res://游戏场景/关卡/大鸟部落.tscn" id="16_4bqob"]
 [ext_resource type="PackedScene" uid="uid://bxokyxi6rb0pv" path="res://游戏场景/关卡/商店关.tscn" id="17_wivnu"]
 [ext_resource type="PackedScene" uid="uid://blfnwkhq6udm6" path="res://游戏场景/关卡/角色切换房.tscn" id="18_jig6t"]
-[ext_resource type="PackedScene" uid="uid://geus4knlhoxj" path="res://游戏场景/关卡/第二关.tscn" id="19_rgfgf"]
+[ext_resource type="PackedScene" uid="uid://csyy2g6nnsuul" path="res://游戏场景/关卡/生产关卡.tscn" id="19_a1k5q"]
 [ext_resource type="PackedScene" uid="uid://fbhrsihx5b13" path="res://游戏场景/关卡/金币房.tscn" id="20_lv6fm"]
-[ext_resource type="PackedScene" uid="uid://c0agpqjtctxlf" path="res://游戏场景/关卡/第三关.tscn" id="20_qagmd"]
 
 [sub_resource type="Resource" id="Resource_tspbc"]
 script = ExtResource("14_5kr5a")
@@ -40,7 +39,7 @@ script = ExtResource("2_cpnc2")
 
 [node name="Player" parent="." instance=ExtResource("8_637yw")]
 z_index = 1
-position = Vector2(20202, 633)
+position = Vector2(236, 6069)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
@@ -53,21 +52,16 @@ offset_bottom = -530.0
 mouse_filter = 2
 
 [node name="暂停页面" parent="CanvasLayer" instance=ExtResource("3_uu81p")]
-visible = false
 offset_right = -1024.0
 offset_bottom = -560.0
 
 [node name="视频转场" parent="CanvasLayer" instance=ExtResource("2_n462u")]
 
-[node name="关卡进度控件" parent="CanvasLayer" instance=ExtResource("3_n5ws5")]
-offset_left = 932.0
-offset_top = 588.0
-offset_right = 4.0
-offset_bottom = 1.0
-
 [node name="引导对话" parent="CanvasLayer" instance=ExtResource("11_8eavy")]
 
 [node name="Debug工具" parent="CanvasLayer" instance=ExtResource("9_ib00q")]
+
+[node name="关卡进度控件" parent="CanvasLayer" instance=ExtResource("9_ujdur")]
 
 [node name="引导关" parent="." instance=ExtResource("14_mafg3")]
 
@@ -89,12 +83,6 @@ position = Vector2(19695, 0)
 [node name="成就房" parent="." instance=ExtResource("15_o7p6h")]
 position = Vector2(26674, 0)
 
-[node name="第二关" parent="." instance=ExtResource("19_rgfgf")]
-position = Vector2(0, 4704)
-
-[node name="第三关" parent="." instance=ExtResource("20_qagmd")]
-position = Vector2(0, 7728)
-
 [node name="聚焦摄像头" type="Node2D" parent="."]
 position = Vector2(576, 627)
 script = ExtResource("13_m1wrv")
@@ -102,4 +90,10 @@ priority = 11
 tween_resource = SubResource("Resource_tspbc")
 draw_limits = true
 
+[node name="生产关卡" parent="." instance=ExtResource("19_a1k5q")]
+position = Vector2(0, 5728)
+"关卡id" = 20
+
 [connection signal="被撞死" from="CanvasLayer/生命控件" to="." method="_on_生命控件_被撞死"]
+[connection signal="body_entered" from="生产关卡/CameraArea2D" to="生产关卡/CameraArea2D" method="_on_body_entered"]
+[connection signal="body_exited" from="生产关卡/CameraArea2D" to="生产关卡/CameraArea2D" method="_on_body_exited"]

@@ -27,6 +27,7 @@ func _physics_process(delta):
 	# 检测跳跃输入
 	if Input.is_action_just_pressed("ui_accept"): # 例如空格键或鼠标点击
 		velocity.y = -jump_force
+		Global.player_save.统计跳跃次数 += 1
 		#$"大鸟".跳跃()
 		if Global.player_save.引导流程 == 5:
 			Global.player_save.引导流程 = 6

@@ -23,6 +23,7 @@ func _ready() -> void:
 	视频转场.进入场景转场End()
 
 
+
 func 监听柱子被撞():
 	var zhus = get_tree().get_nodes_in_group("柱子")
 	for i in zhus:
@@ -53,6 +54,7 @@ func _on_金币_吃金币():
 func _on_生命控件_被撞死() -> void:
 	var stop = preload("res://游戏场景/游戏结束控件/游戏结束控件.tscn").instantiate()
 	canvas_layer.add_child(stop)
+	Global.player_save.统计死亡次数 += 1
 
 func _on_过关() -> void:
 	Global.player_save.解锁关卡.append(2)

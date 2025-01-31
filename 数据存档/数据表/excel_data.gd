@@ -17,3 +17,7 @@ func _ready() -> void:
 func 成就加载():
 	var 成就数据 = self.json.data['成就系统']
 	return 成就数据
+
+func 关卡加载():
+	var 关卡数据 = self.json.data['关卡信息']
+	return 关卡数据

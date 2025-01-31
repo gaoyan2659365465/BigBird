@@ -17,6 +17,8 @@ var 碰撞
 var 背景检测框:Area2D
 
 
+signal 进入房间()
+
 func _ready() -> void:
 	创建背景()
 	创建中景()
@@ -105,3 +107,4 @@ func _on_body_entered(body:Node2D):
 	if body as Player:
 		# 玩家进入该房间，需要显示房间名
 		Global.房间名(房间名)
+		进入房间.emit()

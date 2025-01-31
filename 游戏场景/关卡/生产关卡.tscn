@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://csyy2g6nnsuul"]
+
+[ext_resource type="Script" path="res://游戏场景/关卡/生产关卡.gd" id="1_je68c"]
+
+[node name="生产关卡" type="Node2D"]
+script = ExtResource("1_je68c")
+
+[connection signal="body_entered" from="CameraArea2D" to="CameraArea2D" method="_on_body_entered"]
+[connection signal="body_exited" from="CameraArea2D" to="CameraArea2D" method="_on_body_exited"]

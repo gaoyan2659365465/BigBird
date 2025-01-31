@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr0lfb7s53at1"]
+[gd_scene load_steps=7 format=3 uid="uid://dr0lfb7s53at1"]
 
 [ext_resource type="Script" path="res://成就系统/成就面板.gd" id="1_vc2c6"]
 
@@ -14,6 +14,13 @@ font_size = 66
 
 [sub_resource type="LabelSettings" id="LabelSettings_3b2oi"]
 font_size = 36
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_il0yd"]
+bg_color = Color(0.183594, 0.183594, 0.183594, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rbgvi"]
 corner_radius_top_left = 25
@@ -80,6 +87,10 @@ text = "成就描述：通过10个管道"
 label_settings = SubResource("LabelSettings_3b2oi")
 autowrap_mode = 1
 
+[node name="ProgressBar" type="ProgressBar" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_il0yd")
+
 [node name="成就奖励" type="Label" parent="Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
@@ -96,12 +107,19 @@ layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 
-[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+alignment = 1
+
+[node name="领取奖励" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 focus_mode = 0
-text = "确定"
+disabled = true
+text = "未达成"
 
-[node name="Panel" type="Panel" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/Button"]
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/领取奖励"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -112,4 +130,22 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rbgvi")
 
-[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+focus_mode = 0
+text = "确定"
+
+[node name="Panel" type="Panel" parent="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Button"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_rbgvi")
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/领取奖励" to="." method="_on_领取奖励_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
