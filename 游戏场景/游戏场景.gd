@@ -15,51 +15,17 @@ func _ready() -> void:
 	#	get_window().position = Vector2i(500,50)
 	Global.player_save.set_引导流程.connect(_on_set_引导流程)
 	
-	监听柱子被撞()# 需要等待所有柱子全部生成
-	监听金币被撞()
-	
 	Global.player_save.收集物品 = []
 	
 	视频转场.进入场景转场End()
 
 
 
-func 监听柱子被撞():
-	var zhus = get_tree().get_nodes_in_group("柱子")
-	for i in zhus:
-		i.connect("被碰到",_on_柱子_被碰到)
-		i.connect("离开",_on_柱子_离开)
-
-func 监听金币被撞():
-	var jins = get_tree().get_nodes_in_group("金币")
-	for i in jins:
-		i.connect("吃金币",_on_金币_吃金币)
-
-
-
-func _on_柱子_被碰到(target):
-	if Global.player_save.引导流程 == 6:# 新手教学，免疫伤害
-		return
-	Global.player_save.血量 -= 1
-
-func _on_柱子_离开(target):
-	Global.player_save.通过柱子数 += 1
-
-func _on_金币_吃金币():
-	Global.player_save.金币 += 1
-	Global.player_save.收集物品.append("金币")
-	Global.player_save.收集物品 = Global.player_save.收集物品  
-
 
 func _on_生命控件_被撞死() -> void:
 	var stop = preload("res://游戏场景/游戏结束控件/游戏结束控件.tscn").instantiate()
 	canvas_layer.add_child(stop)
 	Global.player_save.统计死亡次数 += 1
-
-func _on_过关() -> void:
-	Global.player_save.解锁关卡.append(2)
-	var stop = preload("res://游戏场景/游戏胜利控件/游戏胜利控件.tscn").instantiate()
-	canvas_layer.add_child(stop)
 
 
 func _on_跳跃按钮控件_跳跃() -> void:

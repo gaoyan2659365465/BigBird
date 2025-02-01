@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fdmq8"]
 size = Vector2(122, 158)
 
-[node name="传送点" type="Node2D"]
+[node name="传送点" type="Node2D" groups=["传送点"]]
 script = ExtResource("1_6a2wx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

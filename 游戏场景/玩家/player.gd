@@ -7,6 +7,8 @@ class_name Player extends CharacterBody2D
 @export var max_fall_speed: float = 600.0
 @export var horizontal_speed: float = 150.0
 
+var 无敌时间 = false
+
 
 func _ready():
 	Global.play = self
@@ -59,3 +61,9 @@ func _on_通用触发框信号(事件名):
 		$Sprite2D.texture = preload("res://PSD源文件/僵尸鸟.png")
 	if 事件名 == "切换酋长鸟":
 		$Sprite2D.texture = preload("res://PSD源文件/酋长鸟.png")
+
+func 受击():
+	$AnimationPlayer.play("受击动画")
+	无敌时间 = true
+	await get_tree().create_timer(1.0).timeout
+	无敌时间 = false

@@ -20,10 +20,13 @@ func 切换文本(text):
 
 func _on_texture_button_pressed() -> void:
 	if Global.player_save.引导流程 == 0:
+		await get_tree().create_timer(1.0).timeout
 		Global.player_save.引导流程 = 1
 	elif Global.player_save.引导流程 == 1:
+		await get_tree().create_timer(1.0).timeout
 		Global.player_save.引导流程 = 2
 	elif Global.player_save.引导流程 == 2:
+		await get_tree().create_timer(1.0).timeout
 		Global.player_save.引导流程 = 3
 
 
@@ -42,12 +45,10 @@ func _on_通用触发框信号(事件名):
 	if 事件名 == "引导10":
 		if Global.player_save.引导流程 == 9:
 			Global.player_save.引导流程 = 10
-			Global.player_save.禁用玩家操作 = true
-			# 监听0号传送塔是否被点击
-			for t in get_tree().get_nodes_in_group("传送塔"):
-				if t.传送塔名 == "引导关":
-					if not t.is_connected("显示传送球",_on_0号传送塔_显示传送球):
-						t.显示传送球.connect(_on_0号传送塔_显示传送球)
+			for i in get_tree().get_nodes_in_group("传送点"):
+				if i.唯一ID == 1:
+					# 说明找到了引导关的传送点，需要绑定它的传送信号
+					i.开始传送.connect(_on_引导关_开始传送)
 
 
 func _on_set_引导流程(value):
@@ -68,6 +69,7 @@ func _on_set_引导流程(value):
 		var 屏幕文本 = """[center][color=#ff0000]点击屏幕[/color]控制大鸟飞起"""
 		切换文本(屏幕文本)
 	elif value == 6:
+		await get_tree().create_timer(1.0).timeout
 		var 屏幕文本 = """[center]\n太棒了！继续下去！\n不停[color=#ff0000]点击屏幕[/color]\n跳过这些[color=#ff0000]尖刺[/color]！"""
 		切换文本(屏幕文本)
 	elif value == 7:
@@ -77,13 +79,13 @@ func _on_set_引导流程(value):
 		var 屏幕文本 = """[center]\n[color=#ffc60b]金币[/color]是个好东西\n多多益善\n继续前进"""
 		切换文本(屏幕文本)
 	elif value == 9:
-		var 屏幕文本 = """[center]\n[color=#0059ff]传送塔[/color]\n豆腐王国的最高科技\n前进激活它"""
+		var 屏幕文本 = """[center]\n[color=#0059ff]传送门[/color]\n豆腐王国的最高科技\n前进激活它"""
 		切换文本(屏幕文本)
 	elif value == 10:
-		var 屏幕文本 = """[center]\n点击[color=#0059ff]传送塔[/color]\n能送你去想去的地方"""
+		var 屏幕文本 = """[center]\n进入[color=#0059ff]传送门[/color]\n能送你去想去的地方"""
 		切换文本(屏幕文本)
 	elif value == 11:
-		var 屏幕文本 = """[center]\n就是这样\n点击不同的传送球\n可以开始传送！"""
+		var 屏幕文本 = """[center]\n就是这样\n这里是大鸟部落\n你的新家！"""
 		切换文本(屏幕文本)
 	elif value == 12:
 		rich_text_label.text = ""
@@ -94,17 +96,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		Global.player_save.引导流程 = 4
 
 
-func _on_0号传送塔_显示传送球(value):
-	if value:
-		Global.player_save.引导流程 = 11
-		Global.player_save.禁用玩家操作 = false
-		# 监听0号传送塔是否被传送
-		for t in get_tree().get_nodes_in_group("传送塔"):
-			if t.传送塔名 == "引导关":
-				if not t.is_connected("开始传送",_on_0号传送塔_开始传送):
-					t.开始传送.connect(_on_0号传送塔_开始传送)
-
-func _on_0号传送塔_开始传送(old_id,new_id):
-	print("开始传送，目标："+str(new_id))
+func _on_引导关_开始传送():
+	Global.player_save.引导流程 = 11
+	await get_tree().create_timer(2.0).timeout
 	Global.player_save.引导流程 = 12
-	

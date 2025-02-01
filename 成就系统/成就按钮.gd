@@ -19,9 +19,13 @@ func 刷新成就情况():
 	var value = Global.成就系统.获取当前条件参数(成就ID)
 	if value >= max_value:
 		红点.visible = true
+		成就图标.self_modulate = Color("#ffffff")
 		for i in Global.player_save.统计成就领取奖励:
 			if i == 成就ID:
 				红点.visible = false
+				label.set("theme_override_colors/font_color",Color("#ffdb00"))
+	else:
+		成就图标.self_modulate = Color("#414141")
 
 func _on_成就图标_pressed() -> void:
 	var 面板 = preload("res://成就系统/成就面板.tscn").instantiate()

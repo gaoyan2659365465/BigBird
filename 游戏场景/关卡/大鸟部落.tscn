@@ -29,26 +29,18 @@ position = Vector2(2925.77, 525)
 shape = SubResource("RectangleShape2D_rl2t1")
 
 [node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
-position = Vector2(1173, 547.148)
+position = Vector2(1173, 502.852)
 
 [node name="传送点" parent="." instance=ExtResource("3_vm0lu")]
 position = Vector2(1068, 924)
 "传送目标" = "第一关"
 
-[node name="传送点2" parent="." instance=ExtResource("3_vm0lu")]
-position = Vector2(1536, 923)
-"传送目标" = "第二关"
-
-[node name="传送点3" parent="." instance=ExtResource("3_vm0lu")]
-position = Vector2(1998, 923)
-"传送目标" = "第三关"
-
 [node name="传送点4" parent="." instance=ExtResource("3_vm0lu")]
-position = Vector2(2481, 923)
+position = Vector2(1525, 923)
 "传送目标" = "成就房"
 
 [node name="传送点5" parent="." instance=ExtResource("3_vm0lu")]
-position = Vector2(2947, 923)
+position = Vector2(1991, 923)
 "传送目标" = "角色切换房"
 
 [node name="传送目标" parent="." instance=ExtResource("4_8hm45")]

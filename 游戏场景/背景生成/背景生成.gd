@@ -19,6 +19,7 @@ var 背景检测框:Area2D
 
 signal 进入房间()
 
+
 func _ready() -> void:
 	创建背景()
 	创建中景()

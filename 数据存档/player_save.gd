@@ -27,9 +27,13 @@ signal set_血量(v)
 @export var 最大血量 = 3
 
 
-@export var 解锁关卡 = [1]
-
-
+@export var 解锁关卡 = 1:
+	set(v):
+		if v > 0 and v <= 20:
+			解锁关卡 = v
+		else:
+			解锁关卡 = 1
+	
 @export var 当前加载关卡 = 0
 
 

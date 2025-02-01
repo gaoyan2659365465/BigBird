@@ -9,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_qyail")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -34,24 +35,16 @@ layout_mode = 2
 focus_mode = 0
 text = "角色切换房"
 
-[node name="第一关" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-text = "第一关"
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 1053.0
+offset_top = 10.0
+offset_right = 1139.0
+offset_bottom = 149.0
 
-[node name="第二关" type="Button" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
-focus_mode = 0
-text = "第二关"
-
-[node name="第三关" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-focus_mode = 0
-text = "第三关"
 
 [connection signal="pressed" from="HBoxContainer/大鸟部落" to="." method="_on_大鸟部落_pressed"]
 [connection signal="pressed" from="HBoxContainer/成就房" to="." method="_on_成就房_pressed"]
 [connection signal="pressed" from="HBoxContainer/角色切换房" to="." method="_on_角色切换房_pressed"]
-[connection signal="pressed" from="HBoxContainer/第一关" to="." method="_on_第一关_pressed"]
-[connection signal="pressed" from="HBoxContainer/第二关" to="." method="_on_第二关_pressed"]
-[connection signal="pressed" from="HBoxContainer/第三关" to="." method="_on_第三关_pressed"]

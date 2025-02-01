@@ -19,6 +19,7 @@ extends Node2D
 
 
 var 柱子列表 = []
+var 任务三选一
 
 
 func _ready() -> void:
@@ -43,8 +44,25 @@ func 创建柱子():
 		pos = Vector2(pos.x+_x,_y)
 		柱子.position = pos
 		柱子.柱子颜色 = 柱子颜色
+	
+	创建三选一任务()
 
 
 func 更新关卡():
 	for i in 柱子列表:
 		i.柱子颜色 = 柱子颜色
+
+
+func 创建三选一任务():
+	if 任务三选一:
+		任务三选一.queue_free()
+	if 柱子数量>5:
+		seed(随机种子)# 随机种子
+		var max_value = randi_range(1, 柱子数量 - 5)
+		柱子列表[max_value].visible = false
+		任务三选一 = preload("res://游戏场景/任务三选一/任务三选一.tscn").instantiate()
+		add_child(任务三选一)
+		任务三选一.position = 柱子列表[max_value].position
+		任务三选一.position.y = 469
+	
+	
