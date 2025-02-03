@@ -1,22 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://c4mfsycaty4y1"]
 
 [ext_resource type="Script" path="res://游戏场景/任务三选一/任务三选一.gd" id="1_ocjbb"]
-[ext_resource type="Texture2D" uid="uid://dujkowcwgolgi" path="res://PSD源文件/问号宝箱.png" id="2_85xov"]
+[ext_resource type="PackedScene" uid="uid://bufbfawiceyeq" path="res://游戏场景/任务三选一/问号宝箱.tscn" id="3_jiwb4"]
 
 [node name="任务三选一" type="Node2D"]
 script = ExtResource("1_ocjbb")
 
-[node name="问号宝箱" type="Sprite2D" parent="."]
-position = Vector2(2, -213)
-scale = Vector2(0.466797, 0.466797)
-texture = ExtResource("2_85xov")
+[node name="问号宝箱1" parent="." instance=ExtResource("3_jiwb4")]
 
-[node name="问号宝箱2" type="Sprite2D" parent="."]
-position = Vector2(2, 1)
-scale = Vector2(0.466797, 0.466797)
-texture = ExtResource("2_85xov")
+[node name="问号宝箱2" parent="." instance=ExtResource("3_jiwb4")]
+position = Vector2(0, 239)
 
-[node name="问号宝箱3" type="Sprite2D" parent="."]
-position = Vector2(2, 239)
-scale = Vector2(0.466797, 0.466797)
-texture = ExtResource("2_85xov")
+[node name="问号宝箱3" parent="." instance=ExtResource("3_jiwb4")]
+position = Vector2(0, -211)
+
+[connection signal="接取任务" from="问号宝箱1" to="." method="_on_问号宝箱1_接取任务"]
+[connection signal="接取任务" from="问号宝箱2" to="." method="_on_问号宝箱2_接取任务"]
+[connection signal="接取任务" from="问号宝箱3" to="." method="_on_问号宝箱3_接取任务"]

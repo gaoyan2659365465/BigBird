@@ -13,7 +13,7 @@ gradient = SubResource("Gradient_kcnoc")
 gradient = SubResource("Gradient_kcnoc")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4alms"]
-size = Vector2(118, 850)
+size = Vector2(92, 850)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogfh4"]
 size = Vector2(83, 845)
@@ -22,7 +22,7 @@ size = Vector2(83, 845)
 size = Vector2(83, 849)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ykabt"]
-size = Vector2(117, 253)
+size = Vector2(83, 253)
 
 [node name="柱子" type="Node2D" groups=["柱子"]]
 script = ExtResource("1_djfkn")
@@ -45,7 +45,7 @@ position = Vector2(-1, -582)
 shape = SubResource("RectangleShape2D_4alms")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2.5, 565)
+position = Vector2(-2, 565)
 shape = SubResource("RectangleShape2D_4alms")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -61,7 +61,7 @@ shape = SubResource("RectangleShape2D_kbnt6")
 [node name="Area2D2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(-1.5, -4.5)
+position = Vector2(-0.5, -4.5)
 shape = SubResource("RectangleShape2D_ykabt")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

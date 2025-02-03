@@ -21,3 +21,16 @@ func 成就加载():
 func 关卡加载():
 	var 关卡数据 = self.json.data['关卡信息']
 	return 关卡数据
+
+
+func 获取对话(告示牌名 = "告示牌1"):
+	var 对话数据 = self.json.data['对话数据']
+	
+	var 对话数组 = []
+	for key in 对话数据:
+		var 对话 = 对话数据[key][告示牌名]
+		if 对话 != "":
+			对话数组.append(对话)
+		else:
+			return 对话数组
+	return 对话数组

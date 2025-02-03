@@ -13,6 +13,7 @@ func _ready() -> void:
 	Global.player_save.set_统计金币总数.connect(_on_统计金币总数)
 	Global.player_save.set_统计穿过管道次数.connect(_on_统计穿过管道次数)
 	Global.player_save.set_统计最高通关.connect(_on_统计最高通关)
+	Global.player_save.set_穿过鬼打墙.connect(_on_穿过鬼打墙)
 	
 
 
@@ -83,6 +84,7 @@ func 成就检测(id_list):
 					if not 判断成就是否已达成(id):
 						达成成就.emit(id)
 						Global.player_save.统计已达成成就.append(id)
+						Global.成就解锁(data)
 						print("解锁成就:"+str(id))
 
 func _on_统计死亡次数(v):
@@ -102,3 +104,6 @@ func _on_统计穿过管道次数(v):
 
 func _on_统计最高通关(v):
 	成就检测([13,14,15,16])
+
+func _on_穿过鬼打墙(v):
+	成就检测([17])

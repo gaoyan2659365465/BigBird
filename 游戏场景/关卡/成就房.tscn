@@ -28,7 +28,7 @@ position = Vector2(957.275, 525)
 shape = SubResource("RectangleShape2D_mysur")
 
 [node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
-position = Vector2(939.262, 547.148)
+position = Vector2(939.262, 502.852)
 
 [node name="传送目标" parent="." instance=ExtResource("4_s42l3")]
 position = Vector2(491, 525)

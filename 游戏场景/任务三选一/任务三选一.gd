@@ -1,11 +1,14 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+
+func _on_问号宝箱1_接取任务() -> void:
+	Global.临时任务控件.添加任务()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_问号宝箱2_接取任务() -> void:
+	Global.临时任务控件.添加任务()
+
+
+func _on_问号宝箱3_接取任务() -> void:
+	Global.临时任务控件.添加任务()

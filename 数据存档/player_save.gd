@@ -16,6 +16,11 @@ signal set_hp
 # 玩家是否勾选协议
 @export var privacy_agreement = false
 
+# 告示牌是否被点击
+@export var 告示牌被点击 = []
+@export var 第一次进入对话 = true
+
+
 # 红心碰到柱子减少
 signal set_血量(v)
 @export var 血量 = 3:
@@ -71,6 +76,12 @@ signal set_引导流程(v)
 signal 领取成就奖励
 @export var 统计已达成成就 = []
 @export var 统计成就领取奖励 = []
+
+signal set_穿过鬼打墙(v)
+@export var 穿过鬼打墙 = 0:
+	set(v):
+		穿过鬼打墙 = v
+		set_穿过鬼打墙.emit(v)
 
 signal set_统计死亡次数(v)
 @export var 统计死亡次数 = 0:

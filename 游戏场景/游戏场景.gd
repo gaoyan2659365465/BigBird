@@ -20,18 +20,10 @@ func _ready() -> void:
 	视频转场.进入场景转场End()
 
 
-
-
 func _on_生命控件_被撞死() -> void:
 	var stop = preload("res://游戏场景/游戏结束控件/游戏结束控件.tscn").instantiate()
 	canvas_layer.add_child(stop)
 	Global.player_save.统计死亡次数 += 1
-
-
-func _on_跳跃按钮控件_跳跃() -> void:
-	Input.action_press("ui_accept")
-	await get_tree().process_frame
-	Input.action_release("ui_accept")
 
 
 func _on_set_引导流程(value):

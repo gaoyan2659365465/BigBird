@@ -27,6 +27,8 @@ var excel_data:ExcelData = ExcelData.new()
 var 成就系统:成就管理器 = 成就管理器.new()
 
 var play
+var 临时任务控件
+var 剧情镜头
 
 signal 通用触发框信号(事件名)
 
@@ -64,3 +66,8 @@ func 房间名(value:String):
 	var x = preload("res://游戏场景/关卡名控件/关卡名控件.tscn").instantiate()
 	self.umg.add_child(x)
 	x.设置文字(value)
+
+func 成就解锁(data):
+	var x = preload("res://成就系统/成就提示控件/成就提示控件.tscn").instantiate()
+	self.umg.add_child(x)
+	x.初始化(data)

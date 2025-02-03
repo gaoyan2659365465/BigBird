@@ -43,6 +43,10 @@ theme/custom_font="res://全局资源/阿朱泡泡体.ttf"
 
 pointing/emulate_touch_from_mouse=true
 
+[physics]
+
+common/physics_interpolation=true
+
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true

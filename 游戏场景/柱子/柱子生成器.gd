@@ -59,10 +59,16 @@ func 创建三选一任务():
 	if 柱子数量>5:
 		seed(随机种子)# 随机种子
 		var max_value = randi_range(1, 柱子数量 - 5)
-		柱子列表[max_value].visible = false
+		max_value = 2
+		柱子列表[max_value].queue_free()
 		任务三选一 = preload("res://游戏场景/任务三选一/任务三选一.tscn").instantiate()
 		add_child(任务三选一)
 		任务三选一.position = 柱子列表[max_value].position
 		任务三选一.position.y = 469
-	
+
+func 创建空地(value):
+	var pos = 柱子列表[value[0]].position
+	for i in value:
+		柱子列表[i].queue_free()
+	return pos
 	

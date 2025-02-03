@@ -12,6 +12,7 @@ var 柱子
 var 相机框
 var 传送点
 var 传送目标
+var 休息点
 
 
 func _ready() -> void:
@@ -28,6 +29,7 @@ func _ready() -> void:
 			创建柱子(数据['柱子数量'], 数据['柱子颜色'], 数据['柱子种子'])
 			创建相机框(数据['背景长度'])
 			创建传送点(数据['背景长度'], 数据['关卡名称'])
+			创建休息点(数据['休息区位置'])
 	
 
 
@@ -63,6 +65,14 @@ func 创建传送点(长度,名称):
 	add_child(传送目标)
 	传送目标.position = Vector2(406,597)
 	传送目标.关卡名 = 名称
+
+func 创建休息点(位置):
+	var pos = 柱子.创建空地([位置,位置+1,位置+2])
+	休息点 = preload("res://游戏场景/休息点/休息点.tscn").instantiate()
+	add_child(休息点)
+	休息点.position = pos
+	休息点.position.x -= 50
+	休息点.position.y = 0
 
 
 func _on_开始传送():

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cahkjnth4ccj1"]
+
+[ext_resource type="Script" path="res://游戏场景/宝箱/宝箱.gd" id="1_4it2e"]
+[ext_resource type="Texture2D" uid="uid://ig3sm1wp4a1q" path="res://PSD源文件/宝箱.png" id="1_6m1ur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4d3l"]
+size = Vector2(175, 135)
+
+[node name="宝箱" type="Node2D"]
+script = ExtResource("1_4it2e")
+
+[node name="宝箱" type="Sprite2D" parent="."]
+position = Vector2(2, -74.25)
+scale = Vector2(0.824022, 0.824022)
+texture = ExtResource("1_6m1ur")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.5, -70.5)
+shape = SubResource("RectangleShape2D_f4d3l")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

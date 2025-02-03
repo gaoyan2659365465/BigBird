@@ -67,3 +67,10 @@ func 受击():
 	无敌时间 = true
 	await get_tree().create_timer(1.0).timeout
 	无敌时间 = false
+
+# 进入镜头动画
+func play_anim():
+	$剧情对话视角.priority = 50
+
+func play_anim2():
+	$剧情对话视角.priority = 0

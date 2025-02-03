@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://8k38j0s1pnww"]
+[gd_scene load_steps=13 format=3 uid="uid://8k38j0s1pnww"]
 
 [ext_resource type="PackedScene" uid="uid://cpntiktxxb75v" path="res://游戏场景/背景生成/背景生成.tscn" id="1_27m3b"]
 [ext_resource type="Script" path="res://游戏场景/关卡/大鸟部落.gd" id="1_255wd"]
 [ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="2_4te6v"]
 [ext_resource type="PackedScene" uid="uid://bflqk066q7rwv" path="res://游戏场景/传送点/传送点.tscn" id="3_vm0lu"]
 [ext_resource type="PackedScene" uid="uid://xk0itf4dplxr" path="res://游戏场景/传送点/传送目标.tscn" id="4_8hm45"]
+[ext_resource type="PackedScene" uid="uid://cj3vcnmk83asy" path="res://游戏场景/告示牌/告示牌.tscn" id="6_gmu75"]
+[ext_resource type="PackedScene" uid="uid://cahkjnth4ccj1" path="res://游戏场景/宝箱/宝箱.tscn" id="7_2lt4g"]
+[ext_resource type="Texture2D" uid="uid://gclwtp5eb26x" path="res://PSD源文件/每日签到.png" id="8_ije18"]
+[ext_resource type="PackedScene" uid="uid://dsu5dntffx1fo" path="res://游戏场景/鬼打墙/鬼打墙.tscn" id="9_syn4u"]
 
 [sub_resource type="Gradient" id="Gradient_8apai"]
 offsets = PackedFloat32Array(0, 0.994737)
@@ -13,6 +17,9 @@ colors = PackedColorArray(0.25, 1, 0.55, 1, 0.56, 1, 0.875333, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rl2t1"]
 resource_local_to_scene = true
 size = Vector2(5862.45, 1018)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t531a"]
+size = Vector2(315, 900)
 
 [node name="大鸟部落" type="Node2D"]
 script = ExtResource("1_255wd")
@@ -46,6 +53,31 @@ position = Vector2(1991, 923)
 [node name="传送目标" parent="." instance=ExtResource("4_8hm45")]
 position = Vector2(456, 592)
 
+[node name="告示牌" parent="." instance=ExtResource("6_gmu75")]
+offset_left = 778.707
+offset_top = 851.294
+offset_right = 848.707
+offset_bottom = 921.294
+
+[node name="宝箱" parent="." instance=ExtResource("7_2lt4g")]
+position = Vector2(2410, 927)
+
+[node name="宝箱2" parent="." instance=ExtResource("7_2lt4g")]
+position = Vector2(602, 927)
+
+[node name="每日签到" type="Sprite2D" parent="."]
+position = Vector2(3663, 621)
+texture = ExtResource("8_ije18")
+
+[node name="鬼打墙" parent="." instance=ExtResource("9_syn4u")]
+position = Vector2(5527, 446)
+"传送位置" = Vector2(50, 446)
+
+[node name="CollisionShape2D" parent="鬼打墙/Area2D" index="0"]
+position = Vector2(147.5, 18)
+shape = SubResource("RectangleShape2D_t531a")
+
 [connection signal="进入房间" from="背景生成" to="." method="_on_背景生成_进入房间"]
 
 [editable path="CameraArea2D"]
+[editable path="鬼打墙"]
