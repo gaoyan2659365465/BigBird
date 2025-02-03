@@ -1,3 +1,4 @@
+@tool
 extends Node2D
 
 @export var 唯一ID = 0
@@ -11,6 +12,7 @@ extends Node2D
 
 @export var 默认启用 = true
 
+signal 进入
 signal 开始传送
 
 
@@ -18,6 +20,7 @@ func _ready() -> void:
 	label.text = 传送目标
 
 func 传送():
+	开始传送.emit()
 	for t in get_tree().get_nodes_in_group("传送目标"):
 		if t.关卡名 == 传送目标:
 			Global.play.global_position = t.global_position
@@ -25,7 +28,7 @@ func 传送():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body as Player:
-		开始传送.emit()
+		进入.emit()
 		if 默认启用:
 			传送()
 		

@@ -1,27 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlg4u2m376mq0"]
+[gd_scene load_steps=7 format=3 uid="uid://dlg4u2m376mq0"]
 
 [ext_resource type="Script" path="res://游戏场景/游戏胜利控件/游戏胜利控件.gd" id="1_xaqyg"]
-[ext_resource type="Script" path="res://超级按钮/超级按钮.gd" id="2_m5yia"]
-[ext_resource type="Script" path="res://超级按钮/点击动画配置.gd" id="3_y0cn8"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1nsw"]
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tpne"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[sub_resource type="LabelSettings" id="LabelSettings_kkx26"]
-font_size = 98
-outline_size = 30
-outline_color = Color(1, 0.248983, 0.286302, 1)
-
-[sub_resource type="Resource" id="Resource_i76ws"]
-script = ExtResource("3_y0cn8")
-
-[sub_resource type="LabelSettings" id="LabelSettings_oapb7"]
-font_size = 66
-outline_size = 35
-outline_color = Color(0.461028, 0.364493, 1, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_0fur4"]
+font_size = 38
 
 [sub_resource type="Animation" id="Animation_q10lv"]
 length = 0.001
@@ -78,47 +71,73 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.403922)
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 323.0
-offset_top = 170.0
-offset_right = 853.0
-offset_bottom = 524.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_x1nsw")
-
-[node name="Label" type="Label" parent="Panel"]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -71.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.5
+offset_top = -111.5
+offset_right = 160.5
+offset_bottom = 111.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "恭喜你"
-label_settings = SubResource("LabelSettings_kkx26")
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_0tpne")
 
-[node name="返回按钮" type="TextureButton" parent="Panel"]
-layout_mode = 0
-offset_left = 167.0
-offset_top = 267.0
-offset_right = 368.0
-offset_bottom = 352.0
-script = ExtResource("2_m5yia")
-"点击效果" = SubResource("Resource_i76ws")
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
 
-[node name="Label" type="Label" parent="Panel/返回按钮"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "返回"
-label_settings = SubResource("LabelSettings_oapb7")
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "恭喜你过关"
+label_settings = SubResource("LabelSettings_0fur4")
 horizontal_alignment = 1
-vertical_alignment = 1
+
+[node name="用时" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.632813, 0.632813, 0.632813, 1)
+theme_override_font_sizes/font_size = 20
+text = "关卡用时：100秒"
+
+[node name="柱子" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.632813, 0.632813, 0.632813, 1)
+theme_override_font_sizes/font_size = 20
+text = "通过柱子：50根"
+
+[node name="红心" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.632813, 0.632813, 0.632813, 1)
+theme_override_font_sizes/font_size = 20
+text = "消耗红心：0颗"
+
+[node name="评价" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.632813, 0.632813, 0.632813, 1)
+theme_override_font_sizes/font_size = 20
+text = "综合评价：SSS"
+
+[node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+text = "点击撤离"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -126,4 +145,4 @@ libraries = {
 }
 autoplay = "出现"
 
-[connection signal="点击动画结束" from="Panel/返回按钮" to="." method="_on_返回按钮_点击动画结束"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

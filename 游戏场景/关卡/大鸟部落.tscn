@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://8k38j0s1pnww"]
+[gd_scene load_steps=14 format=3 uid="uid://8k38j0s1pnww"]
 
 [ext_resource type="PackedScene" uid="uid://cpntiktxxb75v" path="res://游戏场景/背景生成/背景生成.tscn" id="1_27m3b"]
 [ext_resource type="Script" path="res://游戏场景/关卡/大鸟部落.gd" id="1_255wd"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cahkjnth4ccj1" path="res://游戏场景/宝箱/宝箱.tscn" id="7_2lt4g"]
 [ext_resource type="Texture2D" uid="uid://gclwtp5eb26x" path="res://PSD源文件/每日签到.png" id="8_ije18"]
 [ext_resource type="PackedScene" uid="uid://dsu5dntffx1fo" path="res://游戏场景/鬼打墙/鬼打墙.tscn" id="9_syn4u"]
+[ext_resource type="PackedScene" uid="uid://cw1hra4a8p0hd" path="res://游戏场景/股市/股市场景.tscn" id="10_8qleu"]
 
 [sub_resource type="Gradient" id="Gradient_8apai"]
 offsets = PackedFloat32Array(0, 0.994737)
@@ -66,7 +67,8 @@ position = Vector2(2410, 927)
 position = Vector2(602, 927)
 
 [node name="每日签到" type="Sprite2D" parent="."]
-position = Vector2(3663, 621)
+position = Vector2(3938, 751)
+scale = Vector2(0.610613, 0.610613)
 texture = ExtResource("8_ije18")
 
 [node name="鬼打墙" parent="." instance=ExtResource("9_syn4u")]
@@ -76,6 +78,9 @@ position = Vector2(5527, 446)
 [node name="CollisionShape2D" parent="鬼打墙/Area2D" index="0"]
 position = Vector2(147.5, 18)
 shape = SubResource("RectangleShape2D_t531a")
+
+[node name="股市场景" parent="." instance=ExtResource("10_8qleu")]
+position = Vector2(2924, 926)
 
 [connection signal="进入房间" from="背景生成" to="." method="_on_背景生成_进入房间"]
 

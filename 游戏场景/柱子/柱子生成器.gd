@@ -21,6 +21,9 @@ extends Node2D
 var 柱子列表 = []
 var 任务三选一
 
+signal 柱子通过(target)
+signal 柱子被碰到(target)
+
 
 func _ready() -> void:
 	创建柱子()
@@ -44,6 +47,8 @@ func 创建柱子():
 		pos = Vector2(pos.x+_x,_y)
 		柱子.position = pos
 		柱子.柱子颜色 = 柱子颜色
+		柱子.离开.connect(_on_柱子通过)
+		柱子.被碰到.connect(_on_柱子被碰到)
 	
 	创建三选一任务()
 
@@ -72,3 +77,9 @@ func 创建空地(value):
 		柱子列表[i].queue_free()
 	return pos
 	
+
+func _on_柱子通过(target):
+	柱子通过.emit(target)
+
+func _on_柱子被碰到(target):
+	柱子被碰到.emit(target)

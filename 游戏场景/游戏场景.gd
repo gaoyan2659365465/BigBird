@@ -9,10 +9,6 @@ extends Node2D
 
 
 func _ready() -> void:
-	# 运行时缩放窗口
-	#if OS.get_name() == "Windows":
-	#	get_window().size = Vector2i(648/1.2,1152/1.2)
-	#	get_window().position = Vector2i(500,50)
 	Global.player_save.set_引导流程.connect(_on_set_引导流程)
 	
 	Global.player_save.收集物品 = []

@@ -124,3 +124,13 @@ signal set_统计最高通关(v)
 	set(v):
 		统计最高通关 = v
 		set_统计最高通关.emit(v)
+
+# 需要统计一些关卡内的数据
+@export var 关卡_关卡ID = 0
+@export var 关卡_进入时间 = 0
+@export var 关卡_通过柱子数 = 0
+@export var 关卡_消耗红心数 = 0
+@export var 关卡_得到金币数 = 0
+@export var 关卡_是否通过 = false
+@export var 关卡_离开时间 = 0
+@export var 关卡_评价 = "SSS"

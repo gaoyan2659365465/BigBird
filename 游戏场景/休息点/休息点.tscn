@@ -27,4 +27,4 @@ position = Vector2(663, 937)
 [node name="商品机" parent="." instance=ExtResource("5_4bx73")]
 position = Vector2(123, 926)
 
-[connection signal="开始传送" from="传送点" to="." method="_on_传送点_开始传送"]
+[connection signal="进入" from="传送点" to="." method="_on_传送点_进入"]

@@ -31,6 +31,8 @@ func _ready() -> void:
 			创建传送点(数据['背景长度'], 数据['关卡名称'])
 			创建休息点(数据['休息区位置'])
 	
+	Global.player_save.关卡_关卡ID = 关卡id
+	Global.player_save.关卡_进入时间 = Time.get_unix_time_from_system()
 
 
 func 创建背景(长度,名称,颜色1,颜色2):
@@ -48,6 +50,8 @@ func 创建柱子(数量,颜色,种子):
 	柱子.柱子数量 = 数量
 	柱子.柱子颜色 = Color(颜色)
 	柱子.随机种子 = 种子
+	柱子.柱子通过.connect(_on_柱子通过)
+	柱子.柱子被碰到.connect(_on_柱子被碰到)
 
 func 创建相机框(长度):
 	相机框 = preload("res://幻影相机/camera_area.tscn").instantiate()
@@ -59,7 +63,8 @@ func 创建传送点(长度,名称):
 	传送点 = preload("res://游戏场景/传送点/传送点.tscn").instantiate()
 	add_child(传送点)
 	传送点.position = Vector2(长度-1000,928)
-	传送点.开始传送.connect(_on_开始传送)
+	传送点.进入.connect(_on_进入传送点)
+	传送点.默认启用 = false
 	
 	传送目标 = preload("res://游戏场景/传送点/传送目标.tscn").instantiate()
 	add_child(传送目标)
@@ -73,7 +78,26 @@ func 创建休息点(位置):
 	休息点.position = pos
 	休息点.position.x -= 50
 	休息点.position.y = 0
+	休息点.中途传送.connect(_on_休息点_中途传送)
 
 
-func _on_开始传送():
+func _on_进入传送点():
 	Global.player_save.解锁关卡 = 关卡id + 1
+	Global.player_save.关卡_是否通过 = true
+	Global.player_save.关卡_离开时间 = Time.get_unix_time_from_system()
+	
+	var shengli = preload("res://游戏场景/游戏胜利控件/游戏胜利控件.tscn").instantiate()
+	Global.umg.add_child(shengli)
+	await shengli.tree_exiting
+	传送点.传送()
+	
+
+func _on_柱子通过(target):
+	Global.player_save.关卡_通过柱子数 += 1
+
+func _on_柱子被碰到(target):
+	Global.player_save.关卡_消耗红心数 += 1
+
+func _on_休息点_中途传送():
+	Global.player_save.关卡_是否通过 = false
+	Global.player_save.关卡_离开时间 = Time.get_unix_time_from_system()
