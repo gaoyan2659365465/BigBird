@@ -30,7 +30,9 @@ ease = 2
 script = ExtResource("1_cgx84")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
 position = Vector2(576, 627)
+process_callback = 0
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
@@ -39,7 +41,7 @@ script = ExtResource("2_cpnc2")
 
 [node name="Player" parent="." instance=ExtResource("8_637yw")]
 z_index = 1
-position = Vector2(20329, 562)
+position = Vector2(23086, 562)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0

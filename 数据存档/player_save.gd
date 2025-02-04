@@ -21,6 +21,12 @@ signal set_hp
 @export var 第一次进入对话 = true
 
 
+# 当前已签到多少天
+@export var sign_in_days = 0
+# 签到数据
+@export var sign_in_data = []
+
+
 # 红心碰到柱子减少
 signal set_血量(v)
 @export var 血量 = 3:

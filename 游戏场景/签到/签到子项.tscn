@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://hboompfgchb7"]
+
+[ext_resource type="Script" path="res://游戏场景/签到/签到子项.gd" id="1_ffvo2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fy7n8"]
+bg_color = Color(0.15625, 0.15625, 0.15625, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_2evxr"]
+font_size = 41
+
+[node name="签到子项" type="PanelContainer"]
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fy7n8")
+script = ExtResource("1_ffvo2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 11
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "第一天"
+label_settings = SubResource("LabelSettings_2evxr")
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "奖励100金币"
+label_settings = SubResource("LabelSettings_2evxr")
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 41
+text = "签到"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
