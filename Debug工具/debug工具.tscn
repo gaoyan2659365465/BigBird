@@ -14,10 +14,10 @@ script = ExtResource("1_qyail")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 24.0
-offset_right = 169.0
-offset_bottom = 64.0
+offset_left = 811.0
+offset_top = 10.0
+offset_right = 1035.0
+offset_bottom = 50.0
 
 [node name="大鸟部落" type="Button" parent="HBoxContainer"]
 layout_mode = 2
@@ -45,6 +45,15 @@ offset_bottom = 149.0
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 layout_mode = 2
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 761.0
+offset_top = 17.0
+offset_right = 801.0
+offset_bottom = 42.0
+text = "隐藏"
+
 [connection signal="pressed" from="HBoxContainer/大鸟部落" to="." method="_on_大鸟部落_pressed"]
 [connection signal="pressed" from="HBoxContainer/成就房" to="." method="_on_成就房_pressed"]
 [connection signal="pressed" from="HBoxContainer/角色切换房" to="." method="_on_角色切换房_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

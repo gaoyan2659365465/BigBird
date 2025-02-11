@@ -121,3 +121,5 @@ size_flags_vertical = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
 text = "点击撤离"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

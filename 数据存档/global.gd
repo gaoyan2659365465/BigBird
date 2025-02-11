@@ -27,7 +27,6 @@ var excel_data:ExcelData = ExcelData.new()
 var 成就系统:成就管理器 = 成就管理器.new()
 
 var play
-var 临时任务控件
 var 剧情镜头
 
 signal 通用触发框信号(事件名)

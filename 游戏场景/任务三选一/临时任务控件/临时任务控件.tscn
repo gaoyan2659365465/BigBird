@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1lqo1u1pxdgy"]
+
+[ext_resource type="Script" path="res://游戏场景/任务三选一/临时任务控件/临时任务控件.gd" id="1_rfb6j"]
+[ext_resource type="Texture2D" uid="uid://dpu4qbo06odhw" path="res://PSD源文件/小飞虫.png" id="2_guuox"]
+
+[node name="临时任务控件" type="Control"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 60.0
+offset_bottom = 198.0
+mouse_filter = 2
+script = ExtResource("1_rfb6j")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 60.0
+offset_bottom = 188.0
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("2_guuox")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("2_guuox")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="TextureButton3" type="TextureButton" parent="VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture_normal = ExtResource("2_guuox")
+ignore_texture_size = true
+stretch_mode = 4

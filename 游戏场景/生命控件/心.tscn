@@ -47,6 +47,7 @@ _data = {
 }
 
 [node name="心" type="TextureRect"]
+modulate = Color(0, 0, 0, 1)
 material = SubResource("ShaderMaterial_3gldt")
 custom_minimum_size = Vector2(36, 30)
 texture = ExtResource("2_axrvl")

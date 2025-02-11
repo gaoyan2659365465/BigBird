@@ -22,7 +22,7 @@ vec2 customRotator(vec2 UVs,vec2 RotationCenter,float RotationAngle){
 
 
 void fragment(){
-	COLOR = texture(TEXTURE,UV);
+	COLOR = COLOR * texture(TEXTURE,UV);
 	float color_a = step(customRotator(UV,vec2(0.5),angle).r ,progress);
 	float color_b = step(customRotator(UV,vec2(0.5),angle).r ,progress - n);
 

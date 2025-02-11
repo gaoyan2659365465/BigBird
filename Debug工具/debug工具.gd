@@ -35,3 +35,7 @@ func _on_角色切换房_pressed() -> void:
 
 func _on_切换关卡(v):
 	传送(v)
+
+
+func _on_button_pressed() -> void:
+	visible = false
