@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cpntiktxxb75v"]
 
-[ext_resource type="Script" path="res://游戏场景/背景生成/背景生成.gd" id="1_jlodd"]
+[ext_resource type="Script" path="res://游戏场景/关卡/背景生成/背景生成.gd" id="1_jlodd"]
 
 [sub_resource type="Gradient" id="Gradient_ja57a"]
 resource_local_to_scene = true

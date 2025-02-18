@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://8k38j0s1pnww"]
+[gd_scene load_steps=17 format=3 uid="uid://8k38j0s1pnww"]
 
-[ext_resource type="PackedScene" uid="uid://cpntiktxxb75v" path="res://游戏场景/背景生成/背景生成.tscn" id="1_27m3b"]
+[ext_resource type="PackedScene" uid="uid://cpntiktxxb75v" path="res://游戏场景/关卡/背景生成/背景生成.tscn" id="1_27m3b"]
 [ext_resource type="Script" path="res://游戏场景/关卡/大鸟部落.gd" id="1_255wd"]
 [ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="2_4te6v"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_0tly7"]
 [ext_resource type="PackedScene" uid="uid://bflqk066q7rwv" path="res://游戏场景/传送点/传送点.tscn" id="3_vm0lu"]
 [ext_resource type="PackedScene" uid="uid://xk0itf4dplxr" path="res://游戏场景/传送点/传送目标.tscn" id="4_8hm45"]
 [ext_resource type="PackedScene" uid="uid://cj3vcnmk83asy" path="res://游戏场景/告示牌/告示牌.tscn" id="6_gmu75"]
@@ -10,14 +11,22 @@
 [ext_resource type="PackedScene" uid="uid://dsu5dntffx1fo" path="res://游戏场景/鬼打墙/鬼打墙.tscn" id="9_syn4u"]
 [ext_resource type="PackedScene" uid="uid://cw1hra4a8p0hd" path="res://游戏场景/股市/股市场景.tscn" id="10_8qleu"]
 [ext_resource type="PackedScene" uid="uid://b4p6eu81ei6m" path="res://游戏场景/签到/签到场景.tscn" id="10_6784j"]
+[ext_resource type="PackedScene" uid="uid://csnudn5klfvlj" path="res://游戏场景/解锁地图遮罩/解锁地图遮罩.tscn" id="11_jsvnv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5dmw"]
+resource_local_to_scene = true
+size = Vector2(8519, 1080)
+
+[sub_resource type="Resource" id="Resource_wo6nu"]
+resource_local_to_scene = true
+script = ExtResource("3_0tly7")
+duration = 0.0
+transition = 0
+ease = 2
 
 [sub_resource type="Gradient" id="Gradient_8apai"]
 offsets = PackedFloat32Array(0, 0.994737)
 colors = PackedColorArray(0.25, 1, 0.55, 1, 0.56, 1, 0.875333, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rl2t1"]
-resource_local_to_scene = true
-size = Vector2(5862.45, 1018)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t531a"]
 size = Vector2(315, 900)
@@ -25,30 +34,31 @@ size = Vector2(315, 900)
 [node name="大鸟部落" type="Node2D"]
 script = ExtResource("1_255wd")
 
-[node name="背景生成" parent="." instance=ExtResource("1_27m3b")]
-"关卡长度" = 5850
-gradient = SubResource("Gradient_8apai")
-"房间名" = "大鸟部落"
-
 [node name="CameraArea2D" parent="." instance=ExtResource("2_4te6v")]
 
 [node name="CollisionShape2D" parent="CameraArea2D" index="0"]
-position = Vector2(2925.77, 525)
-shape = SubResource("RectangleShape2D_rl2t1")
+position = Vector2(4273.5, 540)
+shape = SubResource("RectangleShape2D_o5dmw")
 
 [node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
-position = Vector2(1173, 502.852)
+position = Vector2(1587.77, 540)
+tween_resource = SubResource("Resource_wo6nu")
+
+[node name="背景生成" parent="." instance=ExtResource("1_27m3b")]
+"关卡长度" = 8545
+gradient = SubResource("Gradient_8apai")
+"房间名" = "大鸟部落"
 
 [node name="传送点" parent="." instance=ExtResource("3_vm0lu")]
 position = Vector2(1068, 924)
 "传送目标" = "第一关"
 
 [node name="传送点4" parent="." instance=ExtResource("3_vm0lu")]
-position = Vector2(1525, 923)
+position = Vector2(2969, 930)
 "传送目标" = "成就房"
 
 [node name="传送点5" parent="." instance=ExtResource("3_vm0lu")]
-position = Vector2(1991, 923)
+position = Vector2(5160, 930)
 "传送目标" = "角色切换房"
 
 [node name="传送目标" parent="." instance=ExtResource("4_8hm45")]
@@ -61,13 +71,10 @@ offset_right = 848.707
 offset_bottom = 921.294
 
 [node name="宝箱" parent="." instance=ExtResource("7_2lt4g")]
-position = Vector2(2410, 927)
-
-[node name="宝箱2" parent="." instance=ExtResource("7_2lt4g")]
-position = Vector2(602, 927)
+position = Vector2(3244, 935)
 
 [node name="鬼打墙" parent="." instance=ExtResource("9_syn4u")]
-position = Vector2(5527, 446)
+position = Vector2(8212, 446)
 "传送位置" = Vector2(50, 446)
 
 [node name="CollisionShape2D" parent="鬼打墙/Area2D" index="0"]
@@ -75,10 +82,38 @@ position = Vector2(147.5, 18)
 shape = SubResource("RectangleShape2D_t531a")
 
 [node name="股市场景" parent="." instance=ExtResource("10_8qleu")]
-position = Vector2(2924, 926)
+position = Vector2(4057, 926)
 
 [node name="签到场景" parent="." instance=ExtResource("10_6784j")]
-position = Vector2(4059, 923)
+position = Vector2(1850, 923)
+
+[node name="宝箱2" parent="." instance=ExtResource("7_2lt4g")]
+position = Vector2(2331, 935)
+
+[node name="宝箱3" parent="." instance=ExtResource("7_2lt4g")]
+position = Vector2(4416, 935)
+
+[node name="宝箱4" parent="." instance=ExtResource("7_2lt4g")]
+position = Vector2(5473, 935)
+
+[node name="解锁地图遮罩" parent="." instance=ExtResource("11_jsvnv")]
+position = Vector2(1398, 540)
+"显示文字" = "通过第一关后解锁"
+"解锁ID" = 1
+
+[node name="解锁地图遮罩2" parent="." instance=ExtResource("11_jsvnv")]
+position = Vector2(2573, 540)
+"解锁ID" = 2
+
+[node name="解锁地图遮罩3" parent="." instance=ExtResource("11_jsvnv")]
+position = Vector2(3733, 540)
+"显示文字" = "通过第三关后解锁"
+"解锁ID" = 3
+
+[node name="解锁地图遮罩4" parent="." instance=ExtResource("11_jsvnv")]
+position = Vector2(4895, 540)
+"显示文字" = "通过第四关后解锁"
+"解锁ID" = 4
 
 [connection signal="进入房间" from="背景生成" to="." method="_on_背景生成_进入房间"]
 

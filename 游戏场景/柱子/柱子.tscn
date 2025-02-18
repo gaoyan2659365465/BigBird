@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://游戏场景/柱子/柱子.gd" id="1_djfkn"]
 
-[sub_resource type="Gradient" id="Gradient_kcnoc"]
+[sub_resource type="Gradient" id="Gradient_irrrh"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_p01si"]
-gradient = SubResource("Gradient_kcnoc")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5q65p"]
+gradient = SubResource("Gradient_irrrh")
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_50ywx"]
-gradient = SubResource("Gradient_kcnoc")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xgsqo"]
+gradient = SubResource("Gradient_irrrh")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4alms"]
 size = Vector2(92, 850)
@@ -28,15 +28,17 @@ size = Vector2(83, 253)
 script = ExtResource("1_djfkn")
 
 [node name="柱子上" type="Sprite2D" parent="."]
-position = Vector2(0, -582)
-scale = Vector2(1.19, 13.2187)
-texture = SubResource("GradientTexture2D_p01si")
+position = Vector2(-0.582354, -584.984)
+rotation = 3.14159
+scale = Vector2(1.3523, 13.1143)
+texture = SubResource("GradientTexture2D_5q65p")
 flip_v = true
 
 [node name="柱子下" type="Sprite2D" parent="."]
-position = Vector2(0, 571)
-scale = Vector2(1.19, 13.1875)
-texture = SubResource("GradientTexture2D_50ywx")
+position = Vector2(-0.227047, 569.318)
+rotation = 3.14159
+scale = Vector2(1.33268, 13.2103)
+texture = SubResource("GradientTexture2D_xgsqo")
 
 [node name="Area2D" type="Area2D" parent="."]
 

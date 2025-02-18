@@ -1,0 +1,125 @@
+[gd_scene load_steps=13 format=3 uid="uid://csnudn5klfvlj"]
+
+[ext_resource type="Script" path="res://游戏场景/解锁地图遮罩/解锁地图遮罩.gd" id="1_2end6"]
+[ext_resource type="PackedScene" uid="uid://ccdi0txoi4bjt" path="res://游戏场景/解锁地图遮罩/铁栅栏/铁栅栏.tscn" id="2_xovj8"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_h24ov"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_lckhi"]
+
+[sub_resource type="Gradient" id="Gradient_o6fy8"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.941176)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u3bw4"]
+gradient = SubResource("Gradient_o6fy8")
+width = 1
+height = 1
+
+[sub_resource type="Animation" id="Animation_1bu3g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("铁栅栏:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xshso"]
+resource_name = "解锁"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("铁栅栏:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1086)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6c0us"]
+_data = {
+"RESET": SubResource("Animation_1bu3g"),
+"解锁": SubResource("Animation_xshso")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_ofqum"]
+font_size = 111
+
+[sub_resource type="Resource" id="Resource_tkgc4"]
+script = ExtResource("4_lckhi")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amvbm"]
+size = Vector2(2073, 1080)
+
+[node name="解锁地图遮罩" type="Node2D"]
+script = ExtResource("1_2end6")
+"长度" = 990
+
+[node name="铁栅栏" parent="." instance=ExtResource("2_xovj8")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(565, 0)
+scale = Vector2(990, 1080)
+texture = SubResource("GradientTexture2D_u3bw4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6c0us")
+}
+
+[node name="Label" type="Label" parent="."]
+offset_left = 123.0
+offset_top = 12.0
+offset_right = 1011.0
+offset_bottom = 124.0
+text = "通过第二关后解锁"
+label_settings = SubResource("LabelSettings_ofqum")
+
+[node name="聚焦摄像头" type="Node2D" parent="."]
+position = Vector2(133, 0)
+script = ExtResource("3_h24ov")
+tween_resource = SubResource("Resource_tkgc4")
+draw_limits = true
+limit_target = NodePath("../相机区域")
+
+[node name="相机区域" type="CollisionShape2D" parent="."]
+position = Vector2(159.5, 0)
+shape = SubResource("RectangleShape2D_amvbm")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

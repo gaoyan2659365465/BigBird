@@ -1,8 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://dcqumd20j1mk0"]
+[gd_scene load_steps=8 format=3 uid="uid://dcqumd20j1mk0"]
 
 [ext_resource type="Texture2D" uid="uid://cfpo0nlp7fr8c" path="res://PSD源文件/草/云.png" id="1_5ctth"]
-[ext_resource type="Shader" path="res://游戏场景/后处理.gdshader" id="2_bkr8j"]
-[ext_resource type="Texture2D" uid="uid://c1ivr4eex4iyu" path="res://PSD源文件/背景山.png" id="3_pxrlo"]
 [ext_resource type="PackedScene" uid="uid://e73ty5vubfyw" path="res://游戏场景/柱子/柱子.tscn" id="5_javh8"]
 [ext_resource type="PackedScene" uid="uid://wa63ss870lc7" path="res://路径文字/路径文字.tscn" id="5_wieou"]
 [ext_resource type="Texture2D" uid="uid://pemm1lp4fyd7" path="res://PSD源文件/地块.png" id="6_bygw7"]
@@ -16,18 +14,6 @@ width = 648
 height = 1152
 fill_from = Vector2(0.5, 0)
 fill_to = Vector2(0.5, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2pvcn"]
-shader = ExtResource("2_bkr8j")
-shader_parameter/MainTexBrightness = 0.775
-shader_parameter/MainTexContrast = 0.575
-shader_parameter/MainTexSaturation = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kpeo8"]
-shader = ExtResource("2_bkr8j")
-shader_parameter/MainTexBrightness = 1.0
-shader_parameter/MainTexContrast = 0.675
-shader_parameter/MainTexSaturation = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqurq"]
 size = Vector2(2596, 31)
@@ -64,32 +50,6 @@ modulate = Color(1, 1, 1, 0.32549)
 position = Vector2(2225, 334)
 scale = Vector2(1.21076, 1.29005)
 texture = ExtResource("1_5ctth")
-flip_h = true
-
-[node name="CanvasGroup" type="CanvasGroup" parent="Parallax2D"]
-material = SubResource("ShaderMaterial_2pvcn")
-
-[node name="背景山2" type="Sprite2D" parent="Parallax2D/CanvasGroup"]
-modulate = Color(1, 1, 1, 0.0862745)
-position = Vector2(1676, 802)
-scale = Vector2(3.90551, 7.41123)
-texture = ExtResource("3_pxrlo")
-flip_h = true
-
-[node name="CanvasGroup2" type="CanvasGroup" parent="Parallax2D"]
-material = SubResource("ShaderMaterial_kpeo8")
-
-[node name="背景山" type="Sprite2D" parent="Parallax2D/CanvasGroup2"]
-modulate = Color(1, 1, 1, 0.254902)
-position = Vector2(583, 938)
-scale = Vector2(3.5984, 3.5984)
-texture = ExtResource("3_pxrlo")
-
-[node name="背景山2" type="Sprite2D" parent="Parallax2D/CanvasGroup2"]
-modulate = Color(1, 1, 1, 0.254902)
-position = Vector2(1971, 1046)
-scale = Vector2(3.5984, 3.5984)
-texture = ExtResource("3_pxrlo")
 flip_h = true
 
 [node name="路径文字" parent="Parallax2D" instance=ExtResource("5_wieou")]

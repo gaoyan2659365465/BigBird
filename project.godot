@@ -22,11 +22,28 @@ PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_came
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/android_game_tool/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/spine/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://成就系统/成就提示控件/": "green",
+"res://游戏场景/关卡名控件/": "green",
+"res://游戏场景/关卡进度控件/": "green",
+"res://游戏场景/对话气泡/": "green",
+"res://游戏场景/游戏结束控件/": "green",
+"res://游戏场景/游戏胜利控件/": "green",
+"res://游戏场景/生命控件/": "green",
+"res://游戏场景/签到/": "green",
+"res://游戏场景/股市/": "green",
+"res://超级按钮/": "green"
+}
 
 [global_group]
 

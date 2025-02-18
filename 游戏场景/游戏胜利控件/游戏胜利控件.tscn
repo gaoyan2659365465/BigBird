@@ -78,10 +78,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.5
-offset_top = -111.5
-offset_right = 160.5
-offset_bottom = 111.5
+offset_left = -240.0
+offset_top = -167.0
+offset_right = 241.0
+offset_bottom = 167.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0tpne")
@@ -95,6 +95,7 @@ theme_override_constants/margin_bottom = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -102,33 +103,41 @@ text = "恭喜你过关"
 label_settings = SubResource("LabelSettings_0fur4")
 horizontal_alignment = 1
 
+[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30.905)
+layout_mode = 2
+
 [node name="用时" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.632813, 0.632813, 0.632813, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "关卡用时：100秒"
+horizontal_alignment = 1
 
 [node name="柱子" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.632813, 0.632813, 0.632813, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "通过柱子：50根"
+horizontal_alignment = 1
 
 [node name="红心" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.632813, 0.632813, 0.632813, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "消耗红心：0颗"
+horizontal_alignment = 1
 
 [node name="评价" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.632813, 0.632813, 0.632813, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 text = "综合评价：SSS"
+horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -136,7 +145,7 @@ size_flags_vertical = 3
 
 [node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 21
+theme_override_font_sizes/font_size = 30
 text = "点击撤离"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

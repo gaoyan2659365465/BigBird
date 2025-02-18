@@ -10,7 +10,7 @@ func _ready() -> void:
 	Global.通用触发框信号.connect(_on_通用触发框信号)
 	Global.player_save.set_引导流程.connect(_on_set_引导流程)
 	await get_tree().process_frame
-	Global.player_save.引导流程 = 12
+	Global.player_save.引导流程 = Global.player_save.引导流程
 	
 func 切换文本(text):
 	rich_text_label.text = text
@@ -89,6 +89,7 @@ func _on_set_引导流程(value):
 		切换文本(屏幕文本)
 	elif value == 12:
 		rich_text_label.text = ""
+		Global.saveResource()
 	
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

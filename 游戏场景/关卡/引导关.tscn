@@ -1,35 +1,18 @@
-[gd_scene load_steps=17 format=3 uid="uid://dusxn8dvxd06x"]
+[gd_scene load_steps=18 format=3 uid="uid://dusxn8dvxd06x"]
 
+[ext_resource type="Script" path="res://游戏场景/关卡/引导关.gd" id="1_i20dd"]
 [ext_resource type="PackedScene" uid="uid://bvqharjygbnsy" path="res://尖刺/尖刺障碍/尖刺障碍.tscn" id="2_culw6"]
+[ext_resource type="PackedScene" uid="uid://cpntiktxxb75v" path="res://游戏场景/关卡/背景生成/背景生成.tscn" id="2_ht67k"]
 [ext_resource type="PackedScene" uid="uid://bi2yok68ct3tp" path="res://游戏场景/金币/金币.tscn" id="3_6xfbk"]
 [ext_resource type="PackedScene" uid="uid://gmlqarwa4emc" path="res://通用触发框/通用触发框.tscn" id="4_pfphs"]
 [ext_resource type="PackedScene" uid="uid://bflqk066q7rwv" path="res://游戏场景/传送点/传送点.tscn" id="5_bqu8a"]
 [ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="5_k6vq6"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_8e18m"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_xs78s"]
 
-[sub_resource type="Gradient" id="Gradient_3gu4i"]
+[sub_resource type="Gradient" id="Gradient_2kxt1"]
 resource_local_to_scene = true
-colors = PackedColorArray(0.164, 0.776267, 0.82, 1, 0.53, 0.780667, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_6mix3"]
-resource_local_to_scene = true
-gradient = SubResource("Gradient_3gu4i")
-width = 1920
-height = 1080
-fill_from = Vector2(0.5, 0)
-fill_to = Vector2(0.5, 1)
-
-[sub_resource type="Gradient" id="Gradient_vjvkw"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ff8te"]
-gradient = SubResource("Gradient_vjvkw")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuunt"]
-size = Vector2(6642, 31)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fmah7"]
-size = Vector2(6609, 157.5)
+colors = PackedColorArray(1, 0.960784, 0.901961, 1, 1, 0.878431, 0.701961, 1)
 
 [sub_resource type="Gradient" id="Gradient_erse0"]
 offsets = PackedFloat32Array(0)
@@ -47,31 +30,27 @@ size = Vector2(120, 901)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xda5c"]
 resource_local_to_scene = true
-size = Vector2(6605.5, 1018)
+size = Vector2(6605.5, 1080)
+
+[sub_resource type="Resource" id="Resource_wid7h"]
+script = ExtResource("7_xs78s")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="Resource" id="Resource_u5jjf"]
+script = ExtResource("7_xs78s")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="引导关" type="Node2D"]
+script = ExtResource("1_i20dd")
 
-[node name="背景" type="Sprite2D" parent="."]
-z_index = -1
-z_as_relative = false
-position = Vector2(3304.6, 543)
-scale = Vector2(3.4475, 1)
-texture = SubResource("GradientTexture2D_6mix3")
-
-[node name="中景" type="Sprite2D" parent="."]
-position = Vector2(3306.49, 1003)
-scale = Vector2(103.39, 2.5)
-texture = SubResource("GradientTexture2D_ff8te")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(3311, 5.5)
-shape = SubResource("RectangleShape2D_yuunt")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(3303.5, 1001.75)
-shape = SubResource("RectangleShape2D_fmah7")
+[node name="背景生成" parent="." instance=ExtResource("2_ht67k")]
+"关卡长度" = 6615
+gradient = SubResource("Gradient_2kxt1")
+"房间名" = "引导关"
 
 [node name="尖刺障碍" parent="." instance=ExtResource("2_culw6")]
 position = Vector2(943, 516)
@@ -140,15 +119,24 @@ shape = SubResource("RectangleShape2D_pejxd")
 [node name="CameraArea2D" parent="." instance=ExtResource("5_k6vq6")]
 
 [node name="CollisionShape2D" parent="CameraArea2D" index="0"]
-position = Vector2(3297.25, 525)
+position = Vector2(3297.25, 540)
 shape = SubResource("RectangleShape2D_xda5c")
 
 [node name="PhantomCamera2D" parent="CameraArea2D" index="1"]
-position = Vector2(1173, 502.852)
+position = Vector2(1173, 540)
+tween_resource = SubResource("Resource_wid7h")
+tween_on_load = true
 
 [node name="传送点" parent="." instance=ExtResource("5_bqu8a")]
 position = Vector2(5327, 931)
 "唯一ID" = 1
+
+[node name="聚焦摄像头" type="Node2D" parent="."]
+position = Vector2(629, 739)
+script = ExtResource("6_8e18m")
+zoom = Vector2(2, 2)
+tween_resource = SubResource("Resource_u5jjf")
+draw_limits = true
 
 [editable path="事件1"]
 [editable path="事件2"]

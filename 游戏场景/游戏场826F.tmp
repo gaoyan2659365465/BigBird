@@ -21,12 +21,8 @@ script = ExtResource("1_cgx84")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(1173, 540)
+position = Vector2(408, 398.37)
 process_callback = 0
-limit_left = -6
-limit_top = 0
-limit_right = 6600
-limit_bottom = 1080
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
@@ -35,7 +31,7 @@ script = ExtResource("2_cpnc2")
 
 [node name="Player" parent="." instance=ExtResource("8_637yw")]
 z_index = 1
-position = Vector2(509, 583)
+position = Vector2(408, 562)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
@@ -56,10 +52,10 @@ offset_bottom = -560.0
 [node name="引导对话" parent="CanvasLayer" instance=ExtResource("11_8eavy")]
 
 [node name="关卡进度控件" parent="CanvasLayer" instance=ExtResource("9_ujdur")]
-offset_left = 1710.0
-offset_top = 1007.0
-offset_right = 773.0
-offset_bottom = 418.0
+offset_left = 921.0
+offset_top = 605.0
+offset_right = -16.0
+offset_bottom = 16.0
 
 [node name="剧情镜头控件" parent="CanvasLayer" instance=ExtResource("11_il63f")]
 

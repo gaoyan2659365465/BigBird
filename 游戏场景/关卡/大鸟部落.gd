@@ -25,3 +25,15 @@ func _on_背景生成_进入房间() -> void:
 			$"传送点".传送目标 = 数据['关卡名称']
 	
 	call_deferred("生成关卡",关卡id)
+	
+	解锁大鸟部落()
+
+
+func 解锁大鸟部落():
+	await get_tree().create_timer(1.0).timeout
+	if Global.player_save.解锁关卡 == 2:
+		Global.player_save.大鸟部落解锁 = 1
+	if Global.player_save.解锁关卡 == 3:
+		Global.player_save.大鸟部落解锁 = 2
+	if Global.player_save.解锁关卡 == 4:
+		Global.player_save.大鸟部落解锁 = 3

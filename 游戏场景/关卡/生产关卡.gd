@@ -31,12 +31,13 @@ func _ready() -> void:
 			创建传送点(数据['背景长度'], 数据['关卡名称'])
 			创建休息点(数据['休息区位置'])
 	
-	Global.player_save.关卡_关卡ID = 关卡id
-	Global.player_save.关卡_进入时间 = Time.get_unix_time_from_system()
+	if not Engine.is_editor_hint():
+		Global.player_save.关卡_关卡ID = 关卡id
+		Global.player_save.关卡_进入时间 = Time.get_unix_time_from_system()
 
 
 func 创建背景(长度,名称,颜色1,颜色2):
-	背景 = preload("res://游戏场景/背景生成/背景生成.tscn").instantiate()
+	背景 = preload("res://游戏场景/关卡/背景生成/背景生成.tscn").instantiate()
 	add_child(背景)
 	背景.关卡长度 = 长度
 	背景.房间名 = 名称
@@ -57,7 +58,7 @@ func 创建相机框(长度):
 	相机框 = preload("res://幻影相机/camera_area.tscn").instantiate()
 	add_child(相机框)
 	相机框.collision_shape_2d.position = Vector2(长度/2, 1080/2)
-	相机框.collision_shape_2d.shape.size = Vector2(长度,1050)
+	相机框.collision_shape_2d.shape.size = Vector2(长度,1080)
 
 func 创建传送点(长度,名称):
 	传送点 = preload("res://游戏场景/传送点/传送点.tscn").instantiate()

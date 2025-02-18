@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccdi0txoi4bjt"]
+
+[ext_resource type="Texture2D" uid="uid://dnsd5ggtk8idm" path="res://游戏场景/解锁地图遮罩/铁栅栏/素材/铁栅栏.png" id="1_brylm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sshs"]
+size = Vector2(116, 1084)
+
+[node name="铁栅栏" type="Node2D"]
+
+[node name="铁栅栏" type="Sprite2D" parent="."]
+texture = ExtResource("1_brylm")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, -6)
+shape = SubResource("RectangleShape2D_1sshs")

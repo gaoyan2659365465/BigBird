@@ -140,3 +140,10 @@ signal set_统计最高通关(v)
 @export var 关卡_是否通过 = false
 @export var 关卡_离开时间 = 0
 @export var 关卡_评价 = "SSS"
+
+
+signal set_大鸟部落解锁(v)
+@export var 大鸟部落解锁 = 0:
+	set(v):
+		大鸟部落解锁 = v
+		set_大鸟部落解锁.emit(v)

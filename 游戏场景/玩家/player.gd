@@ -22,6 +22,21 @@ func _on_set_引导流程(value):
 		Global.player_save.禁用玩家操作 = false
 	
 
+func _input(event: InputEvent) -> void:
+	if Global.player_save.禁用玩家操作:
+		return
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			if event.position.x >= (get_window().size.x)/2:
+				horizontal_speed = 150.0
+				$Sprite2D.flip_h = false
+			else:
+				horizontal_speed = -150.0
+				$Sprite2D.flip_h = true
+			velocity.y = -jump_force
+			if Global.player_save.引导流程 == 5:
+				Global.player_save.引导流程 = 6
+
 
 func _physics_process(delta):
 	if Global.player_save.禁用玩家操作:
@@ -30,9 +45,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_accept"): # 例如空格键或鼠标点击
 		velocity.y = -jump_force
 		Global.player_save.统计跳跃次数 += 1
-		#$"大鸟".跳跃()
-		if Global.player_save.引导流程 == 5:
-			Global.player_save.引导流程 = 6
+		
 	# 添加重力
 	velocity.y += gravity * delta
 

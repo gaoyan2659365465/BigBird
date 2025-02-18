@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://blfnwkhq6udm6"]
 
-[ext_resource type="PackedScene" uid="uid://cpntiktxxb75v" path="res://游戏场景/背景生成/背景生成.tscn" id="1_16obh"]
+[ext_resource type="PackedScene" uid="uid://cpntiktxxb75v" path="res://游戏场景/关卡/背景生成/背景生成.tscn" id="1_16obh"]
 [ext_resource type="PackedScene" uid="uid://cvidgpxd132mm" path="res://幻影相机/camera_area.tscn" id="3_w8dao"]
 [ext_resource type="Texture2D" uid="uid://clk5b0cjfpc1" path="res://PSD源文件/普通鸟.png" id="4_lvgi6"]
 [ext_resource type="Texture2D" uid="uid://bmbq3w42odx2g" path="res://PSD源文件/冲刺鸟.png" id="5_7egfg"]
