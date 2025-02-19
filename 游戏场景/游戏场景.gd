@@ -20,7 +20,7 @@ func _ready() -> void:
 	
 	if Global.player_save.引导流程 == 12:
 		$Player.position = Vector2(7696,562)
-
+	
 
 func _on_生命控件_被撞死() -> void:
 	var stop = preload("res://游戏场景/游戏结束控件/游戏结束控件.tscn").instantiate()

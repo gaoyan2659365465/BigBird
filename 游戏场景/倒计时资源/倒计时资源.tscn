@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cscum6rat3x1k" path="res://PSD源文件/coin/coin-front-shine-logo.png" id="2_1k7od"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mb7hu"]
-font_size = 22
+font_size = 30
 font_color = Color(0, 0, 0, 1)
 outline_size = 10
 
@@ -19,8 +19,10 @@ script = ExtResource("1_5c4wt")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 1789.0
+offset_top = 310.0
+offset_right = 1859.0
+offset_bottom = 380.0
 texture_normal = ExtResource("2_1k7od")
 ignore_texture_size = true
 stretch_mode = 5
@@ -32,10 +34,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -19.0
-offset_right = 20.0
-offset_bottom = 4.0
+offset_left = 1787.0
+offset_top = 317.0
+offset_right = 1827.0
+offset_bottom = 365.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "3"

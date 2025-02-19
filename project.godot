@@ -42,6 +42,8 @@ folder_colors={
 "res://游戏场景/生命控件/": "green",
 "res://游戏场景/签到/": "green",
 "res://游戏场景/股市/": "green",
+"res://游戏场景/获取资源动效/": "green",
+"res://游戏场景/触摸跳跃区域/": "green",
 "res://超级按钮/": "green"
 }
 

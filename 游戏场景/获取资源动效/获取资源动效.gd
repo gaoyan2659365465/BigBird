@@ -24,7 +24,7 @@ func 播放动画():
 		var tex = TextureRect.new()
 		tex.texture = 图标
 		tex.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		tex.size = Vector2(50,50)
+		tex.size = Vector2(70,70)
 		add_child(tex)
 		
 		var tween = create_tween()

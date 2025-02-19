@@ -33,7 +33,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.9, 0.5)
 
 [sub_resource type="LabelSettings" id="LabelSettings_mm6jr"]
-font_size = 50
+font_size = 60
 font_color = Color(0, 0, 0, 1)
 outline_size = 15
 outline_color = Color(0.851563, 0.851563, 0.851563, 1)
@@ -45,10 +45,15 @@ font_color = Color(0, 0, 0, 1)
 
 [node name="对话气泡" type="NinePatchRect"]
 material = SubResource("ShaderMaterial_q2av0")
-offset_left = 214.0
-offset_top = 103.0
-offset_right = 929.0
-offset_bottom = 523.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 448.0
+offset_top = 252.0
+offset_right = -448.0
+offset_bottom = -252.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = SubResource("GradientTexture2D_2hggb")
 patch_margin_left = 72
 patch_margin_top = 72

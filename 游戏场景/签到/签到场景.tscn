@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://gclwtp5eb26x" path="res://PSD源文件/每日签到.png" id="1_t0kw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo6ii"]
-size = Vector2(502, 351)
+size = Vector2(273, 351)
 
 [node name="签到场景" type="Node2D"]
 script = ExtResource("1_n3r2u")
@@ -17,7 +17,7 @@ texture = ExtResource("1_t0kw2")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -165.5)
+position = Vector2(-4.5, -165.5)
 shape = SubResource("RectangleShape2D_bo6ii")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

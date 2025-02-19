@@ -22,20 +22,18 @@ func _on_set_引导流程(value):
 		Global.player_save.禁用玩家操作 = false
 	
 
-func _input(event: InputEvent) -> void:
+func 跳跃(value):
 	if Global.player_save.禁用玩家操作:
 		return
-	if event is InputEventScreenTouch:
-		if event.pressed:
-			if event.position.x >= (get_window().size.x)/2:
-				horizontal_speed = 150.0
-				$Sprite2D.flip_h = false
-			else:
-				horizontal_speed = -150.0
-				$Sprite2D.flip_h = true
-			velocity.y = -jump_force
-			if Global.player_save.引导流程 == 5:
-				Global.player_save.引导流程 = 6
+	if value:
+		horizontal_speed = 150.0
+		$Sprite2D.flip_h = false
+	else:
+		horizontal_speed = -150.0
+		$Sprite2D.flip_h = true
+	velocity.y = -jump_force
+	if Global.player_save.引导流程 == 5:
+		Global.player_save.引导流程 = 6
 
 
 func _physics_process(delta):
